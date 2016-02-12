@@ -1,0 +1,1425 @@
+/*
+Copyright (c) 2015, Covosoft Corp.
+This code and information are provided "as is" without warranty of any kind, either expressed or implied. In no event shall the authors be liable for any claim, damages or other liability arising from, out of or in connection with this site or its use.
+Author: Dom Bernard
+Email: contact@covosoft.com
+Date: 15-Nov-2015
+*/
+
+html {
+    font: 0 "Montserrat", sans-serif;
+    color: #333;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+div,
+span,
+h1,
+input,
+label,
+select,
+textarea,
+canvas,
+nav,
+main,
+aside,
+header,
+footer {
+    box-sizing: border-box;
+}
+
+div,
+nav,
+main,
+aside,
+header,
+footer {
+    position: relative;
+    display: block;
+    vertical-align: top;
+}
+
+a {
+    color: inherit;
+    background-color: transparent;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:active,
+a:hover,
+a:focus,
+input:active,
+input:hover,
+input:focus,
+select:active,
+select:hover,
+select:focus,
+textarea:active,
+textarea:focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+h1,
+h2,
+h3,
+p,
+b {
+    margin: 0;
+    font-weight: inherit;
+}
+
+img {
+    border: 0;
+}
+
+input,
+select {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-transform: none;
+}
+
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-size: 13px;
+    font-family: "Roboto";
+    text-align: center;
+    color: #333;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.07));
+    z-index: 5;
+}
+
+header.solid {
+    color: white;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
+}
+
+header.solid img {
+    -webkit-filter: brightness(100);
+    filter: brightness(100);
+}
+
+header .time {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 95px;
+    text-align: left;
+    cursor: default;
+}
+
+header .time h2 {
+    padding: 0 5px;
+}
+
+header .time p {
+    padding: 0 5px;
+    font-size: 0;
+    transition: font-size 0.25s;
+}
+
+header .time .local {
+    font-size: 1em;
+}
+
+header .time:hover p {
+    font-size: 1em;
+    background-color: rgba(255, 255, 255, .93);
+    transition: font-size 0.25s;
+}
+
+header.solid .time:hover p {
+    color: white;
+    background-color: rgba(0, 0, 0, .93);
+    transition: 0.25s;
+}
+
+header .time p span {
+    font-size: 0;
+    transition: font-size 0.25s;
+}
+
+header .time p:hover span {
+    font-size: 1em;
+    transition: font-size 0.25s;
+}
+
+header .time p:hover b {
+    text-transform: lowercase;
+}
+
+header img {
+    display: inline-block;
+    vertical-align: top;
+    height: 30px;
+    padding: 5px 0;
+}
+
+header h1 {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 40px;
+    font-size: 25px;
+    font-family: "Quicksand", sans-serif;
+}
+
+header h1 span {
+    color: #E03535;
+}
+
+header.solid h1 span {
+    color: white;
+}
+
+header .languages {
+    position: absolute;
+    top: 0;
+    right: 100px;
+    line-height: 40px;
+}
+
+header .languages a {
+    color: dodgerblue;
+}
+
+header a:not(:last-child) {
+    margin-right: 17px;
+}
+
+header.solid .languages {
+    color: rgba(255, 255, 255, .5);
+}
+
+header.solid .languages a {
+    color: white;
+}
+
+header .languages a:hover {
+    text-decoration: underline;
+}
+
+header .menu {
+    display: none;
+}
+
+.landing {
+    height: 200px;
+    background-color: #C2CFE4;
+    background: radial-gradient(at top right, #C2CFE4, white);
+}
+
+.landing h1 {
+    margin-left: 75px;
+    line-height: 235px;
+    font-size: 135px;
+    font-family: "Quicksand", sans-serif;
+    text-align: left;
+    opacity: .1;
+}
+
+img#background {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+img#portrait {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.content {
+    padding: 75px 100px 25px;
+    background: radial-gradient(circle at top right, #eee, white);
+    border-bottom: 1px solid #ddd;
+}
+
+.summary {
+    display: inline-block;
+    width: 385px;
+    background-color: white;
+    border-radius: 10px;
+    border: 5px solid #333;
+}
+
+.summary div {
+    padding: 10px;
+}
+
+.summary a div:hover {
+    background-color: whitesmoke;
+}
+
+.summary img {
+    height: 300px;
+}
+
+.summary i.fa {
+    width: 30px;
+    text-align: center;
+}
+
+.summary h2 {
+    line-height: 20px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    text-shadow: rgba(0, 0, 0, .1) 1px 1px;
+}
+
+.summary h2 span,
+.summary h2 b {
+    color: #333;
+}
+
+p.progress {
+    min-width: 100px;
+    height: 15px;
+    background-color: #f7f7f7;
+    background: linear-gradient(#f5f5f5, #f9f9f9);
+    border-radius: 5px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+}
+
+p.progress span {
+    display: block;
+    width: 0;
+    height: 100%;
+    border-radius: 5px;
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, .25);
+}
+
+.intro {
+    display: inline-block;
+    width: calc(100% - 540px);
+    height: 310px;
+    margin-left: 50px;
+    padding: 25px;
+    font-size: 16px;
+    color: white;
+    background-color: #333;
+    border: 5px solid #333;
+    border-radius: 10px;
+}
+
+.intro p {
+    width: calc(100% - 140px);
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.intro p a {
+    color: pink;
+}
+
+.intro p a:hover {
+    text-decoration: underline;
+}
+
+.intro img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 140px;
+}
+
+.intro a.button {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    background-color: dodgerblue;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color .25s;
+}
+
+.intro a.button:hover {
+    background-color: #0a5fb2;
+    transition: background-color .25s;
+}
+
+.intro a.button.tracker {
+    margin-left: 15px;
+    background-color: #E03535;
+    transition: background-color .25s;
+}
+
+.intro a.button.tracker:hover {
+    background-color: red;
+    transition: background-color .25s;
+}
+
+.social {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+}
+
+.fb_iframe_widget {
+    display: block;
+}
+
+.social .fb_iframe_widget {
+    margin-bottom: 25px;
+}
+
+.promises {
+    padding: 0 100px 50px;
+}
+
+.search {
+    height: 50px;
+    line-height: 50px;
+    text-align: right;
+}
+
+.search button {
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    height: 30px;
+    line-height: 30px;
+    margin: auto;
+    padding: 0 15px;
+    font-size: 15px;
+    font-family: inherit;
+    color: white;
+    background-color: #333;
+    background: linear-gradient(#333, #222);
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search button:focus {
+    outline: none;
+    background: black;
+}
+
+.search input {
+    width: 400px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 4px;
+    font-size: 15px;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+}
+
+.search input:hover {
+    border-color: #bbb;
+}
+
+.search input:focus {
+    border-color: dodgerblue;
+}
+
+.search span {
+    margin-right: 10px;
+    font-size: 12px;
+    vertical-align: middle;
+    opacity: .5;
+}
+
+.search i.fa {
+    font-size: 13px;
+    vertical-align: middle;
+    line-height: 28px;
+    padding: 0px 8px;
+    text-align: center;
+    color: #bbb;
+    background-color: #F3F3F3;
+    border: 1px solid #ddd;
+    border-right: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.tabs {
+    margin-bottom: -1px;
+    z-index: 2;
+}
+
+.tabs.inactive {
+    opacity: .5;
+}
+
+.tabs h1 {
+    display: inline-block;
+    font-size: 15px;
+    padding: 10px 5px;
+    color: dodgerblue;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.tabs.inactive h1,
+.tabs.inactive h1:hover,
+.tabs.inactive h1.selected,
+.tabs.inactive h1.selected:hover {
+    color: gray;
+    background-color: transparent;
+    border-bottom: none;
+    cursor: default;
+}
+
+.tabs h1:hover {
+    background-color: #eee;
+}
+
+.tabs h1.selected,
+.tabs h1.selected:hover {
+    color: #333;
+    background-color: white;
+    border-bottom: 1px solid white;
+    cursor: default;
+}
+
+.promises table {
+    width: 100%;
+    background-color: white;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.promises tr.culture,
+.promises tr.economy,
+.promises tr.environment,
+.promises tr.immigration,
+.promises tr.indigenouspeoples,
+.promises tr.security {
+    display: none;
+}
+
+.promises tr {
+    font-size: 13px;
+    background-color: white;
+    border-top: 1px solid #ddd;
+}
+
+.promises tr.subcategory {
+    font-size: 14px;
+    text-transform: uppercase;
+    border-top: 3px solid black;
+}
+
+.promises tr.a1,
+.promises tr.a3,
+.promises tr.a5,
+.promises tr.a7,
+.promises tr.a9 {
+    background-color: rgba(0, 0, 0, .03);
+}
+
+tr.notstarted:hover,
+tr.inprogress:hover,
+tr.achieved:hover,
+tr.broken:hover {
+    background-color: rgba(0, 0, 0, .06);
+}
+
+.promises td {
+    padding: 10px 0;
+}
+
+.promises td a:hover {
+    text-decoration: underline;
+}
+
+td.status {
+    font-size: 0;
+    width: 25px;
+    text-align: center;
+}
+
+td.status i.fa {
+    font-size: 13px;
+}
+
+td.text div {
+    display: inline-block;
+    margin-right: 25px;
+    padding: 10px 0;
+}
+
+td.text b {
+    display: inline-block;
+    width: 25px;
+    text-align: center;
+}
+
+td.text p.progress {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+td.count {
+    width: 100px;
+    padding-right: 5px;
+    font-size: 11px;
+    text-align: right;
+}
+
+.comments {
+    padding: 0 100px 50px;
+}
+
+.summary .daysinoffice i.fa,
+.summary .daysinoffice b {
+    color: dodgerblue;
+}
+
+.notstarted {
+    color: gray;
+}
+
+.notstarted p.progress span {
+    background-color: gray;
+}
+
+.inprogress {
+    color: orange;
+}
+
+.inprogress p.progress span {
+    background-color: orange;
+}
+
+.achieved {
+    color: rgb(0, 200, 100);
+}
+
+.achieved p.progress span {
+    background-color: rgb(0, 200, 100);
+}
+
+.broken {
+    color: indianred;
+}
+
+.broken p.progress span {
+    background-color: indianred;
+}
+
+.banner {
+    position: absolute;
+    display: block;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    padding: 2px 0;
+    font-size: 16px;
+    text-align: center;
+    color: white;
+    background-color: red;
+    z-index: 2;
+    transition: background-color .25s;
+}
+
+.banner:hover {
+    background: black;
+    transition: background-color .25s;
+}
+
+.content > h1 {
+    font-size: 30px;
+    text-shadow: rgba(0, 0, 0, .1) 0 1.5px;
+}
+
+.content > h2 {
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+.updates ul {
+    margin: 15px 0;
+}
+
+.updates p,
+.updates li {
+    max-width: 600px;
+    margin: 15px 0;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.updates p a {
+    color: dodgerblue;
+}
+
+.updates a:hover {
+    text-decoration: underline;
+}
+
+.updates .graph {
+    font-size: 15px;
+    margin: 2em 0;
+}
+
+.updates .graph div {
+    padding: .6em 0;
+}
+
+.updates .graph div:hover {
+    background-color: #eee;
+}
+
+.updates .graph a {
+    display: inline-block;
+    vertical-align: middle;
+    width: 60%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.updates .graph a span {
+    color: #333;
+}
+
+.updates .graph p {
+    display: inline-block;
+    vertical-align: middle;
+    width: 39%;
+    max-width: none;
+    margin: 0;
+    text-align: right;
+}
+
+.updates .graph p span {
+    display: inline-block;
+    background-color: silver;
+}
+
+.sharepromise {
+    display: inline-block;
+    top: 1px;
+    line-height: 20px;
+    margin-left: 8px;
+    font-size: 12px;
+    opacity: .5;
+}
+
+.currentstatus {
+    margin-bottom: 25px;
+    padding: 10px 100px;
+    line-height: 30px;
+    font-size: 22px;
+    border-bottom: 1px solid #ddd;
+}
+
+.currentstatus p {
+    position: absolute;
+    top: 5px;
+    right: 100px;
+    text-align: right;
+    font-size: 13px;
+}
+
+.currentstatus p span {
+    display: block;
+    line-height: 20px;
+    color: #333;
+}
+
+.currentstatus p a {
+    color: dodgerblue;
+}
+
+.currentstatus p a:hover {
+    text-decoration: underline;
+}
+
+.article {
+    margin: 25px 100px 50px;
+    padding-left: 10px;
+    color: inherit;
+    border-left: 5px solid;
+}
+
+.article.notstarted {
+    border-left-color: gray;
+}
+
+.article.inprogress {
+    border-left-color: orange;
+}
+
+.article.achieved {
+    border-left-color: rgb(0, 200, 100);
+}
+
+.article.broken {
+    border-left-color: indianred;
+}
+
+.article h1 {
+    font-size: 20px;
+}
+
+.article h2 {
+    font-size: 14px;
+    color: #999;
+}
+
+.article p {
+    margin: 10px 0;
+    padding: 5px;
+    font-size: 13px;
+    background-color: #eee;
+    border-radius: 5px;
+}
+
+.article .note {
+    color: #777;
+    background: #E5F2FF;
+    border-left: 3px solid dodgerblue;
+}
+
+.article a {
+    color: dodgerblue;
+}
+
+.article a:hover {
+    text-decoration: underline;
+}
+
+.article a i.fa {
+    margin-left: .4em;
+}
+
+#contact form {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #eee;
+    border: 5px solid #333;
+    border-radius: 5px;
+}
+
+#contact form div {
+    margin: 25px 0;
+    font-size: 16px;
+}
+
+#contact form .userinput {
+    width: 100%;
+    font-size: inherit;
+    font-family: inherit;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#contact form .userinput:hover {
+    border-color: #bbb;
+}
+
+#contact form .userinput:focus {
+    border-color: dodgerblue;
+}
+
+#contact form select {
+    padding: 3px 0;
+    cursor: pointer;
+}
+
+#contact form option {
+    background-color: whitesmoke;
+}
+
+#contact form textarea {
+    height: 100px;
+    padding: 4px;
+    resize: none;
+}
+
+#contact form input {
+    padding: 4px;
+}
+
+#contact form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+}
+
+#contact form input.inactive {
+    opacity: .5;
+    cursor: default;
+}
+
+#contact form input.active {
+    color: white;
+    background-color: dodgerblue;
+    cursor: pointer;
+    transition: background-color .25s;
+}
+
+#contact form input.active:hover {
+    background-color: #1468b9;
+    transition: background-color .25s;
+}
+
+#contact form.oathkeeper p.update,
+#contact form.oathkeeper p.other,
+#contact form.update p.oathkeeper,
+#contact form.update p.other,
+#contact form.other p.oathkeeper,
+#contact form.other p.update {
+    display: none;
+}
+
+footer {
+    padding: 15px 0;
+    text-align: center;
+    background-color: #333;
+}
+
+footer .top img {
+    display: inline-block;
+    width: 5.5%;
+    margin: .5% 1%;
+    opacity: .25;
+}
+
+footer .top img:hover {
+    opacity: 1;
+}
+
+footer .middle {
+    font-size: 12px;
+    color: rgba(255, 255, 255, .5);
+    transition: color .25s;
+}
+
+footer .middle a {
+    margin: 0 10px;
+}
+
+footer .bottom h2 {
+    font-size: 12px;
+    color: rgba(255, 255, 255, .25);
+    transition: color .25s;
+}
+
+footer a:hover {
+    color: white;
+    transition: color .25s;
+}
+
+footer a.covosoft {
+    display: block;
+    padding-right: 100px;
+    text-align: right;
+    opacity: .25;
+    transition: opacity .25s;
+}
+
+footer a.covosoft:hover {
+    opacity: 1;
+    transition: opacity .25s;
+}
+
+footer a.covosoft img {
+    height: 13px;
+}
+
+footer hr {
+    height: 1px;
+    margin: 20px 0;
+    background-color: rgba(255, 255, 255, .1);
+    border: 0;
+}
+
+.about h1,
+.credits h1,
+.rules h1 {
+    margin: 10px 0;
+    font-size: 30px;
+    text-align: left;
+    text-shadow: rgba(0, 0, 0, .1) 0 1.5px;
+}
+
+.about p {
+    max-width: 500px;
+    margin: 15px 0;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.about a,
+.credits a,
+.rules a {
+    color: dodgerblue;
+}
+
+.about a:hover,
+.credits a:hover,
+.rules a:hover {
+    text-decoration: underline;
+}
+
+.rules h2 {
+    max-width: 500px;
+    margin-top: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.rules h3 {
+    max-width: 500px;
+    margin-top: 45px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border-left: 2px solid #ddd;
+}
+
+.rules p {
+    max-width: 500px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    font-size: 15px;
+    line-height: 1.5;
+    border-left: 2px solid #ddd;
+}
+
+.sorry {
+    padding: 0 100px;
+}
+
+.credits {
+    padding: 0 100px;
+    text-align: center;
+}
+
+.credits h2 {
+    margin: 15px 0;
+    font-size: 15px;
+    text-align: left;
+}
+
+.credits > div {
+    display: inline-block;
+    width: 25%;
+    padding: 25px;
+}
+
+.credits img.circle {
+    width: 50%;
+    display: block;
+    margin: 10px auto;
+}
+
+.credits img.flags {
+    width: 15%;
+    margin: 2%;
+    border: 1px solid #eee;
+}
+
+.credits a {
+    font-size: 15px;
+}
+
+.credits a:hover + a {
+    text-decoration: underline;
+}
+
+.credits p {
+    font-size: 14px;
+}
+
+.sorry {
+    padding: 100px 100px 0;
+}
+
+.sorry i.fa {
+    font-size: 150px;
+    text-shadow: rgba(0, 0, 0, .1) 0 2px;
+}
+
+.sorry h1 {
+    margin: 10px 0;
+    font-size: 30px;
+    text-shadow: rgba(0, 0, 0, .1) 0 1.5px;
+}
+
+.sorry h2 {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.sorry a {
+    display: block;
+    margin: 10px 0;
+    font-size: 16px;
+    color: dodgerblue;
+}
+
+.sorry a:hover {
+    text-decoration: underline;
+}
+
+.sorry h2:first-of-type,
+.sorry a:first-of-type {
+    margin-top: 35px;
+}
+
+#login {
+    text-align: right;
+    background-image: url("/images/parliament.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #ddd;
+    border-color: black;
+}
+
+#login form {
+    display: inline-block;
+    width: 400px;
+    padding: 20px;
+    text-align: left;
+    background-color: rgba(255, 255, 255, .9);
+    border-radius: 10px;
+}
+
+#login > div {
+    padding: 10px 0;
+}
+
+#login p.invalid {
+    padding: 20px 0;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    color: indianred;
+}
+
+#login h1 {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    font-size: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+#login h2 {
+    font-size: 13px;
+}
+
+#login form div:not(:first-of-type) {
+    margin-top: 10px;
+}
+
+#login i.fa {
+    display: inline-block;
+    vertical-align: top;
+    width: 50px;
+    line-height: 30px;
+    font-size: 18px;
+    text-align: center;
+    color: #555;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-right: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+#login input,
+#login select {
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100% - 52px);
+    height: 32px;
+    line-height: 30px;
+    padding: 0 10px;
+    font-size: 13px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+#login .signup-form input,
+#login .signup-form select {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#login input:hover,
+#login select:hover {
+    border-color: #bbb;
+}
+
+#login input:focus,
+#login select:focus {
+    border-color: dodgerblue;
+}
+
+#login select {
+    cursor: pointer;
+}
+
+#login input#login-password {
+    width: calc(100% - 162px);
+}
+
+#login input[type="submit"] {
+    font-weight: bold;
+    color: white;
+    border-radius: 4px;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+#login input#login-submit {
+    width: 100px;
+    margin-left: 10px;
+    background-color: #4d90fe;
+    background: linear-gradient(#4d90fe, #4787ed);
+    border-color: #3079ed;
+}
+
+#login input#login-submit:hover {
+    background-color: #4477cc;
+    background: linear-gradient(#4477cc, #3a6ab7);
+}
+
+#login input#login-submit:focus,
+#login input#login-submit:active {
+    background: #275398;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+#login input#signup-submit {
+    width: 215px;
+    float: right;
+    margin: 0;
+    color: #ddd;
+    background-color: #aaa;
+    border-color: #ccc;
+    cursor: default;
+}
+
+#login input:valid + input:valid + input:valid + h2 + select:valid + h2 + select:valid + input#signup-submit {
+    color: white;
+    background-color: red;
+    background: linear-gradient(#fd2626, red);
+    border-color: red;
+    cursor: pointer;
+}
+
+#login input:valid + input:valid + input:valid + h2 + select:valid + h2 + select:valid + input#signup-submit:hover {
+    background-color: #c40000;
+    background: linear-gradient(#c40000, #a70000);
+}
+
+#login input:valid + input:valid + input:valid + h2 + select:valid + h2 + select:valid + input#signup-submit:focus,
+#login input:valid + input:valid + input:valid + h2 + select:valid + h2 + select:valid + input#signup-submit:active {
+    background: #9b0000;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 1113px) {
+    .summary,
+    .intro,
+    .social {
+        display: block;
+        width: 100%;
+    }
+    .intro {
+        height: auto;
+        min-height: 310px;
+        margin: 25px 0 0 0;
+    }
+    .social {
+        text-align: center;
+    }
+}
+
+@media (max-width: 767px) {
+    header,
+    header.solid {
+        position: absolute;
+        top: 0;
+        height: 55px;
+        text-align: left;
+        color: white;
+        background-color: #333;
+    }
+    header > a {
+        padding-left: 25px;
+    }
+    header .menu {
+        display: inline-block;
+        float: right;
+        padding: 0 25px;
+        line-height: 55px;
+        font-size: 25px;
+        cursor: pointer;
+    }
+    header .time {
+        display: none;
+    }
+    header img {
+        padding: 10px 0;
+        -webkit-filter: brightness(100);
+        filter: brightness(100);
+    }
+    header h1 {
+        line-height: 55px;
+    }
+    header h1 span {
+        color: white;
+    }
+    header .languages {
+        display: none;
+    }
+    .banner {
+        top: 50px;
+        z-index: 5;
+    }
+    .content {
+        padding: 100px 25px 25px;
+    }
+    .promises,
+    .comments {
+        padding: 25px;
+    }
+    .intro a.button.tracker {
+        margin: 15px 0 0 0;
+    }
+    .search {
+        margin-bottom: 50px;
+    }
+    .search span,
+    .search input {
+        display: block;
+        width: 100%;
+        height: 25px;
+        line-height: 25px;
+    }
+    .search input {
+        height: 50px;
+        line-height: 50px;
+    }
+    .search i.fa {
+        display: none;
+    }
+    .tabs h1 {
+        display: block;
+        margin: 0;
+        border-bottom: 0;
+    }
+    .currentstatus {
+        padding: 10px 25px;
+        text-align: center;
+    }
+    .currentstatus p {
+        position: relative;
+        top: auto;
+        right: auto;
+        text-align: center;
+    }
+    .article {
+        margin: 25px;
+    }
+    .credits {
+        padding: 25px;
+    }
+    .credits > div {
+        display: block;
+        width: auto;
+    }
+    #login form {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    #login input#login-password {
+        width: calc(100% - 52px);
+    }
+    #login input#login-submit {
+        display: block;
+        width: 100%;
+        margin: 10px 0 0;
+    }
+    footer .top img {
+        width: 15%;
+        margin: 1%;
+    }
+    footer .middle a {
+        display: block;
+    }
+    footer a.covosoft {
+        padding: 10px 0;
+        text-align: center;
+    }
+    nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: white;
+        background-color: black;
+        z-index: 10;
+    }
+    nav i.fa-times {
+        display: block;
+        padding-right: 25px;
+        line-height: 55px;
+        font-size: 30px;
+        text-align: right;
+        cursor: pointer;
+    }
+    nav a {
+        display: block;
+        margin: 0 25px;
+        text-align: center;
+        line-height: 70px;
+        font-size: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, .25);
+    }
+    .updates .graph a,
+    .updates .graph p {
+        width: 100%;
+    }
+}
+
+@media (max-width: 450px) {
+    .intro {
+        text-align: center;
+    }
+    .intro p {
+        width: auto;
+    }
+    .intro img {
+        display: none;
+    }
+}

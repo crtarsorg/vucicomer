@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+ 	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto|Montserrat|Quicksand:700">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/10.0.0/js/smooth-scroll.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="index.js"></script>
+	
+
+	<!-- <script type="application/javascript"
+	        src="http://www.istinomer.rs/api/ocena?callback=parseResponse">
+	</script> -->
+
+    <script> 
+
+
+    $(function () {
+        $('.summary > div > h2 > b').html(
+            Math.ceil((new Date() - new Date(2014,4,27))/(1000*60*60*24))
+            );
+    })
+
+
+
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                if (document.documentElement.scrollTop || document.body.scrollTop) {
+                    $("header").addClass("solid")
+                } else {
+                    $("header").removeClass("solid")
+                }
+            });
+        });
+
+        if (window.location.pathname == "/") {
+            $.getScript("index.js");
+        }
+
+    var dobijeniPodaci = [];
+
+    $.when(
+            
+            $.ajax({
+                crossOrigin: true,
+                url: "http://www.istinomer.rs/api/ocena?akter=15",
+                success: function(data) {
+                    dobijeniPodaci = data;
+                    console.log( dobijeniPodaci );        
+                    }
+                })
+
+            ).then(function(res1) { 
+
+                console.log('test');
+            });
+    
+    </script>
+
+    <title>Vučićomer</title>
+
+</head>
+
+<body>
+    
+    <header>
+        
+
+        <a href="/">
+            <img src="/images/favicon.png">
+            <h1>vučićo<span>metar</span></h1>
+        </a>
+
+        <div class="languages">
+            <a href="/about">About</a>
+            <a href="/rules">House Rules</a>
+            <a href="/fr" class="toFrench">English</a>
+        </div>
+    </header>
+
+
+    <div class="content"> 
+ 
+    <div class="summary"> 
+        <div class="daysinoffice" style="border-bottom:1px solid #eee"> 
+            <h2 style="line-height:39px;margin:0">
+                <i class="fa fa-calendar"></i> Days in office: <b></b></h2> 
+        </div> 
+        <a data-scroll="" href="#promises"> 
+            <div class="notstarted" data-search="Not started"> 
+                <h2><i class="fa fa-hourglass-start"></i> <span>Not yet started: <b class="count">170</b> of <b class="total">214</b></span></h2> 
+                <p class="progress"><span style="width: 79.4393%;"></span></p> 
+            </div> 
+            <div class="inprogress" data-search="In progress"> 
+                <h2><i class="fa fa-cogs"></i> <span>In progress: <b class="count">29</b> of <b class="total">214</b></span></h2> 
+                <p class="progress"><span style="width: 13.5514%;"></span></p> 
+            </div> 
+            <div class="achieved" data-search="Achieved"> 
+                <h2><i class="fa fa-check-circle-o"></i> <span>Achieved: <b class="count">13</b> of <b class="total">214</b></span></h2> 
+                <p class="progress"><span style="width: 6.07477%;"></span></p> 
+            </div> 
+            <div class="broken" data-search="Broken"> 
+                <h2><i class="fa fa-ban"></i> <span>Broken: <b class="count">2</b> of <b class="total">214</b></span></h2> 
+                <p class="progress"><span style="width: 0.934579%;"></span></p> 
+            </div> 
+        </a> 
+    </div> 
+ 
+    <div class="intro"> 
+        <p>
+            Aleksandar Vučić postao je jula 2012. godine, potpredsednik Vlade zadužen za odbranu, bezbednost i borbu protiv korupcije i kriminala, kao i ministar odbrane u Vladi koju formiraju SNS, SPS i URS. Predsednik Srbije Tomislav Nikolić imenovao ga je za sekretara Saveta za nacionalnu bezbednost. Posle pobede koalicije oko SNS na izborima 2014. godine, u aprilu je formirao Vladu Srbije, na čijem je čelu. 
+        </p>
+        <p> <a href="http://bit.ly/1oxfnAD" target="_blank">16. Marta 2014.</a>, građani Srbije izabrali su <a href="http://www.istinomer.rs/akter/15/Aleksandar-Vucic" target="_blank">Aleksandra Vučića</a> za 11-og predsednika Vlade Srbije.</p> 
+        <p>VučićoMetar je nepolitička inicijativa koja prati uspešnost vlade u  <a href="http://www.srbija.gov.rs/extfile/sr/208699/ekspoze_aleksandar_vucic_cyr270414.doc" target="_blank">skladu sa ekspozeom </a> i izjavama u medijima (planom,...).</p> 
+        
+        <a class="button" data-scroll="" href="#promises">Pogledajte obećanja <i class="fa fa-arrow-down"></i></a> 
+        <a class="button tracker" href="#">Pratite obećanja</a> 
+    </div> 
+     
+    
+
+ 
+</div>
+
+
+<div class="promises" id="promises"> 
+    <div class="search"> 
+        <button>Reset promise table</button> 
+        <span id="count"></span> 
+        <i class="fa fa-search"></i> 
+        <input type="search" placeholder="Search..."> 
+    </div> 
+    
+    <div class="tabs"> 
+        <h1 class="culture"><i class="fa fa-music"></i> Culture</h1> 
+        <h1 class="economy"><i class="fa fa-dollar"></i> Economy</h1> 
+        <h1 class="environment"><i class="fa fa-leaf"></i> Environment</h1> 
+        <h1 class="government selected"><i class="fa fa-university"></i> Government</h1> 
+        <h1 class="immigration"><i class="fa fa-suitcase"></i> Immigration</h1> 
+        <h1 class="indigenouspeoples"><i class="fa fa-users"></i> Indigenous Peoples</h1> 
+        <h1 class="security"><i class="fa fa-fighter-jet"></i> Security</h1> 
+    </div> 
+
+   
+    <table> 
+         
+    </table> 
+
+</div>
+
+
+
+ <script>
+    $('table').load("lista.html")
+</script>
+ <script>
+        smoothScroll.init({
+            speed: 500,
+            offset: 40,
+            updateURL: false
+        });
+    </script>
+</body>
+
+</html>
