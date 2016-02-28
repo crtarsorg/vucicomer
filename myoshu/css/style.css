@@ -1,0 +1,100 @@
+@font-face {
+    font-family: DroidSans;
+    src: url(../fonts/DroidSans.ttf);
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "DroidSans", sans-serif;
+}
+body, h1, h2 {
+	font-size: 13px;
+}
+h1 {
+	margin: 0;
+}
+.container-fluid {
+	padding: 0;
+}
+.navigation {
+	margin-top: 40px;
+}
+.nav-tabs > li > a {
+	border-radius: 0px;
+	padding: 5px 30px;
+	cursor: pointer;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+	background: #09223e;
+	color: #fff;
+}
+
+.progress {
+	border-radius: 0px;
+}
+.intro {
+	margin-top: 20px;
+}
+.intro .btn-primary {
+	border-radius: 0px;
+	padding: 3px 8px;
+}
+.search button {
+    border-radius: 0px;
+	padding: 3px 8px;
+	display: none;
+}
+.search button:focus {
+    outline: none;
+    background: black;
+}
+.search input {
+    height: 30px;
+    line-height: 30px;
+    padding: 0 4px;
+    font-size: 15px;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    float: right;
+}
+.search input:hover {
+    border-color: #bbb;
+}
+.search input:focus {
+    border-color: dodgerblue;
+}
+#count {
+	float: right;
+	margin-right: 20px;
+	line-height: 32px;
+}
+table {
+	width: 100%;
+}
+table .status {
+	/*display: none;*/
+}
+td.text div {
+	display: inline-block;
+	width: 20%;
+}
+.text {
+	padding-top: 20px;
+}
+
+.promises tr.subcategory {
+    font-size: 14px;
+    text-transform: uppercase;
+    border-top: 3px solid #09223e;
+    font-weight: 700;
+}
+.promise .count a {
+	display: none;
+}
+
+footer {
+	text-align: center;
+	margin-top: 40px;
+	color: #fff;
+}
