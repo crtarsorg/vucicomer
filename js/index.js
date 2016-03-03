@@ -64,6 +64,11 @@ $(document).ready(function () {
 });
 
 $(window).load(function () {
+    izracunaj();
+});
+
+
+function izracunaj () {
 
     var grandtotal = $("tr.promise").length;
 
@@ -90,4 +95,4 @@ $(window).load(function () {
 
     
 
-});
+}
