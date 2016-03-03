@@ -9,37 +9,25 @@
 	$kategorije = "";
 
 
-	// ne moram da izdvajam kategorije - samo da ih sortiram? 
+	// ne moram da izdvajam kategorije - samo da ih sortiram?
 
 	//ovo prebaciti na sql stranu
 
 	function cmp($a, $b)
-		{		    
+		{
 		    $rdiff = $a->kategorija > $b->kategorija;
-		      /*if ($rdiff)*/ return $rdiff; 
-    		//return $a->tip_ocena > $b->tip_ocena; 
+		      /*if ($rdiff)*/ return $rdiff;
+    		//return $a->tip_ocena > $b->tip_ocena;
 		}
-	
+
 	usort($podaci, "cmp");
 
-//samo ove stvari
+	//samo ove stvari
 	$statusi_ocena = array(
-		/*1 => "Neocenjivo",
-		9 => "Dosledno",
-		10 => "Nedosledno",
-		11 => "Nešto između",
-
-
-		12 => "Istina",
-		13 => "Kratke noge",
-		14 => "Neistina",
-		15 => "Poluistina",
-		16 => "Skoro istina",
-		17 => "Skoro neistina",*/
-		
+		//beleznica
 
 		18 => "Ispunjeno",
-		23 => "Skoro ispunjeno", 
+		23 => "Skoro ispunjeno",
 		22 => "Radi se na tome",
 		19 => "Krenuli pa stali",
 		20 => "Neispunjeno",
@@ -50,14 +38,14 @@
 	$statusi_trenutno =  array(18=>"achieved", 12=>"achieved", 22 =>'inprogress' , 15 =>'inprogress', 16 =>'inprogress' , 20=>'notstarted', 21=>'notstarted', 14=>'notstarted', 17=>'notstarted', 13=>'notstarted');
 
 	/*$tip_ocena = array_map(
-				function ($el){	return $el->tip_ocena;	}, 
+				function ($el){	return $el->tip_ocena;	},
 				$podaci);
 
 	$tip_ocena = array_unique($tip_ocena);*/
 
 
 	$kategorije = array('24' =>'Politika', '25' =>'Ekonomija', '26' =>'Kultura', '27' =>'Zdravstvo', '28' =>'Društvo',  );
-	$kategorije = array(24 =>'government', 25 =>'economy', 26 =>'culture', 27 =>'environment', 28 =>'security',  );	
+	$kategorije = array(24 =>'government', 25 =>'economy', 26 =>'culture', 27 =>'environment', 28 =>'security',  );
 	/*"culture",
 	"economy",
 	"environment",
@@ -97,14 +85,14 @@ TROVI;
 
 
 	//brojac * 2 , broji koliko ima ocena jednog tipa
-	
+
 	$brojac_vesti = 0;
 	$brojac_kategorija = 0;
 
 	$kategorija_flag = $podaci[0]->kategorija;
 
 	foreach ($podaci as  $jedan_unos) {
-	
+
 
 			if( $kategorija_flag == $jedan_unos->kategorija )
 			{
@@ -112,18 +100,18 @@ TROVI;
 				$brojac_kategorija ++;
 
 			}
-			else 
+			else
 			{
 				$brojac_kategorija = 0;
-				$brojac_vesti = 0;	
+				$brojac_vesti = 0;
 				$kategorija_flag = $jedan_unos->kategorija;
 
 			}
 				//druga kategorija
 
-			if(!empty($jedan_unos->kategorija )) 
-				$glavna_klasa =	$kategorije[ $jedan_unos->kategorija ] ;	
-			else 
+			if(!empty($jedan_unos->kategorija ))
+				$glavna_klasa =	$kategorije[ $jedan_unos->kategorija ] ;
+			else
 				$glavna_klasa = "indigenouspeoples";
 
 
@@ -134,7 +122,7 @@ TROVI;
 
 			$index = $brojac_vesti - 1;
 
-		
+
 
 
 			$nulti_text = <<<NULTI
@@ -163,12 +151,12 @@ NULTI;
 
 		$status_klasa = "";
 		if( !empty( $jedan_unos->status ) ){
-			$status_klasa = intval( $jedan_unos->status) ;	
-			if(in_array( $status_klasa , array_keys($statusi_trenutno) ) )	
-				$status_klasa = $statusi_trenutno[ $status_klasa ] ;	
+			$status_klasa = intval( $jedan_unos->status) ;
+			if(in_array( $status_klasa , array_keys($statusi_trenutno) ) )
+				$status_klasa = $statusi_trenutno[ $status_klasa ] ;
 		}
-			
-					
+
+
 
 
 		if($brojac_vesti == 0  )	{
@@ -177,20 +165,20 @@ NULTI;
 				$klasa_tr_a = "a0 np category $glavna_klasa"; //0-ti tr; menja se samo cultura
 				$text_upis = $nulti_text;
 				$status_text = "";
-				stampanje_tr_a($klasa_tr_a, $status_text, $text_upis);	
+				stampanje_tr_a($klasa_tr_a, $status_text, $text_upis);
 			}
-			
+
 
 			$klasa_tr_a = "a0 np subcategory $glavna_klasa"; //1-i tr ; menja se samo cultura
 			$text_upis = $prvi_text;
 			$status_text = '<i class="fa fa-cogs" title="In progress"></i> In progress Inprogress Culture';
 
 			stampanje_tr_a($klasa_tr_a, $status_text, $text_upis);
-		}	
-		
+		}
+
 
 		$klasa_tr_a = "a$index promise $status_klasa $glavna_klasa"; //2-gi tr
-		$text_upis = $vest_text;		
+		$text_upis = $vest_text;
 		$status_text = 'Novosti';
 
 		stampanje_tr_a($klasa_tr_a, $status_text, $text_upis);
@@ -207,7 +195,7 @@ $cache_file = "./lista.html";
 touch($cache_file);
 @chmod($cache_file, 0777);
 
-$fp = fopen($cache_file, 'w+');	
+$fp = fopen($cache_file, 'w+');
 
 
 fwrite($fp, $la);

@@ -6,7 +6,8 @@ Email: contact@covosoft.com
 Date: 01-Nov-2015
 */
 
-$(document).ready(function () {
+
+  function init() {
 
     $(".summary a div").on("click", function () {
         $(".search input").val($(this).data("search")).change()
@@ -15,6 +16,8 @@ $(document).ready(function () {
     $("input[type=search]").on("keyup search input paste cut change", function () {
         var filter = $(this).val();
         count = 0;
+
+
         $("tr").each(function () {
             if ($(this).text().search(new RegExp(filter, "i")) < 0) {
                 $(this).hide()
@@ -49,8 +52,20 @@ $(document).ready(function () {
         if (!$(this).parent().hasClass("inactive")) {
             if (!$(this).hasClass("selected")) {
                 $(".tabs a").removeClass("selected");
+                var klasa = $(this).attr('class');
+
                 $(this).addClass("selected");
+
+
+
+                if("all" == klasa)
+                  {
+                    $("tr").show();
+                    return;
+                  }
+
                 $("tr").each(function () {
+                    //na prvom mestu mora biti
                     if ($(this).hasClass($(".selected").attr("class").split(" ")[0])) {
                         $(this).show()
                     } else {
@@ -61,11 +76,8 @@ $(document).ready(function () {
         };
     });
 
-});
+}
 
-$(window).load(function () {
-    izracunaj();
-});
 
 
 function izracunaj () {
@@ -73,7 +85,9 @@ function izracunaj () {
     var grandtotal = $("tr.promise").length;
 
     $(".summary b.count").each(function () {
-        $(this).html($("tr." + $(this).closest("div").attr("class")).length)
+        var classOfSuperCategory = $(this).closest("div").attr("class");
+        var numberInSuperCategory = $("tr." + classOfSuperCategory).length;
+        $(this).html(numberInSuperCategory)
     });
 
     $(".summary b.total").each(function () {
@@ -89,10 +103,78 @@ function izracunaj () {
     });
 
     $("tr.category p.progress span").each(function () {
-        var total = $("tr.promise." + $(this).parent().parent().children("b").attr("class")).length;
+        var classOfCategory = $(this).parent().parent().children("b").attr("class");
+        var total = $("tr.promise." + classOfCategory ).length;
         $(this).css("width", ($("tr." + $(this).parent().parent().attr("class") + "." + $(this).parent().parent().children("b").attr("class")).length * 100 / total) + "%")
     });
 
-    
 
 }
+
+
+function datum() {
+  $('.summary > div > h2 > b').html(
+      Math.ceil((new Date() - new Date(2014,4,27))/(1000*60*60*24))
+      );
+}
+
+
+function solid () {
+  if (document.documentElement.scrollTop || document.body.scrollTop) {
+      $("header").addClass("solid")
+  } else {
+      $("header").removeClass("solid")
+  }
+}
+
+
+
+
+
+
+function scrollInit() {
+  smoothScroll.init({
+      speed: 500,
+      offset: 40,
+      updateURL: false
+  });
+}
+
+
+function sakrij() {
+
+
+  $("span.kategorija").each(function () {
+    var broj = +$(this).html();
+    if(broj == 0)
+      {
+        var klasa = $(this).attr("class").split(" ")[1];
+        $("a."+klasa).hide();
+      }
+
+  })
+
+}
+
+
+
+
+ $(window).load(function () {
+   datum();
+   scrollInit()
+   $('table').load("lista.html", function( x ) {
+       izracunaj();
+       init();
+       sakrij();
+   });
+
+
+   $(window).scroll(
+     function () {
+        solid();
+     }
+
+   );
+
+
+ });
