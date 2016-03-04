@@ -152,11 +152,11 @@ td.count {
 
 .summary .daysinoffice i.fa,
 .summary .daysinoffice b {
-    color: dodgerblue;
+    color: dodgerblue !important;
 }
 
 .notstarted {
-    color: gray;
+    color: gray !important;
 }
 
 .notstarted p.progress span {
@@ -164,27 +164,27 @@ td.count {
 }
 
 .inprogress {
-    color: orange;
+    color: orange !important;
 }
 
 .inprogress p.progress span {
-    background-color: orange;
+    background-color: orange !important;
 }
 
 .achieved {
-    color: rgb(0, 200, 100);
+    color: rgb(0, 200, 100) !important;
 }
 
 .achieved p.progress span {
-    background-color: rgb(0, 200, 100);
+    background-color: rgb(0, 200, 100) !important;
 }
 
 .broken {
-    color: indianred;
+    color: indianred !important;
 }
 
 .broken p.progress span {
-    background-color: indianred;
+    background-color: indianred !important;
 }
 
 .banner {

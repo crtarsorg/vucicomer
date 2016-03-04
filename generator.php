@@ -1,10 +1,15 @@
 <?php
 
-
+	/*
+	b = [19,20,21,22,23,18]
+	c = a.filter(function(el){return b.indexOf(+el.status)!=  -1 })
+	 */
 	ob_start();
 
-	$podaci_json = file_get_contents("data.json");
+	$podaci_json = file_get_contents("data.json"); //http://www.istinomer.rs/api/ocena?akter=15
 	$podaci = json_decode($podaci_json);
+
+
 
 	$kategorije = "";
 
@@ -24,7 +29,7 @@
 
 	//samo ove stvari
 	$statusi_ocena = array(
-		//beleznica
+		//beleznica, kao posebna kategorija
 
 		18 => "Ispunjeno",
 		23 => "Skoro ispunjeno",
@@ -35,24 +40,62 @@
 		);
 
 
-	$statusi_trenutno =  array(18=>"achieved", 12=>"achieved", 22 =>'inprogress' , 15 =>'inprogress', 16 =>'inprogress' , 20=>'notstarted', 21=>'notstarted', 14=>'notstarted', 17=>'notstarted', 13=>'notstarted');
+	$statusi_filter = array(18=>"Achieved", 23 =>'In progress', 22 =>'In progress' , 19 =>'Not started', 20=>'Broken', 21=>'Broken'); //Not started In progress Achieved Broken ;
 
-	/*$tip_ocena = array_map(
-				function ($el){	return $el->tip_ocena;	},
-				$podaci);
-
-	$tip_ocena = array_unique($tip_ocena);*/
+	$statusi_trenutno =  array(18=>"achieved", 23 =>'inprogress', 22 =>'inprogress' , 19 =>'notstarted', 20=>'broken', 21=>'broken');
 
 
-	$kategorije = array('24' =>'Politika', '25' =>'Ekonomija', '26' =>'Kultura', '27' =>'Zdravstvo', '28' =>'Društvo',  );
-	$kategorije = array(24 =>'government', 25 =>'economy', 26 =>'culture', 27 =>'environment', 28 =>'security',  );
-	/*"culture",
-	"economy",
-	"environment",
-	"government",
-	"immigration",
-	"indigenouspeoples",
-	"security",*/
+	$kategorije = array(24 =>'politika', 25 =>'ekonomija', 26 =>'kultura', 27 =>'zdravstvo', 28 =>'drustvo',  );
+	
+
+	$politika = array_filter($podaci, function( $el )
+	{
+		return $el->kategorija == 24;
+	});
+	$politika = count($politika );
+
+	$ekonomija = array_filter($podaci, function( $el )
+	{
+		return $el->kategorija == 25;
+	});
+	$ekonomija = count($ekonomija );
+
+	$kultura = array_filter($podaci, function( $el )
+	{
+		return $el->kategorija == 26;
+	});
+	$kultura = count($kultura );
+	
+
+	$zdravstvo = array_filter($podaci, function( $el )
+	{
+		return $el->kategorija == 27;
+	});
+	$zdravstvo = count($zdravstvo );
+
+	$drustvo = array_filter($podaci, function( $el )
+	{
+		return $el->kategorija == 28;
+	});
+	$drustvo = count($drustvo );
+
+	/*$counts = array(24 =>count($politika), 25 =>count($ekonomija), 26 =>count($kultura), 27 =>count($zdravstvo), 28 =>count($drustvo),  );*/
+	$all_count = count($podaci);
+
+	echo <<<BROJAC
+	
+	<tr class="hidden" >
+		<td>
+			<span class="kategorija all">$all_count</span>
+			<span class="kategorija politika">$politika</span>
+			<span class="kategorija ekonomija">$ekonomija</span>
+			<span class="kategorija kultura">$kultura</span>
+			<span class="kategorija zdravstvo">$zdravstvo</span>
+			<span class="kategorija drustvo">$drustvo</span>
+		</td>
+	</tr>
+	 
+BROJAC;
 
 
 	function stampanje_tr_a ($klasa_tr_a='', $status_txt = "", $text_upis = '')
@@ -77,12 +120,7 @@ TROVI;
 		print_r($template);
 	}
 
-
-
-
 	//statusi!!!
-
-
 
 	//brojac * 2 , broji koliko ima ocena jednog tipa
 
@@ -112,11 +150,11 @@ TROVI;
 			if(!empty($jedan_unos->kategorija ))
 				$glavna_klasa =	$kategorije[ $jedan_unos->kategorija ] ;
 			else
-				$glavna_klasa = "indigenouspeoples";
+				$glavna_klasa = "politika";
 
 
 			$naslov_vesti = $jedan_unos->naslov;
-			$title_status =  'In progress'; //$jedan_unos->tip_ocena;
+			$title_status = $jedan_unos->status;
 			$link_vest = "http://www.istinomer.rs/ocena/". $jedan_unos->id;
 
 
@@ -169,23 +207,24 @@ NULTI;
 			}
 
 
-			$klasa_tr_a = "a0 np subcategory $glavna_klasa"; //1-i tr ; menja se samo cultura
+			/*$klasa_tr_a = "a0 np subcategory $glavna_klasa"; //1-i tr ; menja se samo cultura
 			$text_upis = $prvi_text;
 			$status_text = '<i class="fa fa-cogs" title="In progress"></i> In progress Inprogress Culture';
 
-			stampanje_tr_a($klasa_tr_a, $status_text, $text_upis);
+			stampanje_tr_a($klasa_tr_a, $status_text, $text_upis);*/
 		}
 
 
 		$klasa_tr_a = "a$index promise $status_klasa $glavna_klasa"; //2-gi tr
 		$text_upis = $vest_text;
-		$status_text = 'Novosti';
+		$status_text = $statusi_filter[$jedan_unos->status] ;
 
 		stampanje_tr_a($klasa_tr_a, $status_text, $text_upis);
 
 
 } //for brojac
 
+		
 
 
 $la = ob_get_clean();

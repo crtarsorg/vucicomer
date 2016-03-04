@@ -46,6 +46,11 @@ Date: 01-Nov-2015
 
     $(".search button").on("click", function () {
         $(".search input").val("").change()
+        if($(".tabs li.active>a ").attr("class").indexOf("all")!=-1 )           
+            {
+              $("tr").show();
+              return;
+            }
     });
 
     $(".tabs a").on("click", function () {
