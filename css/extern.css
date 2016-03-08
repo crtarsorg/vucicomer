@@ -3,7 +3,7 @@ p.progress {
     height: 15px;
     background-color: #f7f7f7;
     background: linear-gradient(#f5f5f5, #f9f9f9);
-    border-radius: 5px;
+    /*border-radius: 5px;*/
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
 }
 
@@ -11,7 +11,7 @@ p.progress span {
     display: block;
     width: 0;
     height: 100%;
-    border-radius: 5px;
+    /*border-radius: 5px;*/
     box-shadow: inset 1px 1px 2px rgba(0, 0, 0, .25);
 }
 
@@ -105,7 +105,7 @@ tr.broken:hover {
 }
 
 .promises td {
-    padding: 10px 0;
+    padding: 10px 0 10px 10px;
 }
 
 .promises td a:hover {
@@ -122,11 +122,10 @@ td.status i.fa {
     font-size: 13px;
 }
 
-td.text div {
-    display: inline-block;
+/*td.text div {
     margin-right: 25px;
     padding: 10px 0;
-}
+}*/
 
 td.text b {
     display: inline-block;
@@ -155,7 +154,7 @@ td.count {
     color: dodgerblue !important;
 }
 
-.notstarted {
+.notstarted, .notstarted a {
     color: gray !important;
 }
 
@@ -163,7 +162,7 @@ td.count {
     background-color: gray;
 }
 
-.inprogress {
+.inprogress, .inprogress a {
     color: orange !important;
 }
 
@@ -171,7 +170,7 @@ td.count {
     background-color: orange !important;
 }
 
-.achieved {
+.achieved, .achieved a {
     color: rgb(0, 200, 100) !important;
 }
 
@@ -179,7 +178,7 @@ td.count {
     background-color: rgb(0, 200, 100) !important;
 }
 
-.broken {
+.broken, .broken a {
     color: indianred !important;
 }
 
@@ -805,145 +804,4 @@ footer hr {
 #login input:valid + input:valid + input:valid + h2 + select:valid + h2 + select:valid + input#signup-submit:active {
     background: #9b0000;
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-@media (max-width: 1113px) {
-    .summary,
-    .intro,
-    .social {
-        display: block;
-        width: 100%;
-    }
-    .intro {
-        height: auto;
-        min-height: 310px;
-        margin: 25px 0 0 0;
-    }
-    .social {
-        text-align: center;
-    }
-}
-
-@media (max-width: 767px) {
-    .banner {
-        top: 50px;
-        z-index: 5;
-    }
-    .content {
-        padding: 100px 25px 25px;
-    }
-    .promises,
-    .comments {
-        padding: 25px;
-    }
-    .intro a.button.tracker {
-        margin: 15px 0 0 0;
-    }
-    .search {
-        margin-bottom: 50px;
-    }
-    .search span,
-    .search input {
-        display: block;
-        width: 100%;
-        height: 25px;
-        line-height: 25px;
-    }
-    .search input {
-        height: 50px;
-        line-height: 50px;
-    }
-    .search i.fa {
-        display: none;
-    }
-    .tabs h1 {
-        display: block;
-        margin: 0;
-        border-bottom: 0;
-    }
-    .currentstatus {
-        padding: 10px 25px;
-        text-align: center;
-    }
-    .currentstatus p {
-        position: relative;
-        top: auto;
-        right: auto;
-        text-align: center;
-    }
-    .article {
-        margin: 25px;
-    }
-    .credits {
-        padding: 25px;
-    }
-    .credits > div {
-        display: block;
-        width: auto;
-    }
-    #login form {
-        width: 100%;
-        box-sizing: border-box;
-    }
-    #login input#login-password {
-        width: calc(100% - 52px);
-    }
-    #login input#login-submit {
-        display: block;
-        width: 100%;
-        margin: 10px 0 0;
-    }
-    footer .top img {
-        width: 15%;
-        margin: 1%;
-    }
-    footer .middle a {
-        display: block;
-    }
-    footer a.covosoft {
-        padding: 10px 0;
-        text-align: center;
-    }
-    nav {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        color: white;
-        background-color: black;
-        z-index: 10;
-    }
-    nav i.fa-times {
-        display: block;
-        padding-right: 25px;
-        line-height: 55px;
-        font-size: 30px;
-        text-align: right;
-        cursor: pointer;
-    }
-    nav a {
-        display: block;
-        margin: 0 25px;
-        text-align: center;
-        line-height: 70px;
-        font-size: 20px;
-        border-bottom: 1px solid rgba(255, 255, 255, .25);
-    }
-    .updates .graph a,
-    .updates .graph p {
-        width: 100%;
-    }
-}
-
-@media (max-width: 450px) {
-    .intro {
-        text-align: center;
-    }
-    .intro p {
-        width: auto;
-    }
-    .intro img {
-        display: none;
-    }
 }

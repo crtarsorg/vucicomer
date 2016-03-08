@@ -14,11 +14,14 @@ body, h1, h2 {
 h1 {
 	margin: 0;
 }
+header {
+	background: #111;
+}
 .container-fluid {
 	padding: 0;
 }
 .navigation {
-	margin-top: 40px;
+	margin-top: 20px;
 }
 .nav-tabs > li > a {
 	border-radius: 0px;
@@ -26,8 +29,22 @@ h1 {
 	cursor: pointer;
 }
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
-	background: #09223e;
+	background: #337ab7;
 	color: #fff;
+	border: 1px solid #204d74;
+	border-bottom: 0px;
+}
+
+.summary a:hover {
+	text-decoration: none;
+}
+
+.summary a div:hover .progress {
+	background: #eee;
+	box-shadow: 1px 1px 1px #ccc;
+}
+.summary a div:hover p.progress span {
+	box-shadow: 1px 1px 0px #ccc;
 }
 
 .progress {
@@ -39,6 +56,11 @@ h1 {
 .intro .btn-primary {
 	border-radius: 0px;
 	padding: 3px 8px;
+}
+.search {
+	margin-top: 20px;
+	position: relative;
+	overflow: hidden;
 }
 .search button {
     border-radius: 0px;
@@ -76,8 +98,12 @@ table .status {
 	/*display: none;*/
 }
 td.text div {
-	display: inline-block;
+	/*display: inline-block;*/
 	width: 20%;
+	float: left;
+}
+td.text {
+	width: 100%;
 }
 .text {
 	padding-top: 20px;
@@ -97,4 +123,19 @@ footer {
 	text-align: center;
 	margin-top: 40px;
 	color: #fff;
+	padding: 15px 0px;
+}
+footer a {
+	color: #fff;
+}
+
+.progress {
+	margin-bottom: 0px;
+}
+
+@media screen and (max-width: 767px) {
+	.nav-tabs > li {
+		width: 50%;
+		text-align: center;
+	}
 }
