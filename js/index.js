@@ -46,6 +46,7 @@ Date: 01-Nov-2015
 
     $(".search button").on("click", function () {
         $(".search input").val("").change()
+
         if($(".tabs li.active>a ").attr("class").indexOf("all")!=-1 )           
             {
               $("tr").show();
@@ -65,11 +66,14 @@ Date: 01-Nov-2015
 
                 if("all" == klasa)
                   {
-                    $("tr").show();
+
+                    $("tr:not(.a-1)").show();
+                    $("tr.a-1)").hide();
                     return;
                   }
 
                 $("tr").each(function () {
+                    $("tr.a-1)").show();
                     //na prvom mestu mora biti
                     if ($(this).hasClass($(".selected").attr("class").split(" ")[0])) {
                         $(this).show()

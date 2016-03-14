@@ -1,8 +1,15 @@
 <?php
 
+
+
+//!!!!1/
+//!
+//!treba zameniti sve null vrednosti nulama
+
+//generisati full link na osnovu id-a i naslova, iskopirati deo koji se nalazi u seo klasi
 	/*
-	b = [19,20,21,22,23,18]
-	c = a.filter(function(el){return b.indexOf(+el.status)!=  -1 })
+	b = [5,121]
+	c = a.filter(function(el){return b.indexOf(+el.tip_ocena)!=  -1 })
 	 */
 	ob_start();
 
@@ -30,7 +37,7 @@
 	//samo ove stvari
 	$statusi_ocena = array(
 		//beleznica, kao posebna kategorija
-
+		0  => "Beleznica",
 		18 => "Ispunjeno",
 		23 => "Skoro ispunjeno",
 		22 => "Radi se na tome",
@@ -40,9 +47,9 @@
 		);
 
 
-	$statusi_filter = array(18=>"Achieved", 23 =>'In progress', 22 =>'In progress' , 19 =>'Not started', 20=>'Broken', 21=>'Broken'); //Not started In progress Achieved Broken ;
+	$statusi_filter = array(18=>"Achieved", 23 =>'In progress', 22 =>'In progress' , '19' =>'Not started', 20=>'Broken', 21=>'Broken',  0=>'Not started' ); //Not started In progress Achieved Broken ;
 
-	$statusi_trenutno =  array(18=>"achieved", 23 =>'inprogress', 22 =>'inprogress' , 19 =>'notstarted', 20=>'broken', 21=>'broken');
+	$statusi_trenutno =  array(18=>"achieved", 23 =>'inprogress', 22 =>'inprogress' , 19 =>'notstarted', 20=>'broken', 21=>'broken', 0 =>'notstarted');
 
 
 	$kategorije = array(24 =>'politika', 25 =>'ekonomija', 26 =>'kultura', 27 =>'zdravstvo', 28 =>'drustvo',  );
@@ -100,6 +107,8 @@ BROJAC;
 
 	function stampanje_tr_a ($klasa_tr_a='', $status_txt = "", $text_upis = '')
 	{
+		
+		if(!strstr($klasa_tr_a,"a-1") && $status_txt == "")  $status_txt = "Not started";
 	$template = <<< TROVI
 	 	<tr class="$klasa_tr_a">
 	        <td class="status">
@@ -128,10 +137,23 @@ TROVI;
 	$brojac_kategorija = 0;
 
 	$kategorija_flag = $podaci[0]->kategorija;
+	if(empty($kategorija_flag )){
+		$kategorija_flag = "politika";
+	}
 
 	foreach ($podaci as  $jedan_unos) {
 
 
+			if(!empty($jedan_unos->kategorija ))
+				$glavna_klasa =	$kategorije[ $jedan_unos->kategorija ] ;
+			else{
+				$jedan_unos->kategorija = "politika";				
+				$glavna_klasa = "politika";
+			}
+
+			/*
+			sortirani su po kategoriji tako da sa prvim unosom druge kategorija setuje promenljivu
+			 */
 			if( $kategorija_flag == $jedan_unos->kategorija )
 			{
 				$brojac_vesti ++;
@@ -139,7 +161,7 @@ TROVI;
 
 			}
 			else
-			{
+			{ //resetuj kategoriju i brojace
 				$brojac_kategorija = 0;
 				$brojac_vesti = 0;
 				$kategorija_flag = $jedan_unos->kategorija;
@@ -147,10 +169,7 @@ TROVI;
 			}
 				//druga kategorija
 
-			if(!empty($jedan_unos->kategorija ))
-				$glavna_klasa =	$kategorije[ $jedan_unos->kategorija ] ;
-			else
-				$glavna_klasa = "politika";
+			
 
 
 			$naslov_vesti = $jedan_unos->naslov;
@@ -188,7 +207,7 @@ NULTI;
 
 
 		$status_klasa = "";
-		if( !empty( $jedan_unos->status ) ){
+		if( true /*!empty( $jedan_unos->status ) || $jedan_unos->status ==0 */){
 			$status_klasa = intval( $jedan_unos->status) ;
 			if(in_array( $status_klasa , array_keys($statusi_trenutno) ) )
 				$status_klasa = $statusi_trenutno[ $status_klasa ] ;
@@ -200,7 +219,7 @@ NULTI;
 		if($brojac_vesti == 0  )	{
 
 			if($brojac_kategorija == 0){
-				$klasa_tr_a = "a0 np category $glavna_klasa"; //0-ti tr; menja se samo cultura
+				$klasa_tr_a = "a$index np category $glavna_klasa"; //0-ti tr; menja se samo cultura
 				$text_upis = $nulti_text;
 				$status_text = "";
 				stampanje_tr_a($klasa_tr_a, $status_text, $text_upis);
