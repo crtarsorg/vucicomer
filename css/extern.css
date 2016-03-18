@@ -89,11 +89,7 @@ p.progress span {
     border-top: 3px solid black;
 }
 
-.promises tr.a1,
-.promises tr.a3,
-.promises tr.a5,
-.promises tr.a7,
-.promises tr.a9 {
+.promises tr:nth-child(odd) {
     background-color: rgba(0, 0, 0, .03);
 }
 
