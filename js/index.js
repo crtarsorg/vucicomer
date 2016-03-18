@@ -1,4 +1,5 @@
 /*
+https://www.trudeaumetre.ca/
 Copyright (c) 2015, Covosoft Corp.
 This code and information are provided "as is" without warranty of any kind, either expressed or implied. In no event shall the authors be liable for any claim, damages or other liability arising from, out of or in connection with this site or its use.
 Author: Dom Bernard
@@ -46,7 +47,8 @@ Date: 01-Nov-2015
 
     $(".search button").on("click", function () {
         $(".search input").val("").change()
-
+        $("tr.a-1").hide();
+        
         if($(".tabs li.active>a ").attr("class").indexOf("all")!=-1 )           
             {
               $("tr").show();
@@ -62,18 +64,19 @@ Date: 01-Nov-2015
 
                 $(this).addClass("selected");
 
-
+                $("tr.a-1").removeClass('hidden')
 
                 if("all" == klasa)
                   {
 
                     $("tr:not(.a-1)").show();
-                    $("tr.a-1)").hide();
+                    $("tr.a-1").hide();
+
                     return;
                   }
 
                 $("tr").each(function () {
-                    $("tr.a-1)").show();
+                    $("tr.a-1"+"."+klasa).show();
                     //na prvom mestu mora biti
                     if ($(this).hasClass($(".selected").attr("class").split(" ")[0])) {
                         $(this).show()

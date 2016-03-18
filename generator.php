@@ -1,6 +1,16 @@
 <?php
 
+function seo_naziv($element='')
+{
+	 $urlForbidenCharacters = array('%',': ','?','š','Š','ž','Ž','ć','Ć','č','Č','đ','Đ','. ','.',', ',' - ','/',' ',"'",'’','`','!','+','(',')','"','®','!','?','\\','*','\'','^','&','#','<','>','; ',';','{','}','(',')','|','~','[',']',
+		'“', '”','„','“');
+	 $urlValidCharacters = array('','-','','s','S','z','Z','c','C','c','C','dj','Dj','','','-','-','-','-','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',
+		'','','','');
 
+	$element = ltrim($element);
+	$element = rtrim($element);
+	return str_replace($urlForbidenCharacters, $urlValidCharacters, $element);
+}
 
 //!!!!1/
 //!
@@ -13,10 +23,15 @@
 	 */
 	ob_start();
 
-	$podaci_json = file_get_contents("data.json"); //http://www.istinomer.rs/api/ocena?akter=15
+
+	$putanja = "http://www.istinomer.rs/api/ocena?premijer=true";
+
+	$podaci_json = file_get_contents($putanja); //http://www.istinomer.rs/api/ocena?akter=15
 	$podaci = json_decode($podaci_json);
 
 
+
+	
 
 	$kategorije = "";
 
@@ -57,7 +72,7 @@
 
 	$politika = array_filter($podaci, function( $el )
 	{
-		return $el->kategorija == 24;
+		return $el->kategorija == 24 /*|| $el->kategorija == 0 || $el->kategorija == null*/ ;
 	});
 	$politika = count($politika );
 
@@ -105,9 +120,29 @@
 BROJAC;
 
 
-	function stampanje_tr_a ($klasa_tr_a='', $status_txt = "", $text_upis = '')
+	function stampanje_tr_a ($klasa_tr_a='', $status_txt = "", $text_upis = '', $period = '')
 	{
-		
+		$title_slika = "";
+
+		switch ($period) {
+			case 'ekspoze':
+				$title_slika = "images/ekspoze.png";	
+				break;
+			case 'pre-ekspoze':
+				$title_slika = "images/obecanja.png";	
+				break;	
+			case 'post-ekspoze':
+				$title_slika = "images/prime.png";	
+				break;	
+			case 'trenutna':
+				$title_slika = "images/kampanja.png";	
+				break;	
+			
+			default:
+				$title_slika = "";		
+				break;
+		}
+
 		if(!strstr($klasa_tr_a,"a-1") && $status_txt == "")  $status_txt = "Not started";
 	$template = <<< TROVI
 	 	<tr class="$klasa_tr_a">
@@ -118,7 +153,8 @@ BROJAC;
 	            $text_upis
 	        </td>
 	        <td class="count">
-	        <!-- count disquss stvari-->
+	        	
+	        	<img class="ikonica $period" src="$title_slika" title="$period ikonica"/>
 	        </td>
 	    </tr>
 
@@ -133,17 +169,20 @@ TROVI;
 
 	//brojac * 2 , broji koliko ima ocena jednog tipa
 
-	$brojac_vesti = 0;
+	$brojac_vesti = -1; //zbog prvog unosa i reda 177 // $brojac_vesti ++;
 	$brojac_kategorija = 0;
 
-	$kategorija_flag = $podaci[0]->kategorija;
+	/*$kategorija_flag = $podaci[0]->kategorija;
 	if(empty($kategorija_flag )){
 		$kategorija_flag = "politika";
-	}
+	}*/
+
+			
 
 	foreach ($podaci as  $jedan_unos) {
 
-
+			$status_text = "";
+	
 			if(!empty($jedan_unos->kategorija ))
 				$glavna_klasa =	$kategorije[ $jedan_unos->kategorija ] ;
 			else{
@@ -170,11 +209,40 @@ TROVI;
 				//druga kategorija
 
 			
+			
 
-
-			$naslov_vesti = $jedan_unos->naslov;
+			$naslov_vesti = stripcslashes($jedan_unos->naslov) ;
 			$title_status = $jedan_unos->status;
-			$link_vest = "http://www.istinomer.rs/ocena/". $jedan_unos->id;
+
+			$datum_slika = "";
+					
+			$datum = strtotime(date_format( date_create_from_format('Y-m-d', $jedan_unos->datum_izjave )  , 'Y-m-d' ) );
+
+
+
+			//var_dump( strtotime($jedan_unos->datum_izjave .' -4 months') );
+
+			$datum_temp = strtotime($jedan_unos->datum_izjave );
+				
+			if( $datum_temp  == strtotime("2014-4-27")){ //ekspoze
+				$datum_slika = "ekspoze";
+				$status_text .= " ekspoze ";
+
+			}
+			else if ($datum_temp > strtotime("2014-1-1") && $datum_temp < strtotime("2014-4-27")){
+					$datum_slika = "pre ekspoze";			
+					$status_text .= " pre ekspoze ";
+			}
+			else if ($datum_temp > strtotime("2014-4-27") && $datum_temp <= strtotime("2016-3-4")){
+					$datum_slika = "post ekspoze";			
+					$status_text .= " post ekspoze ";
+			}
+			else if($datum_temp > strtotime("2016-3-4") && $datum_temp < strtotime("2016-4-24") ){//trenutna kampanja
+				$datum_slika = "trenutna";
+				$status_text .= " trenutna kampanja ";
+			}
+
+			$link_vest = "http://www.istinomer.rs/ocena/". $jedan_unos->id."/".seo_naziv($naslov_vesti);
 
 
 			$index = $brojac_vesti - 1;
@@ -200,9 +268,15 @@ TROVI;
 
 NULTI;
 
+				
+		/*print_r("<pre>");
+				var_dump($brojac_vesti);
+				print_r("</pre>");
+				die();*/
+
 		$text_upis = "";
 
-		$prvi_text  = "Arts".$jedan_unos->tip_ocena;
+		$prvi_text  = "kat".$kategorija_flag.$jedan_unos->tip_ocena;
 		$vest_text = '<a href="'. $link_vest .'" title="'.  $title_status .'">'. $naslov_vesti .'</a>';
 
 
@@ -219,26 +293,21 @@ NULTI;
 		if($brojac_vesti == 0  )	{
 
 			if($brojac_kategorija == 0){
-				$klasa_tr_a = "a$index np category $glavna_klasa"; //0-ti tr; menja se samo cultura
+				$klasa_tr_a = "a$index np category $glavna_klasa hidden"; 
 				$text_upis = $nulti_text;
-				$status_text = "";
-				stampanje_tr_a($klasa_tr_a, $status_text, $text_upis);
+				$status_text .= "";
+				stampanje_tr_a($klasa_tr_a, $status_text, $text_upis,$datum_slika);
 			}
 
 
-			/*$klasa_tr_a = "a0 np subcategory $glavna_klasa"; //1-i tr ; menja se samo cultura
-			$text_upis = $prvi_text;
-			$status_text = '<i class="fa fa-cogs" title="In progress"></i> In progress Inprogress Culture';
-
-			stampanje_tr_a($klasa_tr_a, $status_text, $text_upis);*/
 		}
 
 
 		$klasa_tr_a = "a$index promise $status_klasa $glavna_klasa"; //2-gi tr
 		$text_upis = $vest_text;
-		$status_text = $statusi_filter[$jedan_unos->status] ;
+		$status_text .= $statusi_filter[$jedan_unos->status] ;
 
-		stampanje_tr_a($klasa_tr_a, $status_text, $text_upis);
+		stampanje_tr_a($klasa_tr_a, $status_text, $text_upis,$datum_slika);
 
 
 } //for brojac
