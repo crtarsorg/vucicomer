@@ -230,11 +230,11 @@ TROVI;
 
 			}
 			else if ($datum_temp > strtotime("2014-1-1") && $datum_temp < strtotime("2014-4-27")){
-					$datum_slika = "pre ekspoze";			
+					$datum_slika = "pre-ekspoze";			
 					$status_text .= " pre ekspoze ";
 			}
 			else if ($datum_temp > strtotime("2014-4-27") && $datum_temp <= strtotime("2016-3-4")){
-					$datum_slika = "post ekspoze";			
+					$datum_slika = "post-ekspoze";			
 					$status_text .= " post ekspoze ";
 			}
 			else if($datum_temp > strtotime("2016-3-4") && $datum_temp < strtotime("2016-4-24") ){//trenutna kampanja
