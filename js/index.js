@@ -14,6 +14,25 @@ Date: 01-Nov-2015
         $(".search input").val($(this).data("search")).change()
     });
 
+
+    $(".filter-ikonica").click(function(ev) {
+      //console.log();
+      if( this.className.indexOf('post-ekspoze-filter')!=-1 ){
+        $('tr').show()
+         $('tr img:not(.post-ekspoze)').parents().filter('tr').hide()
+      }
+      else if( this.className.indexOf('pre-ekspoze-filter')!=-1  ) {
+        $('tr').show()
+        $('tr img:not(.pre-ekspoze)').parents().filter('tr').hide()
+      }
+      else if( this.className.indexOf('ekspoze-filter')!=-1  ) {
+        $('tr').show()
+        $('tr  img:not(.ekspoze)').parents().filter('tr').hide()
+      }
+
+
+    })
+
     $("input[type=search]").on("keyup search input paste cut change", function () {
         var filter = $(this).val();
         count = 0;

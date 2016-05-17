@@ -231,11 +231,11 @@ TROVI;
 			}
 			else if ($datum_temp > strtotime("2014-1-1") && $datum_temp < strtotime("2014-4-27")){
 					$datum_slika = "pre-ekspoze";			
-					$status_text .= " pre ekspoze ";
+					$status_text .= " preEk ";
 			}
 			else if ($datum_temp > strtotime("2014-4-27") && $datum_temp <= strtotime("2016-3-4")){
 					$datum_slika = "post-ekspoze";			
-					$status_text .= " post ekspoze ";
+					$status_text .= " postEk ";
 			}
 			else if($datum_temp > strtotime("2016-3-4") && $datum_temp < strtotime("2016-4-24") ){//trenutna kampanja
 				$datum_slika = "trenutna";
@@ -277,7 +277,7 @@ NULTI;
 		$text_upis = "";
 
 		$prvi_text  = "kat".$kategorija_flag.$jedan_unos->tip_ocena;
-		$vest_text = '<a href="'. $link_vest .'" title="'.  $title_status .'">'. $naslov_vesti .'</a>';
+		$vest_text = '<a target="_blank" href="'. $link_vest .'" title="'.  $title_status .'">'. $naslov_vesti .'</a>';
 
 
 		$status_klasa = "";
