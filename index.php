@@ -37,6 +37,9 @@
                 </h1>
             </div>
         </header>
+
+        <?php include 'social.php'; ?>
+
 		<section class="container">
             <div class="row">
     		    <div class="summary col-xs-12 col-sm-4">
@@ -46,7 +49,7 @@
                           <span title="od 27. aprila 2014 godine">Dani mandata:</span> <b></b>
     		            </h2>
     		        </div>
-    		        <a data-scroll="" href="#promises">
+    		        <a data-scroll="" href="#obecanja">
     		            <div class="notstarted" data-search="Not started">
     		                <h2>
     		                	<!-- <i class="fa fa-hourglass-start"></i> -->
@@ -103,11 +106,11 @@
 
    
 
-        <section class="container promises" id="promises">
+        <section class="container obecanja" id="obecanja">
             <div class="search">
-                <button class="btn btn-primary">Reset promise table</button>
+                <button class="btn btn-primary">Reset </button>
                 <!-- <i class="fa fa-search"></i>  -->
-                <input class="col-xs-12 col-sm-4" type="search" placeholder="Search...">
+                <input class="col-xs-12 col-sm-4" type="search" placeholder="Pretraga...">
                  <span id="count"></span>
             </div>
             
@@ -139,7 +142,9 @@
         
 
         <footer>
-            <p>Powered by Istinomer</p>
+            <a href="http://www.istinomer.rs">
+                <p>Powered by Istinomer</p>
+            </a>
         </footer>
 
 		<script src="bootstrap/js/bootstrap.min.js"></script>

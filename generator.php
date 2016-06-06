@@ -26,6 +26,8 @@ function seo_naziv($element='')
 
 	$putanja = "http://www.istinomer.rs/api/ocena?premijer=true";
 
+	//sacuvati fajl
+
 	$podaci_json = file_get_contents($putanja); //http://www.istinomer.rs/api/ocena?akter=15
 	$podaci = json_decode($podaci_json);
 

@@ -51,9 +51,9 @@ Date: 01-Nov-2015
             $(".search button").show();
             $(".tabs").addClass("inactive");
             if (count == 1) {
-                $("#count").html("1 match")
+                $("#count").html("1 obećanje")
             } else {
-                $("#count").html(count + " matches")
+                $("#count").html(count + " obećanja")
             };
         } else {
             $(".search button").hide();
