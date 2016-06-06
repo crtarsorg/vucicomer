@@ -100,8 +100,8 @@ $jedna_vest = array_pop( $jedna_vest ) ;
     <div class="container">
         <div class="content">
             
-            <!-- <div class="sharepromise">
-                <i class="fa fa-arrow-left"></i> Share this promise!
+            <!-- <div class="shareobecanje">
+                <i class="fa fa-arrow-left"></i> Share this obecanje!
             </div> -->
             <h2> 
                 <i class="fa fa-university"></i> <?php echo $jedna_vest->naslov;  ?>
@@ -123,7 +123,7 @@ $jedna_vest = array_pop( $jedna_vest ) ;
 
         <div class="status pull-right"> 
                
-              <span>       <i class="fa fa-cogs"></i>In progress</span>
+              <span>       <i class="fa fa-cogs"></i>U procesu</span>
                
             <p> 
                 <span> <?php echo $jedna_vest->izvor; ?> </a> </span>

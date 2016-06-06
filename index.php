@@ -50,28 +50,28 @@
     		            </h2>
     		        </div>
     		        <a data-scroll="" href="#obecanja">
-    		            <div class="notstarted" data-search="Not started">
+    		            <div class="beleznica" data-search="Beleznica">
     		                <h2>
     		                	<!-- <i class="fa fa-hourglass-start"></i> -->
     		                	<span>Beležnica: <b class="count"></b> od <b class="total"></b></span>
     		                </h2>
     		                <p class="progress"><span></span></p>
     		            </div>
-    		            <div class="inprogress" data-search="In progress">
+    		            <div class="uprocesu" data-search="U procesu">
     		                <h2>
     		                	<!-- <i class="fa fa-cogs"></i> -->
     		                	<span>U procesu: <b class="count"></b> od <b class="total"></b></span>
     		                </h2>
     		                <p class="progress"><span></span></p>
     		            </div>
-    		            <div class="achieved" data-search="Achieved">
+    		            <div class="ispunjeno" data-search="Ispunjeno">
     		                <h2>
     		                	<!-- <i class="fa fa-check-circle-o"></i> -->
     		                	<span>Ispunjeno: <b class="count"></b> od <b class="total"></b></span>
     		                </h2>
     		                <p class="progress"><span></span></p>
     		            </div>
-    		            <div class="broken" data-search="Broken">
+    		            <div class="neispunjeno" data-search="Neispunjeno">
     		                <h2>
                                 <!-- <i class="fa fa-ban"></i> -->
                                 <span>Neispunjeno: <b class="count"></b> od <b class="total"></b></span>
@@ -139,7 +139,16 @@
 
         </section>
 
-        
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+        <div class="fb-comments" data-href="http://www.vucicomer.rs" data-numposts="5"></div>
 
         <footer>
             <a href="http://www.istinomer.rs">

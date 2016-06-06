@@ -64,9 +64,9 @@ function seo_naziv($element='')
 		);
 
 
-	$statusi_filter = array(18=>"Achieved", 23 =>'In progress', 22 =>'In progress' , '19' =>'Not started', 20=>'Broken', 21=>'Broken',  0=>'Not started' ); //Not started In progress Achieved Broken ;
+	$statusi_filter = array(18=>"Ispunjeno", 23 =>'U procesu', 22 =>'U procesu' , '19' =>'Beleznica', 20=>'neispunjeno', 21=>'neispunjeno',  0=>'Beleznica' ); //Beleznica U procesu ispunjeno neispunjeno ;
 
-	$statusi_trenutno =  array(18=>"achieved", 23 =>'inprogress', 22 =>'inprogress' , 19 =>'notstarted', 20=>'broken', 21=>'broken', 0 =>'notstarted');
+	$statusi_trenutno =  array(18=>"ispunjeno", 23 =>'uprocesu', 22 =>'uprocesu' , 19 =>'beleznica', 20=>'neispunjeno', 21=>'neispunjeno', 0 =>'beleznica');
 
 
 	$kategorije = array(24 =>'politika', 25 =>'ekonomija', 26 =>'kultura', 27 =>'zdravstvo', 28 =>'drustvo',  );
@@ -145,7 +145,7 @@ BROJAC;
 				break;
 		}
 
-		if(!strstr($klasa_tr_a,"a-1") && $status_txt == "")  $status_txt = "Not started";
+		if(!strstr($klasa_tr_a,"a-1") && $status_txt == "")  $status_txt = "Beleznica";
 	$template = <<< TROVI
 	 	<tr class="$klasa_tr_a">
 	        <td class="status">
@@ -255,16 +255,16 @@ TROVI;
 			$nulti_text = <<<NULTI
 
 
-			<div class="notstarted" title="Not yet started"><i class="fa fa-hourglass-start"></i><b class="$glavna_klasa">0</b>
+			<div class="beleznica" title="Beleznica"><i class="fa fa-hourglass-start"></i><b class="$glavna_klasa">0</b>
 		        <p class="progress"><span></span></p>
 		    </div>
-		    <div class="inprogress" title="In progress"><i class="fa fa-cogs"></i><b class="$glavna_klasa">0</b>
+		    <div class="uprocesu" title="U procesu"><i class="fa fa-cogs"></i><b class="$glavna_klasa">0</b>
 		        <p class="progress"><span></span></p>
 		    </div>
-		    <div class="achieved" title="Achieved"><i class="fa fa-check-circle-o"></i><b class="$glavna_klasa">0</b>
+		    <div class="ispunjeno" title="ispunjeno"><i class="fa fa-check-circle-o"></i><b class="$glavna_klasa">0</b>
 		        <p class="progress"><span></span></p>
 		    </div>
-		    <div class="broken" title="Broken"><i class="fa fa-ban"></i><b class="$glavna_klasa">0</b>
+		    <div class="neispunjeno" title="neispunjeno"><i class="fa fa-ban"></i><b class="$glavna_klasa">0</b>
 		        <p class="progress"><span></span></p>
 		    </div>
 
@@ -305,7 +305,7 @@ NULTI;
 		}
 
 
-		$klasa_tr_a = "a$index promise $status_klasa $glavna_klasa"; //2-gi tr
+		$klasa_tr_a = "a$index obecanje $status_klasa $glavna_klasa"; //2-gi tr
 		$text_upis = $vest_text;
 		$status_text .= $statusi_filter[$jedan_unos->status] ;
 

@@ -113,7 +113,7 @@ Date: 01-Nov-2015
 
 function izracunaj () {
 
-    var grandtotal = $("tr.promise").length;
+    var grandtotal = $("tr.obecanje").length;
 
     $(".summary b.count").each(function () {
         var classOfSuperCategory = $(this).closest("div").attr("class");
@@ -135,7 +135,7 @@ function izracunaj () {
 
     $("tr.category p.progress span").each(function () {
         var classOfCategory = $(this).parent().parent().children("b").attr("class");
-        var total = $("tr.promise." + classOfCategory ).length;
+        var total = $("tr.obecanje." + classOfCategory ).length;
         $(this).css("width", ($("tr." + $(this).parent().parent().attr("class") + "." + $(this).parent().parent().children("b").attr("class")).length * 100 / total) + "%")
     });
 

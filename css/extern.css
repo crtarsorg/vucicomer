@@ -60,7 +60,7 @@ p.progress span {
     cursor: default;
 }
 
-.promises table {
+.obecanja table {
     width: 100%;
     background-color: white;
     border-collapse: collapse;
@@ -68,43 +68,43 @@ p.progress span {
     border-bottom: 1px solid #ddd;
 }
 
-.promises tr.culture,
-.promises tr.economy,
-.promises tr.environment,
-.promises tr.immigration,
-.promises tr.indigenouspeoples,
-.promises tr.security {
+.obecanja tr.culture,
+.obecanja tr.economy,
+.obecanja tr.environment,
+.obecanja tr.immigration,
+.obecanja tr.indigenouspeoples,
+.obecanja tr.security {
     display: none;
 }
 
-.promises tr {
+.obecanja tr {
     font-size: 13px;
     background-color: white;
     border-top: 1px solid #ddd;
 }
 
-.promises tr.subcategory {
+.obecanja tr.subcategory {
     font-size: 14px;
     text-transform: uppercase;
     border-top: 3px solid black;
 }
 
-.promises tr:nth-child(odd) {
+.obecanja tr:nth-child(odd) {
     background-color: rgba(0, 0, 0, .03);
 }
 
-tr.notstarted:hover,
-tr.inprogress:hover,
-tr.achieved:hover,
-tr.broken:hover {
+tr.beleznica:hover,
+tr.uprocesu:hover,
+tr.ispunjeno:hover,
+tr.neispunjeno:hover {
     background-color: rgba(0, 0, 0, .06);
 }
 
-.promises td {
+.obecanja td {
     padding: 10px 0 10px 10px;
 }
 
-.promises td a:hover {
+.obecanja td a:hover {
     text-decoration: underline;
 }
 
@@ -150,35 +150,35 @@ td.count {
     color: dodgerblue !important;
 }
 
-.notstarted, .notstarted a {
+.beleznica, .beleznica a {
     color: gray !important;
 }
 
-.notstarted p.progress span {
+.beleznica p.progress span {
     background-color: gray;
 }
 
-.inprogress, .inprogress a {
+.uprocesu, .uprocesu a {
     color: orange !important;
 }
 
-.inprogress p.progress span {
+.uprocesu p.progress span {
     background-color: orange !important;
 }
 
-.achieved, .achieved a {
+.ispunjeno, .ispunjeno a {
     color: rgb(0, 200, 100) !important;
 }
 
-.achieved p.progress span {
+.ispunjeno p.progress span {
     background-color: rgb(0, 200, 100) !important;
 }
 
-.broken, .broken a {
+.neispunjeno, .neispunjeno a {
     color: indianred !important;
 }
 
-.broken p.progress span {
+.neispunjeno p.progress span {
     background-color: indianred !important;
 }
 
@@ -318,19 +318,19 @@ td.count {
     border-left: 5px solid;
 }
 
-.article.notstarted {
+.article.beleznica {
     border-left-color: gray;
 }
 
-.article.inprogress {
+.article.uprocesu {
     border-left-color: orange;
 }
 
-.article.achieved {
+.article.ispunjeno {
     border-left-color: rgb(0, 200, 100);
 }
 
-.article.broken {
+.article.neispunjeno {
     border-left-color: indianred;
 }
 
