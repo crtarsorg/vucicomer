@@ -1,5 +1,7 @@
 <?php
 
+$filename = "data_all.json";
+
 function seo_naziv($element='')
 {
 	 $urlForbidenCharacters = array('%',': ','?','š','Š','ž','Ž','ć','Ć','č','Č','đ','Đ','. ','.',', ',' - ','/',' ',"'",'’','`','!','+','(',')','"','®','!','?','\\','*','\'','^','&','#','<','>','; ',';','{','}','(',')','|','~','[',']',
@@ -10,6 +12,24 @@ function seo_naziv($element='')
 	$element = ltrim($element);
 	$element = rtrim($element);
 	return str_replace($urlForbidenCharacters, $urlValidCharacters, $element);
+}
+
+function napravi_json_fajl(  )
+{
+	
+	$putanja = "http://www.istinomer.rs/api/ocena?premijer=true";
+	$podaci_json = file_get_contents($putanja); 
+	$rezultat_upisa = file_put_contents($filename, $podaci_json);
+	return json_decode($podaci_json);
+}
+
+function citaj_iz_fajla( )
+{
+	if( !file_exists($putanja) )
+		return false;
+
+	$podaci_json = file_get_contents($putanja); 
+	return json_decode($podaci_json);
 }
 
 //!!!!1/
@@ -24,13 +44,24 @@ function seo_naziv($element='')
 	ob_start();
 
 
-	$putanja = "http://www.istinomer.rs/api/ocena?premijer=true";
+	//cuvanje u fajl
+	//osvezavanje jednom dnevno
+	
+	// periodi
+
+	/*$putanja = "http://www.istinomer.rs/api/ocena?premijer=true";
+
+
 
 	//sacuvati fajl
 
 	$podaci_json = file_get_contents($putanja); //http://www.istinomer.rs/api/ocena?akter=15
 	$podaci = json_decode($podaci_json);
-
+*/
+	$podaci = citaj_iz_fajla();
+	if( !$podaci ){
+		$podaci = napravi_json_fajl();
+	}
 
 
 	
@@ -64,7 +95,7 @@ function seo_naziv($element='')
 		);
 
 
-	$statusi_filter = array(18=>"Ispunjeno", 23 =>'U procesu', 22 =>'U procesu' , '19' =>'Beleznica', 20=>'neispunjeno', 21=>'neispunjeno',  0=>'Beleznica' ); //Beleznica U procesu ispunjeno neispunjeno ;
+	$statusi_filter = array(18=>"Ispunjeno", 23 =>'U procesu', 22 =>'U procesu' , '19' =>'Beleznica', 20=>'Neispunjeno', 21=>'Neispunjeno',  0=>'Beleznica' ); //Beleznica U procesu ispunjeno neispunjeno ;
 
 	$statusi_trenutno =  array(18=>"ispunjeno", 23 =>'uprocesu', 22 =>'uprocesu' , 19 =>'beleznica', 20=>'neispunjeno', 21=>'neispunjeno', 0 =>'beleznica');
 

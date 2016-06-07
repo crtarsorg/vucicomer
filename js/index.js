@@ -8,6 +8,11 @@ Date: 01-Nov-2015
 */
 
 
+
+//js za matricno filtriranje - periodi + kategorije 
+// ukupno ocena po kategorija
+
+
   function init() {
 
     $(".summary a div").on("click", function () {
@@ -16,18 +21,34 @@ Date: 01-Nov-2015
 
 
     $(".filter-ikonica").click(function(ev) {
+
+
+      //klasa kategorije
+      var kl_sel = $("li.active .selected").attr("class");
+      if(kl_sel != undefined ){
+        kl_sel = kl_sel.replace('selected','').trim();
+        
+        if(kl_sel == "all")
+          kl_sel = "";
+        else 
+          kl_sel = "." + kl_sel;  
+      }
+      else kl_sel = "";
+
+
+
       //console.log();
       if( this.className.indexOf('post-ekspoze-filter')!=-1 ){
-        $('tr').show()
-         $('tr img:not(.post-ekspoze)').parents().filter('tr').hide()
+        $('tr' + kl_sel ).show() // prikazi samo tu kategoriju
+        $('tr img:not(.post-ekspoze)').parents().filter('tr' ).hide()
       }
       else if( this.className.indexOf('pre-ekspoze-filter')!=-1  ) {
-        $('tr').show()
-        $('tr img:not(.pre-ekspoze)').parents().filter('tr').hide()
+        $('tr'+ kl_sel).show()
+        $('tr  img:not(.pre-ekspoze)').parents().filter('tr').hide()
       }
       else if( this.className.indexOf('ekspoze-filter')!=-1  ) {
-        $('tr').show()
-        $('tr  img:not(.ekspoze)').parents().filter('tr').hide()
+        $('tr'+ kl_sel).show()
+        $('tr img:not(.ekspoze)').parents().filter('tr').hide()
       }
 
 

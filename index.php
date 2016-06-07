@@ -47,7 +47,12 @@
     		            <h2>
     		                <!-- <i class="fa fa-calendar"></i> -->
                           <span title="od 27. aprila 2014 godine">Dani mandata:</span> <b></b>
+
+                         
     		            </h2>
+                         <button class="btn1">Prvi period</button>
+                          <button class="btn2">Drugi period</button>
+                          <button class="btn3">Treci period</button>
     		        </div>
     		        <a data-scroll="" href="#obecanja">
     		            <div class="beleznica" data-search="Beleznica">
