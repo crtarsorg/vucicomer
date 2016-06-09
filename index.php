@@ -241,9 +241,9 @@
             <div class="container">
                 <div class="pull-right">
                     
-                   <div class="ikonica post-ekspoze-filter filter-ikonica period-14"></div>
-                   <div class="ikonica pre-ekspoze-filter filter-ikonica period-16" ></div>
-                   <div class="ikonica ekspoze-filter filter-ikonica period-X"></div>
+                   <div class="ikonica period-14-filter filter-ikonica period-14"></div>
+                   <div class="ikonica period-16-filter filter-ikonica period-16" ></div>
+                   <div class="ikonica period-X-filter filter-ikonica period-X"></div>
                    <!--  <img class="ikonica post-ekspoze-filter filter-ikonica" src="images/12-14.svg" title="Izjave posle ekspozea">
                    <img class="ikonica pre-ekspoze-filter filter-ikonica" src="images/14-16.svg" title="Izjave pre ekspozea">
                    <img class="ikonica ekspoze-filter filter-ikonica" src="images/16-X.svg" title="Izjave date u ekspozeu"> -->

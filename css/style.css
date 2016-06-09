@@ -103,7 +103,7 @@ td.text div {
 	float: left;
 }
 td.text {
-	width: 100%;
+	width: 90%;
 }
 .text {
 	padding-top: 20px;
@@ -139,3 +139,6 @@ footer a {
 		text-align: center;
 	}
 }
+
+.pomeraj-ikonice{ transform: translateY(8px); }
+.ikonica-2{width: 40px;}

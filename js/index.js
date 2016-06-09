@@ -43,18 +43,18 @@ Date: 01-Nov-2015
       // kad je all - sakrij sve tr.category
 
       
-      if( this.className.indexOf('post-ekspoze-filter')!=-1 ){
+      if( this.className.indexOf('period-14-filter')!=-1 ){
 
         $('tr' + kl_sel ).show() // prikazi samo tu kategoriju
-        $('tr img:not(.post-ekspoze)').parents().filter('tr' ).hide()
+        $('tr div:not(.period-14)').parents().filter('tr' ).hide()
       }
-      else if( this.className.indexOf('pre-ekspoze-filter')!=-1  ) {
+      else if( this.className.indexOf('period-16-filter')!=-1  ) {
         $('tr'+ kl_sel).show()
-        $('tr  img:not(.pre-ekspoze)').parents().filter('tr').hide()
+        $('tr  div:not(.period-16)').parents().filter('tr').hide()
       }
-      else if( this.className.indexOf('ekspoze-filter')!=-1  ) {
+      else if( this.className.indexOf('period-X')!=-1  ) {
         $('tr'+ kl_sel).show()
-        $('tr img:not(.ekspoze)').parents().filter('tr').hide()
+        $('tr div:not(.period-X)').parents().filter('tr').hide()
       }
 
 
