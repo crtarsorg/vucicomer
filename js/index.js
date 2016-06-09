@@ -10,7 +10,7 @@ Date: 01-Nov-2015
 
 
 //js za matricno filtriranje - periodi + kategorije 
-// ukupno ocena po kategorija
+// ukupno ocena po kategorijama
 
 
   function init() {
@@ -35,10 +35,16 @@ Date: 01-Nov-2015
       }
       else kl_sel = "";
 
+      if(kl_sel == ""){
+        $("tr.category").hide();
 
+      }
 
-      //console.log();
+      // kad je all - sakrij sve tr.category
+
+      
       if( this.className.indexOf('post-ekspoze-filter')!=-1 ){
+
         $('tr' + kl_sel ).show() // prikazi samo tu kategoriju
         $('tr img:not(.post-ekspoze)').parents().filter('tr' ).hide()
       }

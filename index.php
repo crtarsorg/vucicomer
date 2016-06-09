@@ -12,7 +12,7 @@
 		<meta name="mobile-web-app-capable" content="yes">
     	<meta name="apple-mobile-web-app-capable" content="yes">
 
-		<title>Vučićomer</title>
+		
 		<!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"></link> -->
 
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
@@ -24,8 +24,118 @@
      <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/10.0.0/js/smooth-scroll.min.js"></script>
 
      <style type="text/css">
-     .ikonica{height: 25px;}
+     .ikonica{
+        height: 25px; 
+        width: 25px;
+        border-radius: 12px;
+        display: inline-block;
+    }
+
+    .dani-vlasti{
+        box-shadow: 2px 4px 10px 5px rgb(200, 200, 200);
+        border-radius: 10px 10px 10px 10px;
+        /* min-height: 30px; */
+        padding: 15px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .dani-vlasti span{text-transform: uppercase;}
+    
+    .dugme-active{
+        transform: translateY(-2px);
+        border-radius: 0 0 10px 10px;
+    }
+    .period-14-donji{border-radius: 5px 5px 5px 0px !important;}
+    .period-16-donji{border-radius: 5px 5px 5px 5px !important;}
+    .period-X-donji{border-radius: 5px 5px 0px 5px !important;}
+
+    .period-14-gornji{border-radius: 0px 0px 10px 10px !important;}
+    .period-16-gornji{border-radius: 0px 0px 10px 10px !important;}
+    .period-X-gornji{border-radius: 0px 0px 10px 10px !important;}
+
+    .dugme {
+      /*   -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75); */
+        box-shadow: 5px 5px 5px 0px rgb(227, 225, 226);
+        
+        border-radius: 10px 10px 10px 10px;
+      /*   -moz-border-radius: 10px 10px 10px 10px;
+      -webkit-border-radius: 10px 10px 10px 10px; */
+        border: 0px solid #000000;
+        padding: 10px;
+        min-width: 100px;
+        width: 32.5%;
+        display: inline-block;
+        text-align: center;
+        cursor: pointer;
+     }   
+
+    .belo{color: white;}
+    .period-14{ background-color: #58595b; }
+    .period-16{ background-color: #72b1c8; } 
+    .period-X{ background-color: #f1f2f2; } 
+    .ikonice-glavno{    
+        position: absolute;
+        left: -10%;    
+        margin-top: -15px;
+    }
+    .dodatno{
+        min-height: 35px;
+        box-shadow: 5px 5px 5px 0px rgb(227, 225, 226);
+        border-radius: 5px 5px 5px 5px;
+        margin-bottom: 2px;
+        text-align: center;
+        padding: 5px;
+
+    }
+    .filter-ikonica{cursor: pointer;}
      </style>
+
+  
+  
+
+     <script type="text/javascript">
+         $(function() {
+            $(".dugme").click(function(ev) {
+
+                $(".dugme").removeClass (function (index, css) {
+                        return (css.match (/period-\d+-gornji$/g) || []).join(' ');
+                    });
+
+                $(".dugme").removeClass('dugme-active')
+
+                var ime = $(this).attr('class');
+                var d_klasa = "";
+
+                if(ime.indexOf('period-14')!= -1 ){
+                    d_klasa = "period-14";
+                }
+                else if(ime.indexOf('period-16')!= -1 ){
+                    d_klasa = "period-16";
+                }
+                else if(ime.indexOf('period-X')!= -1 ){
+                    d_klasa = "period-X";
+                }
+
+                
+                $(this).addClass('dugme-active')
+                $(".dugme").removeClass(d_klasa+"-gornji")
+
+                $(".dodatno").html('dugme-active')
+                $dodat = $(".dodatno").removeClass();
+                $dodat.addClass("dodatno")
+                $dodat.addClass(d_klasa)
+
+                $dodat.addClass(d_klasa+"-donji")
+                $(this).addClass(d_klasa+"-gornji")  
+
+                if(d_klasa !="period-X"){
+                    $dodat.addClass("belo")
+                      
+                }
+            });
+         })
+     </script>
 	</head>
 	<body>
 		<header class="container-fluid">
@@ -43,44 +153,55 @@
 		<section class="container">
             <div class="row">
     		    <div class="summary col-xs-12 col-sm-4">
-    		        <div class="daysinoffice">
-    		            <h2>
+    		        <div class="daysinoffice ">
+    		            <h2 class="dani-vlasti">
     		                <!-- <i class="fa fa-calendar"></i> -->
-                          <span title="od 27. aprila 2014 godine">Dani mandata:</span> <b></b>
+                          <span title="od 27. aprila 2014 godine">Ukupno na vlasti:</span> <b>-0</b> <span>dana</span>
 
                          
     		            </h2>
-                         <button class="btn1">Prvi period</button>
-                          <button class="btn2">Drugi period</button>
-                          <button class="btn3">Treci period</button>
+
+                        <div>
+                            <div class="dodatno hidden "></div>
+                            <div class="dugme period-14 belo">2012-2014</div>
+                            <div class="dugme period-16 belo">2014-2016</div>
+                            <div class="dugme period-X">2016-</div>
+                        </div>
+                         
     		        </div>
     		        <a data-scroll="" href="#obecanja">
     		            <div class="beleznica" data-search="Beleznica">
     		                <h2>
-    		                	<!-- <i class="fa fa-hourglass-start"></i> -->
-    		                	<span>Beležnica: <b class="count"></b> od <b class="total"></b></span>
+    		                	
+    		                	<span>Beležnica: <b class="count"></b>/<b class="total"></b></span>
     		                </h2>
-    		                <p class="progress"><span></span></p>
+    		              
+                           <img class="ikonice-glavno" src="images/ikonica-beleznica.svg"> 
+                           <p class="progress"><span></span></p>
+                          
     		            </div>
     		            <div class="uprocesu" data-search="U procesu">
     		                <h2>
     		                	<!-- <i class="fa fa-cogs"></i> -->
-    		                	<span>U procesu: <b class="count"></b> od <b class="total"></b></span>
+    		                	<span>U procesu: <b class="count"></b>/<b class="total"></b></span>
     		                </h2>
+                            <img class="ikonice-glavno" src="images/ikonica-u-procesu.svg"> 
     		                <p class="progress"><span></span></p>
     		            </div>
     		            <div class="ispunjeno" data-search="Ispunjeno">
     		                <h2>
     		                	<!-- <i class="fa fa-check-circle-o"></i> -->
-    		                	<span>Ispunjeno: <b class="count"></b> od <b class="total"></b></span>
+    		                	<span>Ispunjeno: <b class="count"></b>/<b class="total"></b></span>
     		                </h2>
+                             <img class="ikonice-glavno" src="images/ikonica-ispunjeno.svg"> 
     		                <p class="progress"><span></span></p>
     		            </div>
     		            <div class="neispunjeno" data-search="Neispunjeno">
     		                <h2>
                                 <!-- <i class="fa fa-ban"></i> -->
-                                <span>Neispunjeno: <b class="count"></b> od <b class="total"></b></span>
+                                <span>Neispunjeno: <b class="count"></b>/<b class="total"></b></span>
                             </h2>
+                            <img class="ikonice-glavno" src="images/ikonica-neispunjeno.svg"> 
     		                <p class="progress"><span></span></p>
     		            </div>
     		        </a>
@@ -105,9 +226,7 @@
             </div>
 		</section>
 
-  <style type="text/css">
-  .filter-ikonica{cursor: pointer;}
-  </style>   
+  
 
    
 
@@ -121,9 +240,13 @@
             
             <div class="container">
                 <div class="pull-right">
-                    <img class="ikonica post-ekspoze-filter filter-ikonica" src="images/prime.png" title="Izjave posle ekspozea">
-                    <img class="ikonica pre-ekspoze-filter filter-ikonica" src="images/obecanja.png" title="Izjave pre ekspozea">
-                    <img class="ikonica ekspoze-filter filter-ikonica" src="images/ekspoze.png" title="Izjave date u ekspozeu">
+                    
+                   <div class="ikonica post-ekspoze-filter filter-ikonica period-14"></div>
+                   <div class="ikonica pre-ekspoze-filter filter-ikonica period-16" ></div>
+                   <div class="ikonica ekspoze-filter filter-ikonica period-X"></div>
+                   <!--  <img class="ikonica post-ekspoze-filter filter-ikonica" src="images/12-14.svg" title="Izjave posle ekspozea">
+                   <img class="ikonica pre-ekspoze-filter filter-ikonica" src="images/14-16.svg" title="Izjave pre ekspozea">
+                   <img class="ikonica ekspoze-filter filter-ikonica" src="images/16-X.svg" title="Izjave date u ekspozeu"> -->
                 </div>
 
             </div>
@@ -143,17 +266,22 @@
             </table>
 
         </section>
+        <section class="container container-border">
+            <div id="fb-root"></div>
+            <script>(function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
 
-        <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
 
-        <div class="fb-comments" data-href="http://www.vucicomer.rs" data-numposts="5"></div>
+
+            <div class="fb-comments " data-href="http://www.vucicomer.rs" data-numposts="5" data-width="1000px"></div>
+        </section>
+
+        
 
         <footer>
             <a href="http://www.istinomer.rs">

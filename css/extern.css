@@ -147,17 +147,19 @@ td.count {
 
 .summary .daysinoffice i.fa,
 .summary .daysinoffice b {
-    color: dodgerblue !important;
+    color: #D02027 !important;
 }
 
-.beleznica, .beleznica a {
+/* .beleznica, .beleznica  */
+/* a {
     color: gray !important;
-}
+} */
 
-.beleznica p.progress span {
+/* .beleznica */ 
+p.progress span {
     background-color: gray;
 }
-
+/* 
 .uprocesu, .uprocesu a {
     color: orange !important;
 }
@@ -180,7 +182,7 @@ td.count {
 
 .neispunjeno p.progress span {
     background-color: indianred !important;
-}
+} */
 
 .banner {
     position: absolute;
