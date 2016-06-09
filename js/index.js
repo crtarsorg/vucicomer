@@ -1,18 +1,60 @@
-/*
-https://www.trudeaumetre.ca/
-Copyright (c) 2015, Covosoft Corp.
-This code and information are provided "as is" without warranty of any kind, either expressed or implied. In no event shall the authors be liable for any claim, damages or other liability arising from, out of or in connection with this site or its use.
-Author: Dom Bernard
-Email: contact@covosoft.com
-Date: 01-Nov-2015
-*/
-
-
-
-//js za matricno filtriranje - periodi + kategorije 
-// ukupno ocena po kategorijama
 
   
+
+
+  $(function() {
+            $(".dugme").click(function(ev) {
+
+
+
+
+                $(".dugme").removeClass (function (index, css) {
+                        return (css.match (/period-\d+-gornji$/g) || []).join(' ');
+                    });
+
+                $(".dugme").removeClass('dugme-active')
+
+                var ime = $(this).attr('class');
+                var d_klasa = "";
+                var tekst_temp = "";
+
+                if(ime.indexOf('period-14')!= -1 ){
+                    d_klasa = "period-14";
+                    tekst_temp = "Prvi potpredsednik Vlade republike Srbije";
+                }
+                else if(ime.indexOf('period-16')!= -1 ){
+                    d_klasa = "period-16";
+                    tekst_temp = 'Predsednik Vlade republike Srbije - prvi mandat';
+                }
+                else if(ime.indexOf('period-X')!= -1 ){
+                    d_klasa = "period-X";
+                    tekst_temp = 'Predsednik Vlade republike Srbije - drugi mandat';
+                }
+
+
+                //Ukloni sve koji nisu u tom periodu  
+
+                
+                $(this).addClass('dugme-active')
+                $(".dugme").removeClass(d_klasa+"-gornji")
+
+                 
+
+                $(".dodatno").html( tekst_temp )
+                $dodat = $(".dodatno").removeClass();
+                $dodat.addClass("dodatno")
+                $dodat.addClass(d_klasa)
+
+                $dodat.addClass(d_klasa+"-donji")
+                $(this).addClass(d_klasa+"-gornji")  
+
+                if(d_klasa !="period-X"){
+                    $dodat.addClass("belo")
+                      
+                }
+            });
+         })
+
   function init() {
 
     $(".summary a div").on("click", function () {
@@ -77,7 +119,7 @@ Date: 01-Nov-2015
         });
 
         if ($(this).val()) {
-            $(".search button").show();
+           
             $(".tabs").addClass("inactive");
             if (count == 1) {
                 $("#count").html("1 obećanje")
@@ -85,7 +127,7 @@ Date: 01-Nov-2015
                 $("#count").html(count + " obećanja")
             };
         } else {
-            $(".search button").hide();
+           
             $(".tabs").removeClass("inactive");
             $("#count").empty();
             $("tr").hide();
@@ -93,7 +135,7 @@ Date: 01-Nov-2015
         };
     });
 
-    $(".search button").on("click", function () {
+    $(".reset-search").on("click", function () {
         $(".search input").val("").change()
         $("tr.a-1").hide();
         
@@ -105,7 +147,23 @@ Date: 01-Nov-2015
     });
 
     $(".tabs a").on("click", function () {
+      var dugme_active = $('.dugme-active').attr('class') || "";
+      var d_klasa ="";
+
+      if(dugme_active.indexOf('period-14')!= -1 ){
+          d_klasa = "period-14";      
+      }
+      else if(dugme_active.indexOf('period-16')!= -1 ){
+          d_klasa = "period-16";          
+      }
+      else if(dugme_active.indexOf('period-X')!= -1 ){
+          d_klasa = "period-X";
+          
+      }
+
+
         if (!$(this).parent().hasClass("inactive")) {
+
             if (!$(this).hasClass("selected")) {
                 $(".tabs a").removeClass("selected");
                 var klasa = $(this).attr('class');
@@ -124,16 +182,23 @@ Date: 01-Nov-2015
                   }
 
                 $("tr").each(function () {
-                    $("tr.a-1"+"."+klasa).show();
+                    $("tr.a-1"+"."+klasa + "."+d_klasa).show();
                     //na prvom mestu mora biti
-                    if ($(this).hasClass($(".selected").attr("class").split(" ")[0])) {
-                        $(this).show()
+                    var klasa_kategorije = $(".selected").attr("class").split(" ")[0];
+                    
+
+                    if ( $(this).hasClass( klasa_kategorije ) /*&& temp_uslov*/ ) {
+                        var temp_uslov = (d_klasa!="")?  $(this).hasClass( d_klasa ) : true;
+                        if(temp_uslov)
+                          $(this).show()
                     } else {
                         $(this).hide()
                     }
                 });
             };
-        };
+        }; // inactive
+
+
     });
 
 }

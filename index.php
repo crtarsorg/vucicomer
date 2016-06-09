@@ -89,53 +89,14 @@
 
     }
     .filter-ikonica{cursor: pointer;}
+    .width-100{width: 100%;}
      </style>
+    
 
   
   
 
-     <script type="text/javascript">
-         $(function() {
-            $(".dugme").click(function(ev) {
 
-                $(".dugme").removeClass (function (index, css) {
-                        return (css.match (/period-\d+-gornji$/g) || []).join(' ');
-                    });
-
-                $(".dugme").removeClass('dugme-active')
-
-                var ime = $(this).attr('class');
-                var d_klasa = "";
-
-                if(ime.indexOf('period-14')!= -1 ){
-                    d_klasa = "period-14";
-                }
-                else if(ime.indexOf('period-16')!= -1 ){
-                    d_klasa = "period-16";
-                }
-                else if(ime.indexOf('period-X')!= -1 ){
-                    d_klasa = "period-X";
-                }
-
-                
-                $(this).addClass('dugme-active')
-                $(".dugme").removeClass(d_klasa+"-gornji")
-
-                $(".dodatno").html('dugme-active')
-                $dodat = $(".dodatno").removeClass();
-                $dodat.addClass("dodatno")
-                $dodat.addClass(d_klasa)
-
-                $dodat.addClass(d_klasa+"-donji")
-                $(this).addClass(d_klasa+"-gornji")  
-
-                if(d_klasa !="period-X"){
-                    $dodat.addClass("belo")
-                      
-                }
-            });
-         })
-     </script>
 	</head>
 	<body>
 		<header class="container-fluid">
@@ -148,7 +109,7 @@
             </div>
         </header>
 
-        <?php include 'social.php'; ?>
+        
 
 		<section class="container">
             <div class="row">
@@ -163,9 +124,9 @@
 
                         <div>
                             <div class="dodatno hidden "></div>
-                            <div class="dugme period-14 belo">2012-2014</div>
-                            <div class="dugme period-16 belo">2014-2016</div>
-                            <div class="dugme period-X">2016-</div>
+                            <div class="dugme period-14 period-14-filter filter-ikonica belo">2012-2014</div>
+                            <div class="dugme period-16 period-16-filter filter-ikonica belo">2014-2016</div>
+                            <div class="dugme period-X filter-ikonica period-X-filter">2016-</div>
                         </div>
                          
     		        </div>
@@ -227,30 +188,57 @@
 		</section>
 
   
-
+        <section class="container container-fluid">
+            <div class="col-md-3 col-xs-6">
+                <a href=""><img class="img-responsive width-100 " src="images/gns-logo.svg" alt="Gradjani na strazi logo"></a>
+            </div>
+           <div class="col-md-3 col-xs-6">
+                <a href=""><img class="img-responsive width-100" src="images/op-logo.svg" alt="Otvoreni parlament logo"></a>
+           </div>
+            <div class="col-md-3 col-xs-6">
+                <a href=""><img class="img-responsive width-100" src="images/ist-logo.svg" alt="Istinomer logo"></a>
+            </div>
+            <div class="col-md-3 col-xs-6">
+                <a href=""><img class="img-responsive width-100" src="images/prog-logo.svg" alt="Biracki proglas logo"></a>
+            </div>
+        </section>
    
 
-        <section class="container obecanja" id="obecanja">
-            <div class="search">
-                <button class="btn btn-primary">Reset </button>
+        <!-- class="container obecanja" id="obecanja" -->
+        <section class="container ">
+            <div class="share-div col-md-3 col-xs-12" style="text-align: center">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=www.vucicomer.rs"><img src="images/fb.svg"></a>
+                <a href="https://twitter.com/home?status=www.vucicomer.rs"> <img src="images/twitter.svg"></a>
+            </div>
+
+            <div class="search col-xs-12 col-md-4 pull-right" >
+               
                 <!-- <i class="fa fa-search"></i>  -->
-                <input class="col-xs-12 col-sm-4" type="search" placeholder="Pretraga...">
+                <input class="col-xs-12 col-md-10" type="search" placeholder="Pretraga...">
                  <span id="count"></span>
             </div>
             
-            <div class="container">
-                <div class="pull-right">
-                    
-                   <div class="ikonica period-14-filter filter-ikonica period-14"></div>
-                   <div class="ikonica period-16-filter filter-ikonica period-16" ></div>
-                   <div class="ikonica period-X-filter filter-ikonica period-X"></div>
-                   <!--  <img class="ikonica post-ekspoze-filter filter-ikonica" src="images/12-14.svg" title="Izjave posle ekspozea">
-                   <img class="ikonica pre-ekspoze-filter filter-ikonica" src="images/14-16.svg" title="Izjave pre ekspozea">
-                   <img class="ikonica ekspoze-filter filter-ikonica" src="images/16-X.svg" title="Izjave date u ekspozeu"> -->
-                </div>
+        </section>
 
+
+        <section class="container " > 
+
+            <div class="col-md-offset-5 col-sm-2">
+                <button class="btn btn-primary reset-search">Resetuj </button>    
             </div>
+            
 
+            <div class="pull-right col-xs-12 col-sm-4" style="text-align: center; margin:10px;">                
+               <div class="ikonica period-14-filter filter-ikonica period-14"></div> <span>2012-2014</span>
+               <div class="ikonica period-16-filter filter-ikonica period-16" ></div> <span>2014-2016</span>  
+               <div class="ikonica period-X-filter filter-ikonica period-X"></div><span>2016- </span> 
+             
+            </div>
+        </section>
+
+
+        <section class="container obecanja" id="obecanja">
+        
             <ul class="nav nav-tabs navigation tabs" data-tabs="tabs">
                 <li class="active"><a class="all" data-toggle="tab">Sve</a></li>
                 <li><a class="drustvo" data-toggle="tab">Društvo</a></li>

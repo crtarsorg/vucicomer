@@ -48,13 +48,18 @@ $jedna_vest = array_pop( $jedna_vest ) ;
     .filter-ikonica {
         cursor: pointer;
     }
-     .block-quote {
+    .block-quote {
         margin: 20px 0 20px 0;
         padding: 20px;
         border: 1px solid #ccc;
         position: relative;
         font-size: 12.5px !important;
     }
+    .logo{    
+        height: 150px;
+        margin: auto;
+    }
+    .odvojeno{margin-top: 100px;}
     </style>
 </head>
 
@@ -63,7 +68,7 @@ $jedna_vest = array_pop( $jedna_vest ) ;
         <div class="container">
             <h1>
                     <a href="index.html">
-                        <img class="img-responsive" src="images/logo.jpg" alt="vučićomer_logo">
+                        <img class="img-responsive logo" src="images/logo.jpg" alt="vučićomer_logo">
                     </a>
                 </h1>
         </div>
@@ -98,7 +103,7 @@ $jedna_vest = array_pop( $jedna_vest ) ;
 
 <div class="container-fluid">
     <div class="container">
-        <div class="content">
+        <div class="content odvojeno">
             
             <!-- <div class="shareobecanje">
                 <i class="fa fa-arrow-left"></i> Share this obecanje!
@@ -211,50 +216,7 @@ if (strpos($komentar_temp,'www.youtube.com/watch?v=') !== false) {
             
             <?php echo $komentar_temp; ?>
         </div>
-        <!-- <div class="container">
-            <div>Mesec dana nakon rušenja u Savamali premijer je izjavio da tamo uopšte nije bilo ljudi u fantomkama, da ih niko nije video i da je cela priča o fantomkama izmišljena. &nbsp;
-                <br>
-            </div>
-            <div>
-                <div class="photography-wrapper">
-                    <div class="photography ">
-                        <img src="http://www.istinomer.rs/pictures/slike/20090925834419.jpg" class="img-responsive" alt="*">
-                    </div>
-                </div>
-                <br>
-            </div>
-            <div>
-                <br>
-            </div>
-            <div>Međutim, postoji više svedočenja o tome kako su izgledale osobe koje su u noći između 24. i 25. učestvovale u rušenju nekoliko objekata u Hercegovačkoj ulici.</div>
-            <div>
-                <br>
-            </div>
-            <div>Prvo je <a href="http://www.poverenik.rs/images/stories/dokumentacija-nova/pismaorganima/2016/sinisamali.pdf" title="" target="_blank">poverenik za informacije od javnog značaja Rodoljub Šabić</a>, kome su se građani sami obraćali, pošto policija nije reagovala i koji je neposredno razgovarao sa građanima, objavio da je <b>oko 30 ljudi maskiranih fantomkama učestvovalo u rušenju</b>, nakon što su vezali čuvara i oduzeli mu mobilni telefon.&nbsp;</div>
-            <div>
-                <br>
-            </div>
-            <div>Miloš Đorđević, koji se zatekao na parking kod restorana Savanova u vreme noćne akcije u Hercegovačkoj, izjavio je da su ga maltretirali ljudi u fantomkama.[quote] [quote_title]N1, 27.4.2016. godine[/quote_title] [quote_content]“<b>Prišla su mi tri lika sa fantomkama</b>, izvukli me iz auta, rekli da ćutim sve vreme, da sagnem glavu dole… I pitali su me odmah za telefon. Bio je pored na sedištu, pa su ga uzeli odmah i pokupili mi sve stvari, ličnu kartu i celu torbicu. Onda su me odveli iza tog parkirališta, gde je onaj šut i gde je bager radio sve vreme. Postrojili su još par ljudi… Stajao sam raširenih ruku i nogu mislim jedno sat vremena”, rekao je Đorđević.[/quote_content] [/quote]I <a href="http://www.zastitnik.rs/attachments/article/4723/savamala.pdf" title="" target="_blank">u izveštaju Zaštitnika građana Saše Jankovića</a> navodi se da je u akciji učestvovalo <b>“više desetina uniformisanih lica pod fantomkama”</b>.&nbsp;</div>
-            <div>
-                <br>
-            </div>
-            <div>Dakle, budući da su građani i javno govorili da su ih maltretirali ljudi u fantomkama, da su to zaključili i Poverenik i Zaštitnik građana, izjava premijera da u Hercegovačkoj nije bilo fantomki dobija ocenu <b>“neistina”</b>.
-                <br>
-                <br>
-                <div>Nije jasno na osnovu čega je premijer formulisao ovakve tvrdnje, uprkos izjavama svedoka i dva izveštaja nezavisnih institucija. Isto se odnosi i na njegovu tvrdnju da je bilo 9, 10 ili 11, a ne 30 napadača kako se navodi u izveštajima nezavisnih tela, iako sam broj učesnika nije od suštinske važnosti, odnosno ne menja činjenicu da je akcija bila protivzakonita. Nadležni organi bi svakako trebalo da utvrde ko su ti ljudi, koliko ih je bilo, po čijem naređenju su radili, itd.&nbsp;</div>
-                <div>
-                    <br>
-                </div>
-                <div>Takođe je, pokazalo se, neopravdano tvrdio da su svi srušeni objekti bespravno sagrađeni i da su vlasnici kriminalci.[quote] [quote_title]N1, 23.5.2016. godine[/quote_title] [quote_content]"Sve tamo, sve to što su dobili, mogu da mi pričaju dal ima ovakav ili onakav papir, sve je stečeno kriminalom i korupcijom, nisu mu ni mama ni tata ostavljali, već prethodni gradski čelnici na lopovluk i kriminal, zato oni i uglavnom ćute, jedan stručnjak ima 64 krivičnih dela", rekao je Vučić.[/quote_content] [/quote]Vlasnici objekata su to demantovali i najavili tužbu protiv Vučića. Poverenik za pristup informacijama od javnog značaja Rodoljub Šabić potvrdio je da je irelevantno da li su objekti bili legalni ili ne, ali i rekao da dobar deo objekata jeste bio legalno podignut.</div>
-                <div>
-                    <br>
-                </div>
-                <div>Posle ovoliko netačnih ili promenjenih poruka koje premijer šalje povodom događaja u Hercegovačkoj, a na osnovu neidentifikovanih izvora, neće biti čudo ako se pokaže da ne stoje ni njegove tvrdnje o tome kako iza ove akcije ne stoji država, kao ni da će nadležni pronaći počinioce i nalogodavce u roku od sedam do deset dana.</div>
-            </div>
-            <div>
-                <br>
-            </div>
-        </div> -->
+        
     </div>
     <footer>
         <a href="http://www.istinomer.rs">

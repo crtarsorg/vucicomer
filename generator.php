@@ -1,6 +1,6 @@
 <?php
 
-	$filename = "data_all.json";
+	$filename = "./data/data_all.json";
 	ob_start();
 
 
@@ -221,7 +221,7 @@ NULTI;
 		if($brojac_vesti == 0  )	{
 
 			if($brojac_kategorija == 0){
-				$klasa_tr_a = "a$index np category $glavna_klasa hidden"; 
+				$klasa_tr_a = "a$index np category $glavna_klasa hidden $period"; 
 				$text_upis = $nulti_text;
 				$status_text .= "";
 				stampanje_tr_a($klasa_tr_a, $status_text, $text_upis, $period , $statusi_trenutno[$jedan_unos->status], $ikonica  );
@@ -231,7 +231,7 @@ NULTI;
 		}
 
 
-		$klasa_tr_a = "a$index obecanje $status_klasa $glavna_klasa"; //2-gi tr
+		$klasa_tr_a = "a$index obecanje $status_klasa $glavna_klasa $period"; //2-gi tr
 		$text_upis = $vest_text;
 		$status_text .= $statusi_filter[$jedan_unos->status] ;
 
@@ -292,7 +292,22 @@ function stampanje_tr_a ($klasa_tr_a='', $status_txt = "",
 		}
 
 		if(!strstr($klasa_tr_a,"a-1") && $status_txt == "")  
-			$status_txt = "Beleznica";
+			{
+				$status_txt = "Beleznica";
+				$status_poj = "beleznica";
+			}
+
+		
+		$count_kolona =
+		 '<td class="count">'.
+	        	'<div class="ikonica filter-ikonica pomeraj-ikonice '.$ikonica.' '.$period.'"></div>'.
+	        	'<img class="ikonica-2 '.$status_poj.'" src="'.$title_slika.'" alt="'.$status_poj.' ikonica"/>'.
+	        '</td>';
+
+
+		if(strpos($klasa_tr_a, "category") != false  ){
+			$count_kolona = '<td class="count"></td>';
+		}
 
 		$template = <<< TROVI
 	 	<tr class="$klasa_tr_a">
@@ -302,10 +317,7 @@ function stampanje_tr_a ($klasa_tr_a='', $status_txt = "",
 	        <td class="text">
 	            $text_upis
 	        </td>
-	        <td class="count">
-	        	<div class="ikonica filter-ikonica pomeraj-ikonice $ikonica $period"></div>
-	        	<img class="ikonica-2 $status_poj" src="$title_slika" alt="$status_poj ikonica"/>
-	        </td>
+	       $count_kolona
 	    </tr>
 
 
@@ -332,7 +344,13 @@ function napravi_json_fajl(  )
 	
 	$putanja = "http://www.istinomer.rs/api/ocena?premijer=true";
 	$podaci_json = file_get_contents($putanja); 
-	$rezultat_upisa = file_put_contents($filename, $podaci_json);
+	$rezultat_upisa = 
+		file_put_contents($filename, $podaci_json);
+
+
+		//upisivanje u fajl
+		
+	
 	return json_decode($podaci_json);
 }
 
@@ -340,10 +358,10 @@ function citaj_iz_fajla( )
 {
 	//dodati proveru da li je stariji od 1 dan
 	//uraditi mv fajla na -OLD
-	if( !file_exists($putanja) )
+	if( !file_exists($filename) )
 		return false;
 
-	$podaci_json = file_get_contents($putanja); 
+	$podaci_json = file_get_contents($filename); 
 	return json_decode($podaci_json);
 }
 
