@@ -12,7 +12,7 @@ Date: 01-Nov-2015
 //js za matricno filtriranje - periodi + kategorije 
 // ukupno ocena po kategorijama
 
-
+  
   function init() {
 
     $(".summary a div").on("click", function () {
@@ -20,6 +20,7 @@ Date: 01-Nov-2015
     });
 
 
+    //filtriranje po status
     $(".filter-ikonica").click(function(ev) {
 
 
@@ -43,6 +44,7 @@ Date: 01-Nov-2015
       // kad je all - sakrij sve tr.category
 
       
+      //filter po periodu
       if( this.className.indexOf('period-14-filter')!=-1 ){
 
         $('tr' + kl_sel ).show() // prikazi samo tu kategoriju
@@ -66,7 +68,7 @@ Date: 01-Nov-2015
 
 
         $("tr").each(function () {
-            if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+            if ($(this).text().search(new RegExp("\\s+"+filter, "i")) < 0) {
                 $(this).hide()
             } else {
                 $(this).show()
