@@ -15,13 +15,13 @@
 		
 		<!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"></link> -->
 
-		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="stylesheet" type="text/css" href="css/extern.css">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css?1">
+		<link rel="stylesheet" type="text/css" href="css/style.css?1">
+        <link rel="stylesheet" type="text/css" href="css/extern.css?1">
 
 		<script src="js/jquery-1.11.2.js"></script>
-		<script src="js/index.js?2"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/10.0.0/js/smooth-scroll.min.js"></script>
+		<script src="js/index.js?3"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/10.0.0/js/smooth-scroll.min.js"></script>
 
      <style type="text/css">
      .ikonica{
