@@ -134,7 +134,7 @@
             <div class="row">
     		    <div class="summary col-xs-12 col-sm-4">
     		        <div class="daysinoffice ">
-    		            <h2 class="dani-vlasti">
+    		            <h2 class="dani-vlasti reset-dugme">
     		                <!-- <i class="fa fa-calendar"></i> -->
                           <span title="od 27. aprila 2014 godine">Ukupno na vlasti:</span> <b>-0</b> <span>dana</span>
 

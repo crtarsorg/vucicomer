@@ -3,9 +3,16 @@
 
 
   $(function() {
+
+      $(".reset-dugme").click(function(ev) {
+        //ukloni active klasu
+         $('.dugme-active').removeClass('dugme-active');
+         //sakrij deo sa tekstom
+         $(".dodatno").hide();
+         izracunaj();
+      })      
+
             $(".dugme").click(function(ev) {
-
-
 
 
                 $(".dugme").removeClass (function (index, css) {
@@ -39,7 +46,7 @@
                 $(".dugme").removeClass(d_klasa+"-gornji")
 
                  
-
+                $(".dodatno").show();
                 $(".dodatno").html( tekst_temp )
                 $dodat = $(".dodatno").removeClass();
                 $dodat.addClass("dodatno")
@@ -52,6 +59,10 @@
                     $dodat.addClass("belo")
                       
                 }
+
+                ///izmeni brojeve ukupno
+                izracunaj();
+
             });
          })
 
@@ -141,6 +152,7 @@
         
         if($(".tabs li.active>a ").attr("class").indexOf("all")!=-1 )           
             {
+              //prebaci na sve izjave
               $("tr").show();
               return;
             }
@@ -148,19 +160,7 @@
 
     $(".tabs a").on("click", function () {
 
-      var dugme_active = $('.dugme-active').attr('class') || "";
-      var d_klasa ="";
-
-      if(dugme_active.indexOf('period-14')!= -1 ){
-          d_klasa = "period-14";      
-      }
-      else if(dugme_active.indexOf('period-16')!= -1 ){
-          d_klasa = "period-16";          
-      }
-      else if(dugme_active.indexOf('period-X')!= -1 ){
-          d_klasa = "period-X";
-          
-      }
+      var d_klasa = vratiPeriod();
 
 
         if (!$(this).parent().hasClass("inactive")) {
@@ -208,32 +208,79 @@
 
 
 
+function vratiPeriod() {
+
+  var dugme_active = $('.dugme-active').attr('class') || "";
+  var d_klasa ="";
+
+      if(dugme_active.indexOf('period-14')!= -1 ){
+          d_klasa = "period-14";      
+      }
+      else if(dugme_active.indexOf('period-16')!= -1 ){
+          d_klasa = "period-16";          
+      }
+      else if(dugme_active.indexOf('period-X')!= -1 ){
+          d_klasa = "period-X";          
+      }
+
+  return d_klasa;    
+}
+
 function izracunaj () {
 
-    var grandtotal = $("tr.obecanje").length;
+  //uzmi selektovan tab
 
+    var period_temp = vratiPeriod();
+
+    var grandtotal = $("tr.obecanje").length;
+    
+    if(period_temp == "period-14")
+      grandtotal = $("tr.obecanje.period-14").length;
+    else if(period_temp == "period-16")
+      grandtotal = $("tr.obecanje.period-16").length;
+    else if(period_temp == "period-X")
+      grandtotal = $("tr.obecanje.period-X").length;
+
+    if(period_temp != "") 
+        period_temp = "." + period_temp + " ";
+
+    //setovanje ukupnih
     $(".summary b.count").each(function () {
         var classOfSuperCategory = $(this).closest("div").attr("class");
-        var numberInSuperCategory = $("tr." + classOfSuperCategory).length;
+        var numberInSuperCategory = $("tr." + classOfSuperCategory + period_temp).length;
         $(this).html(numberInSuperCategory)
     });
 
+
     $(".summary b.total").each(function () {
-        $(this).html(grandtotal)
+        $(this).html( grandtotal )
     });
 
+   
+
     $(".summary p.progress span").each(function () {
-        $(this).css("width", ($("tr." + $(this).closest("div").attr("class")).length * 100 / grandtotal) + "%")
+
+        var br_uk = $("tr." + $(this).closest("div").attr("class") + period_temp);
+
+        $(this).css("width", (br_uk.length * 100 / grandtotal) + "%")
     });
 
     $("tr.category b").each(function () {
-        $(this).html($("tr." + $(this).parent().attr("class") + "." + $(this).attr("class")).length)
+        var kategory_tot = 
+          $("tr." + $(this).parent().attr("class") + "." + $(this).attr("class") + period_temp).length;
+        $(this).html( kategory_tot)
     });
 
     $("tr.category p.progress span").each(function () {
-        var classOfCategory = $(this).parent().parent().children("b").attr("class");
+
+        var $pra_roditelj = $(this).parent().parent();
+        var classOfCategory = $pra_roditelj.children("b").attr("class");
         var total = $("tr.obecanje." + classOfCategory ).length;
-        $(this).css("width", ($("tr." + $(this).parent().parent().attr("class") + "." + $(this).parent().parent().children("b").attr("class")).length * 100 / total) + "%")
+        var neki_selektor =
+          $("tr." + $pra_roditelj.attr("class") + 
+              "." + $pra_roditelj.children("b").attr("class") + period_temp);
+
+        $(this).css("width", (neki_selektor.length * 100 / total) + "%")
     });
 
 
