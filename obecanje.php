@@ -102,74 +102,27 @@ $temp_naslov = stripslashes( $jedna_vest->naslov );
 
 
 ?>
+  <?php  
+
+            $statusi_ocena = array(
+                //beleznica, kao posebna kategorija
+                0  => "Beleznica",
+                18 => "Ispunjeno",
+                23 => "Skoro ispunjeno",
+                22 => "Radi se na tome",
+                19 => "Krenuli pa stali",
+                20 => "Neispunjeno",
+                21 => "Ni započeto",
+                );
 
 
-
-
- <section class="container ">
-    <div class="pull-left margin-top-20">ikonica</div>
-    <div class="share-div margin-top-20" style="text-align: center; margin-top: 20px;">
-        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=www.vucicomer.rs"><img src="images/fb.svg"></a>
-        <a target="_blank" href="https://twitter.com/home?status=www.vucicomer.rs"> <img src="images/twitter.svg"></a>
-    </div>
-
-   
-    
-</section>
-
-
-<div class="container-fluid">
-    <div class="container">
-        <div class="content odvojeno">
+            $statusi_filter = array(18=>"Ispunjeno", 23 =>'U procesu', 22 =>'U procesu' , '19' =>'Beležnica', 20=>'Neispunjeno', 21=>'Neispunjeno',  0=>'Beležnica' );
+              $statusi_ikonice =  array(18=>"ispunjeno", 23 =>'uprocesu', 22 =>'uprocesu' , 19 =>'beleznica', 20=>'neispunjeno', 21=>'neispunjeno', 0 =>'beleznica');      
             
-            <!-- <div class="shareobecanje">
-                <i class="fa fa-arrow-left"></i> Share this obecanje!
-            </div> -->
-            <h2> 
-                <i class="fa fa-university"></i> <?php echo $temp_naslov;  ?>
-            </h2>
+            $temp_sta = $statusi_filter[ $jedna_vest->status ] ;
+        ?>
 
-            <h1><?php 
-            $iz_temp = stripslashes( $jedna_vest->izjava );
-            $iz_temp  = trim($iz_temp ) ;  
-            $iz_temp  = trim($iz_temp,'"') ;  
-            $iz_temp  = trim($iz_temp,'“') ;  
-            echo ($iz_temp) ;
-
-            ?></h1>
-        </div>
-
-
-
-
-
-        <div class="status pull-right"> 
-               
-              <span>       <i class="fa fa-cogs"></i>U procesu</span>
-               
-            <p> 
-                <span> <?php echo $jedna_vest->izvor; ?> </a> </span>
-            </p> 
-        </div>
-
-    </div>
-   
-</div>
-
-
-
-    <div class="container-fluid">
-        <div class="container">
-        </div>
-    </div>
-
-
-    <div>
-        <br>
-    </div>
-
-
-<?php 
+        <?php 
 
 
 ///replace text editor tagova
@@ -222,6 +175,93 @@ if (strpos($komentar_temp,'www.youtube.com/watch?v=') !== false) {
 }
 
 ?>
+
+
+
+ <section class="container ">
+    <div class="pull-left margin-top-20">ikonica</div>
+    <div class="share-div margin-top-20" style="text-align: center; margin-top: 20px;">
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=www.vucicomer.rs"><img src="images/fb.svg"></a>
+        <a target="_blank" href="https://twitter.com/home?status=www.vucicomer.rs"> <img src="images/twitter.svg"></a>
+    </div>
+
+   
+    
+</section>
+
+<style type="text/css">
+    
+    .siva-slika{
+        -webkit-filter: grayscale(100%);
+        -o-filter: grayscale(100%);
+        filter: grayscale(100%);
+        width: 100%
+
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="container odvojeno">
+        
+        <div class="col-md-3">
+            <img class="siva-slika" src="<?php echo $jedna_vest->slika; ?>" > 
+        </div>
+        <div class="content  col-md-9">
+            
+            <!-- <div class="shareobecanje">
+                <i class="fa fa-arrow-left"></i> Share this obecanje!
+            </div> -->
+            <h1> 
+                <i class="fa fa-university"></i> <?php echo $temp_naslov;  ?>
+            </h1>
+
+            <h2><?php 
+            $iz_temp = stripslashes( $jedna_vest->izjava );
+            $iz_temp  = trim($iz_temp ) ;  
+           /* $iz_temp  = trim($iz_temp,'"') ;  
+            $iz_temp  = trim($iz_temp,'“') ;  */
+            echo ($iz_temp) ;
+
+            ?></h2>
+             <div class="status pull-left"> 
+                    <?php 
+                    $ikon = $statusi_ikonice[$jedna_vest->status ];
+                    echo '<img src="images/ikonica-'.$ikon.'.svg">'
+                ?>
+                  <span>       <i class="fa fa-cogs"></i><?php echo $temp_sta; ?></span>
+                  
+                <p> 
+
+                    
+                    <span> <?php echo $jedna_vest->izvor; ?> </a> </span>
+                </p> 
+            </div>
+        </div>
+
+
+      
+
+
+       
+
+    </div>
+   
+</div>
+
+
+
+    <div class="container-fluid">
+        <div class="container">
+        </div>
+    </div>
+
+
+    <div>
+        <br>
+    </div>
+
+
+
 
     <div class="container-fluid">
         

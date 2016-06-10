@@ -171,8 +171,8 @@ BROJAC;
 				}	
 
 		
-
-			$link_vest = "http://www.vucicomer.rs/ocena.php?id=". $jedan_unos->id;
+			//http://www.vucicomer.rs		
+			$link_vest = "./obecanje.php?id=". $jedan_unos->id;
 			//."/".seo_naziv($naslov_vesti)
 
 
@@ -278,7 +278,7 @@ function stampanje_tr_a ($klasa_tr_a='', $status_txt = "",
 				$title_slika = "images/ikonica-beleznica.svg";	
 				break;
 			case 'uprocesu':
-				$title_slika = "images/ikonica-u-procesu.svg";	
+				$title_slika = "images/ikonica-uprocesu.svg";	
 				break;	
 			case 'ispunjeno':
 				$title_slika = "images/ikonica-ispunjeno.svg";	

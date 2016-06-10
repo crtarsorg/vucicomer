@@ -4,12 +4,11 @@
 
   $(function() {
 
+   
+
       $(".reset-dugme").click(function(ev) {
-        //ukloni active klasu
-         $('.dugme-active').removeClass('dugme-active');
-         //sakrij deo sa tekstom
-         $(".dodatno").hide();
-         izracunaj();
+        
+       resetovanje();
       })      
 
             $(".dugme").click(function(ev) {
@@ -120,7 +119,11 @@
         count = 0;
 
 
-        $("tr").each(function () {
+        var period_temp = vratiPeriod();
+        if(period_temp != "") 
+          period_temp = "." + period_temp + " ";
+
+        $("tr" +period_temp).each(function () {
             if ($(this).text().search(new RegExp("\\s+"+filter, "i")) < 0) {
                 $(this).hide()
             } else {
@@ -147,8 +150,13 @@
     });
 
     $(".reset-search").on("click", function () {
+        
+        resetovanje()
+
         $(".search input").val("").change()
         $("tr.a-1").hide();
+
+        
         
         if($(".tabs li.active>a ").attr("class").indexOf("all")!=-1 )           
             {
@@ -331,7 +339,13 @@ function sakrij() {
 
 }
 
-
+ function resetovanje() {
+        //ukloni active klasu
+        $('.dugme-active').removeClass('dugme-active');
+         //sakrij deo sa tekstom
+         $(".dodatno").hide();
+         izracunaj();
+    }
 
 
  $(window).load(function () {

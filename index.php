@@ -25,10 +25,11 @@
 
      <style type="text/css">
      .ikonica{
-        height: 25px; 
-        width: 25px;
+        height: 15px; 
+        width: 15px;
         border-radius: 12px;
         display: inline-block;
+        box-shadow: 0px 2px 5px 2px rgb(200, 200, 200);
     }
 
     .dani-vlasti{
@@ -165,7 +166,7 @@
     		                	<!-- <i class="fa fa-cogs"></i> -->
     		                	<span>U procesu: <b class="count"></b>/<b class="total"></b></span>
     		                </h2>
-                            <img class="ikonice-glavno" src="images/ikonica-u-procesu.svg"> 
+                            <img class="ikonice-glavno" src="images/ikonica-uprocesu.svg"> 
     		                <p class="progress"><span></span></p>
     		            </div>
     		            <div class="ispunjeno" data-search="Ispunjeno">
@@ -201,26 +202,31 @@
     		        <p>
                     Izjave premijera razvrstane su u tri sekcije – politika, društvo i ekonomija. Svako obećanje dobija jedinstvenu ocenu uz određeno obrazloženje. Status obećanja možete pratiti u okviru statistike koja pokazuje procenat ispunjenih, neispunjenih, kao i obećanja čija je realizacija u toku. Rubrika Beležnica podseća na sve ono što je premijer Vučić  obećao, ali rok za njihovo ostvarenje još nije istekao.
                    </p> 
-    		      
+                   
+                   <hr/>
+                    
+    		       <section >
+                        <div class="col-md-3 col-xs-6">
+                            <a href="http://www.gradjaninastrazi.rs/" target="_blank"><img class="img-responsive width-100 " src="images/gns-logo.svg" alt="Gradjani na strazi logo"></a>
+                        </div>
+                       <div class="col-md-3 col-xs-6">
+                            <a href="http://www.otvoreniparlament.rs/" target="_blank"><img class="img-responsive width-100" src="images/op-logo.svg" alt="Otvoreni parlament logo"></a>
+                       </div>
+                        <div class="col-md-3 col-xs-6">
+                            <a href="http://www.istinomer.rs/" target="_blank"><img class="img-responsive width-100" src="images/ist-logo.svg" alt="Istinomer logo"></a>
+                        </div>
+                        <div class="col-md-3 col-xs-6">
+                            <a href="http://www.birackiproglas.rs" target="_blank"><img class="img-responsive width-100" src="images/prog-logo.svg" alt="Biracki proglas logo"></a>
+                        </div>
+                    </section>
+
+                    <hr/>
     		    </div>
             </div>
 		</section>
 
   
-        <section class="container container-fluid">
-            <div class="col-md-3 col-xs-6">
-                <a href=""><img class="img-responsive width-100 " src="images/gns-logo.svg" alt="Gradjani na strazi logo"></a>
-            </div>
-           <div class="col-md-3 col-xs-6">
-                <a href=""><img class="img-responsive width-100" src="images/op-logo.svg" alt="Otvoreni parlament logo"></a>
-           </div>
-            <div class="col-md-3 col-xs-6">
-                <a href=""><img class="img-responsive width-100" src="images/ist-logo.svg" alt="Istinomer logo"></a>
-            </div>
-            <div class="col-md-3 col-xs-6">
-                <a href=""><img class="img-responsive width-100" src="images/prog-logo.svg" alt="Biracki proglas logo"></a>
-            </div>
-        </section>
+       
    
 
         <!-- class="container obecanja" id="obecanja" -->
