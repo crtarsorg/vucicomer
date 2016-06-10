@@ -176,13 +176,23 @@ if (strpos($komentar_temp,'www.youtube.com/watch?v=') !== false) {
 
 ?>
 
+<script type="text/javascript">
+    
+    var windowObjectReference;
+    var strWindowFeatures = "menubar=no,location=yes,resizable=yes,scrollbars=yes,status=yes";
 
+    function openRequestedPopup(el) {
+        
+      windowObjectReference = window.open(el.href, "Vucicomer podeli", strWindowFeatures);
+    }
+
+</script>
 
  <section class="container ">
-    <div class="pull-left margin-top-20">ikonica</div>
+    
     <div class="share-div margin-top-20" style="text-align: center; margin-top: 20px;">
-        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=www.vucicomer.rs"><img src="images/fb.svg"></a>
-        <a target="_blank" href="https://twitter.com/home?status=www.vucicomer.rs"> <img src="images/twitter.svg"></a>
+        <a target="_blank" onclick="false;openRequestedPopup(this)" href="https://www.facebook.com/sharer/sharer.php?u=www.vucicomer.rs"><img src="images/fb.svg"></a>
+        <a target="_blank" onclick="false;openRequestedPopup(this)" href="https://twitter.com/home?status=www.vucicomer.rs"> <img src="images/twitter.svg"></a>
     </div>
 
    
@@ -240,7 +250,6 @@ if (strpos($komentar_temp,'www.youtube.com/watch?v=') !== false) {
 
 
       
-
 
        
 
