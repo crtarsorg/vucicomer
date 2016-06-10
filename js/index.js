@@ -147,6 +147,7 @@
     });
 
     $(".tabs a").on("click", function () {
+
       var dugme_active = $('.dugme-active').attr('class') || "";
       var d_klasa ="";
 
@@ -182,7 +183,9 @@
                   }
 
                 $("tr").each(function () {
-                    $("tr.a-1"+"."+klasa + "."+d_klasa).show();
+
+                  //sta da se radi kad su selektovane sve vesti -> tab all
+                    $("tr.a-1"+"."+klasa ).show();
                     //na prvom mestu mora biti
                     var klasa_kategorije = $(".selected").attr("class").split(" ")[0];
                     
@@ -291,6 +294,7 @@ function sakrij() {
        izracunaj();
        init();
        sakrij();
+       $(".dim-layer").remove()
    });
 
 

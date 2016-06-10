@@ -4,9 +4,9 @@
 	ob_start();
 
 
-	$podaci =  citaj_iz_fajla();
+	$podaci =  citaj_iz_fajla( $filename );
 	if( !$podaci ){
-		$podaci = napravi_json_fajl();
+		$podaci = napravi_json_fajl( $filename );
 	}
 
 
@@ -221,7 +221,8 @@ NULTI;
 		if($brojac_vesti == 0  )	{
 
 			if($brojac_kategorija == 0){
-				$klasa_tr_a = "a$index np category $glavna_klasa hidden $period"; 
+				//categoy
+				$klasa_tr_a = "a$index np category $glavna_klasa hidden "; 
 				$text_upis = $nulti_text;
 				$status_text .= "";
 				stampanje_tr_a($klasa_tr_a, $status_text, $text_upis, $period , $statusi_trenutno[$jedan_unos->status], $ikonica  );
@@ -231,7 +232,7 @@ NULTI;
 		}
 
 
-		$klasa_tr_a = "a$index obecanje $status_klasa $glavna_klasa $period"; //2-gi tr
+		$klasa_tr_a = "a$index obecanje $status_klasa $glavna_klasa $ikonica"; //2-gi tr
 		$text_upis = $vest_text;
 		$status_text .= $statusi_filter[$jedan_unos->status] ;
 
@@ -339,13 +340,18 @@ function seo_naziv($element='')
 	return str_replace($urlForbidenCharacters, $urlValidCharacters, $element);
 }
 
-function napravi_json_fajl(  )
+function napravi_json_fajl( $filename )
 {
 	
 	$putanja = "http://www.istinomer.rs/api/ocena?premijer=true";
 	$podaci_json = file_get_contents($putanja); 
-	$rezultat_upisa = 
-		file_put_contents($filename, $podaci_json);
+	/*$rezultat_upisa = 
+		file_put_contents($filename, $podaci_json);*/
+				
+		
+		$fp = fopen($filename, 'w');
+		fwrite($fp, $podaci_json );
+		fclose($fp);
 
 
 		//upisivanje u fajl
@@ -354,7 +360,7 @@ function napravi_json_fajl(  )
 	return json_decode($podaci_json);
 }
 
-function citaj_iz_fajla( )
+function citaj_iz_fajla( $filename )
 {
 	//dodati proveru da li je stariji od 1 dan
 	//uraditi mv fajla na -OLD

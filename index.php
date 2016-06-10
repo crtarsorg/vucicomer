@@ -90,7 +90,21 @@
     }
     .filter-ikonica{cursor: pointer;}
     .width-100{width: 100%;}
+    .dim-layer{
+        width: 100%;
+        height: 100%;
+        background-color: rgba(128, 128, 128, 0.65);
+        position: absolute;
+        z-index: 9999;
+    }
+    .loader-icon{
+        top: 50%;
+        right: 50%;
+        position: absolute;
+    }
      </style>
+    
+    
     
 
   
@@ -99,6 +113,11 @@
 
 	</head>
 	<body>
+
+    <div class="dim-layer">
+        <img class="loader-icon" src="images/spinner.svg">
+    </div>
+    
 		<header class="container-fluid">
             <div class="container">
                 <h1>
@@ -207,14 +226,14 @@
         <!-- class="container obecanja" id="obecanja" -->
         <section class="container ">
             <div class="share-div col-md-3 col-xs-12" style="text-align: center">
-                <a href="https://www.facebook.com/sharer/sharer.php?u=www.vucicomer.rs"><img src="images/fb.svg"></a>
-                <a href="https://twitter.com/home?status=www.vucicomer.rs"> <img src="images/twitter.svg"></a>
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=www.vucicomer.rs"><img src="images/fb.svg"></a>
+                <a target="_blank" href="https://twitter.com/home?status=www.vucicomer.rs"> <img src="images/twitter.svg"></a>
             </div>
 
             <div class="search col-xs-12 col-md-4 pull-right" >
                
                 <!-- <i class="fa fa-search"></i>  -->
-                <input class="col-xs-12 col-md-10" type="search" placeholder="Pretraga...">
+                <input class="col-xs-12 col-md-11" type="search" placeholder="Pretraga...">
                  <span id="count"></span>
             </div>
             
@@ -254,7 +273,7 @@
             </table>
 
         </section>
-        <section class="container container-border">
+        <section class="container container-fluid  container-border">
             <div id="fb-root"></div>
             <script>(function(d, s, id) {
               var js, fjs = d.getElementsByTagName(s)[0];
@@ -266,7 +285,7 @@
 
 
 
-            <div class="fb-comments " data-href="http://www.vucicomer.rs" data-numposts="5" data-width="1000px"></div>
+            <div class="fb-comments " data-href="http://www.vucicomer.rs" data-numposts="5" data-width="100%"></div>
         </section>
 
         

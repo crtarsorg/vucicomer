@@ -58,7 +58,7 @@ header {
 	padding: 3px 8px;
 }
 .search {
-	margin-top: 20px;
+	/* margin-top: 20px; */
 	position: relative;
 	overflow: hidden;
 }

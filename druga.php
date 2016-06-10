@@ -2,20 +2,27 @@
 
          
 //$fh = fopen("./data.json", "r+");
-$json_file = file_get_contents("./data.json");
+$json_file = file_get_contents("./data/data_all.json");
 
-$svi_podaci =  json_decode($json_file) ;
+$svi_podaci =  json_decode( $json_file );
     
 
 //id - 3356
 
+$id_vesti = $_GET['id'];
+if(!is_numeric($id_vesti) ){
+    $id_vesti = 2757;
+}
+        
 
-$jedna_vest = array_filter($svi_podaci,function ($la='')
-{
-    return $la->id == "3356";    
+$jedna_vest = array_filter($svi_podaci,function ($la='') use ($id_vesti)
+{    
+    return $la->id == $id_vesti;    
 });
 
 $jedna_vest = array_pop( $jedna_vest ) ;
+
+$temp_naslov = stripslashes( $jedna_vest->naslov );
 
 ?>
 
@@ -25,7 +32,7 @@ $jedna_vest = array_pop( $jedna_vest ) ;
 
 <head>
     <meta charset="UTF-8">
-    <title>Vučićomer | <?php echo $jedna_vest->naslov; ?></title>
+    <title>Vučićomer | <?php echo $temp_naslov; ?></title>
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="">
@@ -60,6 +67,7 @@ $jedna_vest = array_pop( $jedna_vest ) ;
         margin: auto;
     }
     .odvojeno{margin-top: 100px;}
+    .margin-top-20{margin-top: 20px;}
     </style>
 </head>
 
@@ -67,7 +75,7 @@ $jedna_vest = array_pop( $jedna_vest ) ;
     <header class="container-fluid">
         <div class="container">
             <h1>
-                    <a href="index.html">
+                    <a href="./">
                         <img class="img-responsive logo" src="images/logo.jpg" alt="vučićomer_logo">
                     </a>
                 </h1>
@@ -98,7 +106,16 @@ $jedna_vest = array_pop( $jedna_vest ) ;
 
 
 
+ <section class="container ">
+    <div class="pull-left margin-top-20">ikonica</div>
+    <div class="share-div margin-top-20" style="text-align: center; margin-top: 20px;">
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=www.vucicomer.rs"><img src="images/fb.svg"></a>
+        <a target="_blank" href="https://twitter.com/home?status=www.vucicomer.rs"> <img src="images/twitter.svg"></a>
+    </div>
 
+   
+    
+</section>
 
 
 <div class="container-fluid">
@@ -109,12 +126,12 @@ $jedna_vest = array_pop( $jedna_vest ) ;
                 <i class="fa fa-arrow-left"></i> Share this obecanje!
             </div> -->
             <h2> 
-                <i class="fa fa-university"></i> <?php echo $jedna_vest->naslov;  ?>
+                <i class="fa fa-university"></i> <?php echo $temp_naslov;  ?>
             </h2>
 
             <h1><?php 
-
-            $iz_temp  = trim($jedna_vest->izjava) ;  
+            $iz_temp = stripslashes( $jedna_vest->izjava );
+            $iz_temp  = trim($iz_temp ) ;  
             $iz_temp  = trim($iz_temp,'"') ;  
             $iz_temp  = trim($iz_temp,'“') ;  
             echo ($iz_temp) ;
@@ -218,6 +235,21 @@ if (strpos($komentar_temp,'www.youtube.com/watch?v=') !== false) {
         </div>
         
     </div>
+
+    <section class="container container-fluid  container-border">
+            <div id="fb-root"></div>
+            <script>(function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+            <div class="fb-comments " data-href="http://www.vucicomer.rs" data-numposts="5" data-width="100%"></div>
+        </section>
     <footer>
         <a href="http://www.istinomer.rs">
             <p>Powered by Istinomer</p>
