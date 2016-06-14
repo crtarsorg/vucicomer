@@ -68,6 +68,22 @@ $temp_naslov = stripslashes( $jedna_vest->naslov );
     }
     .odvojeno{margin-top: 100px;}
     .margin-top-20{margin-top: 20px;}
+
+    .social-div {
+        position: fixed;
+        right: 10px;
+        top: 100px;
+        width: 75px;
+        z-index: 1;
+    }
+
+    .siva-slika{
+        -webkit-filter: grayscale(100%);
+        -o-filter: grayscale(100%);
+        filter: grayscale(100%);
+        width: 100%
+
+    }
     </style>
 </head>
 
@@ -159,6 +175,9 @@ $komentar_temp = str_replace('http://www.istinomer.rs/',$base_url,$komentar_temp
 
 
 $komentar_temp = str_replace('src="pictures/','src="http://www.istinomer.rs/pictures/',$komentar_temp);
+$komentar_temp = str_replace('href="ocena/','href="http://www.istinomer.rs/ocena/',$komentar_temp);
+$komentar_temp = str_replace('href="clanak/','href="http://www.istinomer.rs/clanak/',$komentar_temp);
+$komentar_temp = str_replace('href="akter/','href="http://www.istinomer.rs/akter/',$komentar_temp);
 
 $komentar_temp = str_replace('<img','<img class="img-responsive" style="margin:auto;" ',$komentar_temp);
 
@@ -190,7 +209,7 @@ if (strpos($komentar_temp,'www.youtube.com/watch?v=') !== false) {
 
  <section class="container ">
     
-    <div class="share-div margin-top-20" style="text-align: center; margin-top: 20px;">
+    <div class="social-div">
         <a target="_blank" onclick="false;openRequestedPopup(this)" href="https://www.facebook.com/sharer/sharer.php?u=www.vucicomer.rs"><img src="images/fb.svg"></a>
         <a target="_blank" onclick="false;openRequestedPopup(this)" href="https://twitter.com/home?status=www.vucicomer.rs"> <img src="images/twitter.svg"></a>
     </div>
@@ -199,16 +218,7 @@ if (strpos($komentar_temp,'www.youtube.com/watch?v=') !== false) {
     
 </section>
 
-<style type="text/css">
-    
-    .siva-slika{
-        -webkit-filter: grayscale(100%);
-        -o-filter: grayscale(100%);
-        filter: grayscale(100%);
-        width: 100%
 
-    }
-</style>
 
 <div class="container-fluid">
     <div class="container odvojeno">
@@ -239,7 +249,7 @@ if (strpos($komentar_temp,'www.youtube.com/watch?v=') !== false) {
                     echo '<img src="images/ikonica-'.$ikon.'.svg">'
                 ?>
                   <span>       <i class="fa fa-cogs"></i><?php echo $temp_sta; ?></span>
-                  
+                  <span class="pull-right">Objavljeno na istinomeru: <?php echo $jedna_vest->datum_izjave; ?></span>
                 <p> 
 
                     

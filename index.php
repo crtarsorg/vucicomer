@@ -103,7 +103,15 @@
         right: 50%;
         position: absolute;
     }
-     </style>
+
+    .social-div {
+        position: fixed;
+        right: 10px;
+        top: 100px;
+        width: 75px;
+        z-index: 1;
+    }
+    </style>
     
     
     
@@ -151,7 +159,7 @@
                          
     		        </div>
     		        <a data-scroll="" href="#obecanja">
-    		            <div class="beleznica" data-search="Beleznica">
+    		            <div class="beleznica" data-search="Beleznica" title="Neocenjeno obećanje">
     		                <h2>
     		                	
     		                	<span>Beležnica: <b class="count"></b>/<b class="total"></b></span>
@@ -231,12 +239,12 @@
 
         <!-- class="container obecanja" id="obecanja" -->
         <section class="container ">
-            <div class="share-div col-md-3 col-xs-12" style="text-align: center">
+            <div class="social-div">
                 <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=www.vucicomer.rs"><img src="images/fb.svg"></a>
                 <a target="_blank" href="https://twitter.com/home?status=www.vucicomer.rs"> <img src="images/twitter.svg"></a>
             </div>
 
-            <div class="search col-xs-12 col-md-4 pull-right" >
+            <div class="search col-xs-12 col-md-6 col-md-offset-3" >
                
                 <!-- <i class="fa fa-search"></i>  -->
                 <input class="col-xs-12 col-md-11" type="search" placeholder="Pretraga...">
@@ -265,7 +273,7 @@
         <section class="container obecanja" id="obecanja">
         
             <ul class="nav nav-tabs navigation tabs" data-tabs="tabs">
-                <li class="active"><a class="all" data-toggle="tab">Sve</a></li>
+                <li class="active"><a class="all" data-toggle="tab">Sva obećanja</a></li>
                 <li><a class="drustvo" data-toggle="tab">Društvo</a></li>
                 <li><a class="zdravstvo" data-toggle="tab">Zdravstvo</a></li>
                 <li><a class="kultura selected" data-toggle="tab">Kultura</a></li>

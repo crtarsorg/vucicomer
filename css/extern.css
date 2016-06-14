@@ -156,33 +156,32 @@ td.count {
 } */
 
 /* .beleznica */ 
-p.progress span {
+p.progress span:hover {
     background-color: gray;
 }
-/* 
-.uprocesu, .uprocesu a {
+.uprocesu:hover, .uprocesu a:hover {
     color: orange !important;
 }
 
-.uprocesu p.progress span {
+.uprocesu p.progress span:hover {
     background-color: orange !important;
 }
 
-.ispunjeno, .ispunjeno a {
+.ispunjeno:hover, .ispunjeno a:hover {
     color: rgb(0, 200, 100) !important;
 }
 
-.ispunjeno p.progress span {
+.ispunjeno p.progress span:hover {
     background-color: rgb(0, 200, 100) !important;
 }
 
-.neispunjeno, .neispunjeno a {
+.neispunjeno:hover, .neispunjeno a:hover {
     color: indianred !important;
 }
 
-.neispunjeno p.progress span {
+.neispunjeno p.progress span:hover {
     background-color: indianred !important;
-} */
+}
 
 .banner {
     position: absolute;

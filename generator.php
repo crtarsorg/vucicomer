@@ -37,7 +37,7 @@
 		);
 
 
-	$statusi_filter = array(18=>"Ispunjeno", 23 =>'U procesu', 22 =>'U procesu' , '19' =>'Beleznica', 20=>'Neispunjeno', 21=>'Neispunjeno',  0=>'Beleznica' ); //Beleznica U procesu ispunjeno neispunjeno ;
+	$statusi_filter = array(18=>"Ispunjeno", 23 =>'U procesu', 22 =>'U procesu' , 19 =>'Beleznica', 20=>'Neispunjeno', 21=>'Neispunjeno',  0=>'Beleznica' ); //Beleznica U procesu ispunjeno neispunjeno ;
 
 	$statusi_trenutno =  array(18=>"ispunjeno", 23 =>'uprocesu', 22 =>'uprocesu' , 19 =>'beleznica', 20=>'neispunjeno', 21=>'neispunjeno', 0 =>'beleznica');
 
@@ -133,7 +133,7 @@ BROJAC;
 
 			$naslov_vesti = stripcslashes($jedan_unos->naslov) ;
 			$title_status = $jedan_unos->status;
-
+			$temp_status = "";
 			
 					
 			$datum = strtotime(date_format( date_create_from_format('Y-m-d', $jedan_unos->datum_izjave )  , 'Y-m-d' ) );
@@ -184,16 +184,28 @@ BROJAC;
 			$nulti_text = <<<NULTI
 
 
-			<div class="beleznica" title="Beleznica"><i class="fa fa-hourglass-start"></i><b class="$glavna_klasa">0</b>
+			<div class="beleznica col-md-3 col-xs-6" title="Neocenjeno obecanje">
+				<img src="images/ikonica-beleznica.svg" >
+				<i class="fa fa-hourglass-start"></i>
+				<b class="$glavna_klasa">0</b>
 		        <p class="progress"><span></span></p>
 		    </div>
-		    <div class="uprocesu" title="U procesu"><i class="fa fa-cogs"></i><b class="$glavna_klasa">0</b>
+		    <div class="uprocesu col-md-3 col-xs-6" title="U procesu">
+		    	<img src="images/ikonica-uprocesu.svg" >
+		    	<i class="fa fa-cogs"></i>
+		    	<b class="$glavna_klasa">0</b>
 		        <p class="progress"><span></span></p>
 		    </div>
-		    <div class="ispunjeno" title="Ispunjeno"><i class="fa fa-check-circle-o"></i><b class="$glavna_klasa">0</b>
+		    <div class="ispunjeno col-md-3 col-xs-6" title="Ispunjeno">
+		    	<img src="images/ikonica-ispunjeno.svg" >
+		    	<i class="fa fa-check-circle-o"></i>
+		    	<b class="$glavna_klasa">0</b>
 		        <p class="progress"><span></span></p>
 		    </div>
-		    <div class="neispunjeno" title="Neispunjeno"><i class="fa fa-ban"></i><b class="$glavna_klasa">0</b>
+		    <div class="neispunjeno col-md-3 col-xs-6" title="Neispunjeno">
+		    	<img src="images/ikonica-neispunjeno.svg" >
+		    	<i class="fa fa-ban"></i>
+		    	<b class="$glavna_klasa">0</b>
 		        <p class="progress"><span></span></p>
 		    </div>
 
@@ -204,8 +216,16 @@ NULTI;
 
 		$text_upis = "";
 
+		$la = array(18=>"ispunjeno", 23 =>'uprocesu', 22 =>'uprocesu' , 19 =>'beleznica', 20=>'neispunjeno', 21=>'neispunjeno', 0 =>'beleznica');
+
+		if($title_status == 0 || $title_status == 19)
+			$status_temp = "Neocenjeno obećanje";
+		else{
+			$status_temp = $statusi_filter[$title_status ];
+		}
+
 		$prvi_text  = "kat".$kategorija_flag.$jedan_unos->tip_ocena;
-		$vest_text = '<a target="_blank" href="'. $link_vest .'" title="'.  $title_status .'">'. $naslov_vesti .'</a>';
+		$vest_text = '<a  href="'. $link_vest .'" title="'.  $status_temp.'">'. $naslov_vesti .'</a>';
 
 
 		$status_klasa = "";
@@ -224,7 +244,7 @@ NULTI;
 				//categoy
 				$klasa_tr_a = "a$index np category $glavna_klasa hidden "; 
 				$text_upis = $nulti_text;
-				$status_text .= "";
+				$status_text = "";
 				stampanje_tr_a($klasa_tr_a, $status_text, $text_upis, $period , $statusi_trenutno[$jedan_unos->status], $ikonica  );
 			}
 
@@ -308,6 +328,8 @@ function stampanje_tr_a ($klasa_tr_a='', $status_txt = "",
 
 		if(strpos($klasa_tr_a, "category") != false  ){
 			$count_kolona = '<td class="count"></td>';
+
+
 		}
 
 		$template = <<< TROVI

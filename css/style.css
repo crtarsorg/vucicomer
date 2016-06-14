@@ -97,11 +97,11 @@ table {
 table .status {
 	/*display: none;*/
 }
-td.text div {
-	/*display: inline-block;*/
+/* td.text div {
+	display: inline-block;
 	width: 20%;
 	float: left;
-}
+} */
 td.text {
 	width: 90%;
 }

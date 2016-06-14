@@ -61,6 +61,7 @@
 
                 ///izmeni brojeve ukupno
                 izracunaj();
+                ofarbajNaizmenicne();
 
             });
          })
@@ -110,7 +111,9 @@
         $('tr'+ kl_sel).show()
         $('tr div:not(.period-X)').parents().filter('tr').hide()
       }
-
+      
+      ofarbajNaizmenicne();
+      $(".a-1.category:visible").slice(1).hide();
 
     })
 
@@ -147,6 +150,9 @@
             $("tr").hide();
             $("tr." + $(".selected").attr("class").split(" ")[0]).show();
         };
+
+        ofarbajNaizmenicne();
+        $(".a-1.category:visible").slice(1).hide();
     });
 
     $(".reset-search").on("click", function () {
@@ -162,6 +168,10 @@
             {
               //prebaci na sve izjave
               $("tr").show();
+              
+              ofarbajNaizmenicne();
+              $(".a-1.category:visible").slice(1).hide();
+
               return;
             }
     });
@@ -210,11 +220,17 @@
         }; // inactive
 
 
+        ofarbajNaizmenicne();
+        $(".a-1.category:visible").slice(1).hide();
     });
 
 }
 
+function ofarbajNaizmenicne() {
+  $("tr:visible:odd").css('background-color', 'rgba(0, 0, 0, .03)');
+  $("tr:visible:even").css('background-color', 'white');
 
+}
 
 function vratiPeriod() {
 
@@ -275,9 +291,12 @@ function izracunaj () {
 
     $("tr.category b").each(function () {
         var kategory_tot = 
-          $("tr." + $(this).parent().attr("class") + "." + $(this).attr("class") + period_temp).length;
+          $("tr." + $(this).parent().attr("class").replace(" col-md-3 col-xs-6",'') + "." + $(this).attr("class") + period_temp).length;
         $(this).html( kategory_tot)
     });
+
+
+    //racunanje barova u tabovima 
 
     $("tr.category p.progress span").each(function () {
 
@@ -285,12 +304,15 @@ function izracunaj () {
         var classOfCategory = $pra_roditelj.children("b").attr("class");
         var total = $("tr.obecanje." + classOfCategory ).length;
         var neki_selektor =
-          $("tr." + $pra_roditelj.attr("class") + 
+          $("tr." + $pra_roditelj.attr("class").replace(" col-md-3 col-xs-6",'') + 
               "." + $pra_roditelj.children("b").attr("class") + period_temp);
 
         $(this).css("width", (neki_selektor.length * 100 / total) + "%")
     });
 
+
+    ofarbajNaizmenicne();
+    $(".a-1.category:visible").slice(1).hide();
 
 }
 
