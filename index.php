@@ -30,13 +30,14 @@
         border-radius: 12px;
         display: inline-block;
         box-shadow: 0px 2px 5px 2px rgb(200, 200, 200);
+        margin-bottom: -2px;
     }
 
     .dani-vlasti{
-        box-shadow: 2px 4px 10px 5px rgb(200, 200, 200);
-        border-radius: 10px 10px 10px 10px;
-        /* min-height: 30px; */
-        padding: 15px;
+       /*  box-shadow: 2px 4px 10px 5px rgb(200, 200, 200);
+       border-radius: 10px 10px 10px 10px;
+       min-height: 30px;
+       padding: 15px; */
         text-align: center;
         cursor: pointer;
         margin:10px;
@@ -81,9 +82,10 @@
     .period-16{ background-color: #72b1c8; } 
     .period-X{ background-color: #f1f2f2; } 
     .ikonice-glavno{    
+
         position: absolute;
         left: -10%;    
-        margin-top: -15px;
+        margin-top: -20px;
     }
     .dodatno{
         min-height: 35px;
@@ -94,7 +96,8 @@
         padding: 5px;
 
     }
-    .filter-ikonica{cursor: pointer;}
+    .filter-ikonica-kategorija{ cursor: pointer; }
+    .filter-ikonica{cursor: pointer;margin-bottom: 5px;}
     .width-100{width: 100%;}
     .dim-layer{
         width: 100%;
@@ -115,6 +118,19 @@
         top: 100px;
         width: 75px;
         z-index: 1;
+    }
+    .legenda div{
+        margin-left: 20px;        
+    }
+    .legenda span{
+        margin-left: 5px;        
+    }
+
+    .klasa-levo{
+        padding-left: 0px;  
+        margin-left: -16px;
+        padding-right: 0px;
+        width: 390px;
     }
     </style>
     
@@ -145,7 +161,7 @@
         
 
 		<section class="container">
-            <div class="row">
+            <div class="row"  style="margin-top: 40px;margin-bottom: 40px">
     		    <div class="summary col-xs-12 col-sm-4">
     		        <div class="daysinoffice ">
     		            <div class="dani-vlasti reset-dugme">
@@ -249,27 +265,29 @@
                 <a target="_blank" href="https://twitter.com/home?status=www.vucicomer.rs"> <img src="images/twitter.svg"></a>
             </div>
 
-            <div class="search col-xs-12 col-md-6 col-md-offset-3" >
+            
+            
+        </section>
+
+
+        <section class="container " style="    padding-left: 0px;"> 
+
+            <div class="search col-xs-12 col-md-4 klasa-levo " >
                
                 <!-- <i class="fa fa-search"></i>  -->
                 <input class="col-xs-12 col-md-11" type="search" placeholder="Pretraga...">
                  <span id="count"></span>
             </div>
-            
-        </section>
 
-
-        <section class="container " > 
-
-            <div class="col-md-offset-5 col-sm-2">
+            <div class="col-sm-2">
                 <button class="btn btn-primary reset-search">Resetuj </button>    
             </div>
             
 
-            <div class="pull-right col-xs-12 col-sm-4" style="text-align: center; margin:10px;">                
-               <div class="ikonica period-14-filter filter-ikonica period-14"></div> <span>2012-2014</span>
-               <div class="ikonica period-16-filter filter-ikonica period-16" ></div> <span>2014-2016</span>  
-               <div class="ikonica period-X-filter filter-ikonica period-X"></div><span>2016- </span> 
+            <div class="pull-right col-xs-12 col-sm-4 legenda" style="text-align: center; margin:10px;">                
+               <div class="ikonica period-14-filter filter-ikonica-kategorija period-14"></div><span>2012 - 2014</span>
+               <div class="ikonica period-16-filter filter-ikonica-kategorija period-16" ></div><span>2014 - 2016</span>
+               <div class="ikonica period-X-filter filter-ikonica-kategorija period-X"></div><span>2016 - </span> 
              
             </div>
         </section>

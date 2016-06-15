@@ -74,7 +74,7 @@
 
 
     //filtriranje po status
-    $(".filter-ikonica").click(function(ev) {
+    $(".filter-ikonica-kategorija").click(function(ev) {
 
 
       //klasa kategorije

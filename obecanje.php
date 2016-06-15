@@ -78,11 +78,13 @@ $temp_naslov = stripslashes( $jedna_vest->naslov );
     }
 
     .siva-slika{
-        -webkit-filter: grayscale(100%);
-        -o-filter: grayscale(100%);
-        filter: grayscale(100%);
-        width: 100%
-
+       /*  -webkit-filter: grayscale(100%);
+       -o-filter: grayscale(100%);
+       filter: grayscale(100%); */
+        width: 100%;
+        box-shadow: inset 0 0 5px #000; 
+        -moz-box-shadow: inset 0 0 5px #000;
+         -webkit-box-shadow: inset 0 0 5px #000; 
     }
     </style>
 </head>
@@ -249,12 +251,15 @@ if (strpos($komentar_temp,'www.youtube.com/watch?v=') !== false) {
                     echo '<img src="images/ikonica-'.$ikon.'.svg">'
                 ?>
                   <span>       <i class="fa fa-cogs"></i><?php echo $temp_sta; ?></span>
-                  <span class="pull-right">Objavljeno na istinomeru: <?php echo $jedna_vest->datum_izjave; ?></span>
+                  </span>
                 <p> 
 
                     
                     <span> <?php echo $jedna_vest->izvor; ?> </a> </span>
-                </p> 
+
+                </p>
+
+
             </div>
         </div>
 
@@ -290,9 +295,12 @@ if (strpos($komentar_temp,'www.youtube.com/watch?v=') !== false) {
 
         <div class="container">
             
-            <?php echo $komentar_temp; ?>
+            <?php  echo $komentar_temp; ?>
+             <span class="pull-left">Objavljeno na istinomeru: <?php echo date('d.m.Y',strtotime( $jedna_vest->datum_izjave ));; ?>
         </div>
         
+
+       
     </div>
 
     <section class="container container-fluid  container-border">

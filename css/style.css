@@ -61,6 +61,8 @@ header {
 	/* margin-top: 20px; */
 	position: relative;
 	overflow: hidden;
+	/* margin-top: 10px;
+	    margin-bottom: 10px; */
 }
 .search button {
     border-radius: 0px;
@@ -72,7 +74,7 @@ header {
     background: black;
 }
 .search input {
-    height: 30px;
+    height: 34px;
     line-height: 30px;
     padding: 0 4px;
     font-size: 15px;

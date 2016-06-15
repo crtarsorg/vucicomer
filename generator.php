@@ -386,7 +386,7 @@ function citaj_iz_fajla( $filename )
 {
 	//dodati proveru da li je stariji od 1 dan
 	//uraditi mv fajla na -OLD
-	if( !file_exists($filename) )
+	//if( !file_exists($filename) )
 		return false;
 
 	$podaci_json = file_get_contents($filename); 
