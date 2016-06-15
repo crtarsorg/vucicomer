@@ -39,8 +39,13 @@
         padding: 15px;
         text-align: center;
         cursor: pointer;
+        margin:10px;
     }
-    .dani-vlasti span{text-transform: uppercase;}
+    .dani-vlasti span{
+        text-transform: uppercase;
+        position: relative;
+        top:-30px;
+    }
     
     .dugme-active{
         transform: translateY(-2px);
@@ -143,12 +148,12 @@
             <div class="row">
     		    <div class="summary col-xs-12 col-sm-4">
     		        <div class="daysinoffice ">
-    		            <h2 class="dani-vlasti reset-dugme">
+    		            <div class="dani-vlasti reset-dugme">
     		                <!-- <i class="fa fa-calendar"></i> -->
-                          <span title="od 27. aprila 2014 godine">Ukupno na vlasti:</span> <b>-0</b> <span>dana</span>
+                          <span title="od 27. aprila 2014 godine">Ukupno na vlasti:</span> <object id="svg1" data="images/dani_vlast.svg" type="image/svg+xml"></object> <span>dana</span>
 
                          
-    		            </h2>
+    		            </div>
 
                         <div>
                             <div class="dodatno hidden "></div>

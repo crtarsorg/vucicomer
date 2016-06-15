@@ -317,10 +317,19 @@ function izracunaj () {
 }
 
 
+
+
 function datum() {
-  $('.summary > div > h2 > b').html(
-      Math.ceil((new Date() - new Date(2014,4,27))/(1000*60*60*24))
-      );
+
+ var a =  document.getElementById("svg1");
+    var doc = a.getSVGDocument();
+    var text = doc.querySelector("text"); // suppose our image contains a <rect>
+    //text.setAttribute("fill", "green");
+    text.textContent = Math.ceil((new Date() - new Date(2014,4,27))/(1000*60*60*24));
+
+  /*$('.summary > div > h2 > b').html(
+      
+      );*/
 }
 
 
