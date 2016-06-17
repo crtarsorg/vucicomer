@@ -11,6 +11,7 @@ p.progress span {
     display: block;
     width: 0;
     height: 100%;
+    background-color: rgba(42,42,42,0.70);
     /*border-radius: 5px;*/
     box-shadow: inset 1px 1px 2px rgba(0, 0, 0, .25);
 }
@@ -159,28 +160,38 @@ td.count {
 p.progress span:hover {
     background-color: gray;
 }
-.uprocesu:hover, .uprocesu a:hover {
-    color: orange !important;
+.uprocesu:hover, 
+.uprocesu a:hover, 
+.uprocesu p.progress>span:hover,
+.uprocesu-hover {
+    color: #FFDE8E !important;
+}
+.uprocesu p.progress>span:hover{
+    background-color: #FFDE8E !important;   
 }
 
-.uprocesu p.progress span:hover {
-    background-color: orange !important;
+
+.ispunjeno:hover, 
+.ispunjeno a:hover, 
+.ispunjeno p.progress span:hover,
+.ispunjeno-hover{
+    color: #A9D383 !important;
 }
 
-.ispunjeno:hover, .ispunjeno a:hover {
-    color: rgb(0, 200, 100) !important;
+.ispunjeno p.progress span:hover{
+    background-color: #A9D383 !important;
 }
 
-.ispunjeno p.progress span:hover {
-    background-color: rgb(0, 200, 100) !important;
+
+.neispunjeno:hover, 
+.neispunjeno a:hover , 
+.neispunjeno .progress span:hover,
+.neispunjeno-hover{
+    color: #EF4B49 !important;
 }
 
-.neispunjeno:hover, .neispunjeno a:hover {
-    color: indianred !important;
-}
-
-.neispunjeno p.progress span:hover {
-    background-color: indianred !important;
+.neispunjeno .progress span:hover{
+    background-color: #EF4B49 !important;
 }
 
 .banner {
@@ -324,15 +335,15 @@ p.progress span:hover {
 }
 
 .article.uprocesu {
-    border-left-color: orange;
+    border-left-color: #FFDE8E;
 }
 
 .article.ispunjeno {
-    border-left-color: rgb(0, 200, 100);
+    border-left-color: #A9D383;
 }
 
 .article.neispunjeno {
-    border-left-color: indianred;
+    border-left-color: #EF4B49;
 }
 
 .article h1 {

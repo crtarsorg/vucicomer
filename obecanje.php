@@ -296,7 +296,10 @@ if (strpos($komentar_temp,'www.youtube.com/watch?v=') !== false) {
         <div class="container">
             
             <?php  echo $komentar_temp; ?>
-             <span class="pull-left">Objavljeno na istinomeru: <?php echo date('d.m.Y',strtotime( $jedna_vest->datum_izjave ));; ?>
+
+            <br>
+            <div class="pull-left">Objavljeno na istinomeru: <?php echo date('d.m.Y',strtotime( $jedna_vest->datum_izjave ));; ?>
+            </div>
         </div>
         
 

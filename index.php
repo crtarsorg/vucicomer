@@ -22,9 +22,13 @@
 		<script src="js/jquery-1.11.2.js"></script>
 		<script src="js/index.js?3"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/10.0.0/js/smooth-scroll.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
 
-     <style type="text/css">
-     .ikonica{
+
+
+    <style type="text/css">
+    .ikonica{
         height: 15px; 
         width: 15px;
         border-radius: 12px;
@@ -132,6 +136,13 @@
         padding-right: 0px;
         width: 390px;
     }
+
+    @media (min-width: 992px){
+        .procenat-20 {
+            width: 20%;
+        }
+    }
+        
     </style>
     
     
@@ -161,8 +172,8 @@
         
 
 		<section class="container">
-            <div class="row"  style="margin-top: 40px;margin-bottom: 40px">
-    		    <div class="summary col-xs-12 col-sm-4">
+            <div class="row"   style="margin-top: 40px;margin-bottom: 40px">
+    		    <div class="summary col-xs-12 col-sm-4" id="stats">
     		        <div class="daysinoffice ">
     		            <div class="dani-vlasti reset-dugme">
     		                <!-- <i class="fa fa-calendar"></i> -->
@@ -179,7 +190,7 @@
                         </div>
                          
     		        </div>
-    		        <a data-scroll="" href="#obecanja">
+    		        <a  data-scroll="" href="#obecanja">
     		            <div class="beleznica" data-search="Beleznica" title="Neocenjeno obećanje">
     		                <h2>
     		                	
@@ -221,32 +232,45 @@
 
     		    <div class="intro col-xs-12 col-sm-8">
     		        <p>
-    		           Srbija je 27. aprila 2014, nepune dve godine pošto je <a href="http://bit.ly/1oxfnAD" target="_blank">koalicija predvođena SNS-om preuzela vlast, posle vanrednih izbora</a> dobila jedanaestog po redu predsednika Vlade. Pred narodnim poslanicima Aleksandar Vučić je položio zakletvu i pročitao plan budućeg rada. Samo dve godine kasnije, premijer od naroda traži novi mandat. 
+    		           Srbija je 27. aprila 2014, nepune dve godine pošto je <a href="http://bit.ly/1oxfnAD" target="_blank">koalicija predvođena SNS-om preuzela vlast, posle vanrednih izbora</a> dobila jedanaestog po redu predsednika Vlade. Pred narodnim poslanicima Aleksandar Vučić je položio zakletvu i pročitao plan budućeg rada.                        
     		        </p>
+                    <p>Samo dve godine kasnije, 24. aprila 2016. godine premijer je od građana tražio poverenje na još jednim vanrednim izborima i <a href="http://bit.ly/1tA6n0x">dobio novi mandat</a>.</p>
+
+                    <p>Budući da nas uskoro čeka nov ekspoze novog starog predsednika Vlade, kao i da je u protekle četiri godine <a href="http://www.istinomer.rs/akter/15/Aleksandar-Vucic">Aleksandar Vučić</a>, kao prvi potpredsednik i predsednik Vlade, uspeo da se nametne kao apsolutno dominantna figura na našoj političkoj sceni, mi u Istinomeru, u skladu sa našom društvenom misijom, osećamo kao svoju obavezu da javnosti pružimo pun uvid u sve ono što smo zabeležili i ocenili u ovom periodu.</p>
+
     		        <p>
-                        
-                        Šta je sve  <a href="http://www.istinomer.rs/akter/15/Aleksandar-Vucic" target="_blank">Aleksandar Vučić</a> u prethodne dve godine obećao, a šta ispunio?  <a href="http://www.srbija.gov.rs/extfile/sr/208699/ekspoze_aleksandar_vucic_cyr270414.doc" target="_blank">Koliko stavki iz ekspozea je Vlada uspela da realizuje</a>, a koje su ostala samo “mrtvo slovo na papiru”? <b>Može li se u njegovim izjavama naći razlog ovakvog skraćenog izbornog perioda?</b> Vučićomer ocenjuje, prati i analizira obećanja koja je građanima Srbije dao <a href="http://www.istinomer.rs/akter/15/Aleksandar-Vucic">predsednik Vlade Aleksandar Vučić</a>.
-                      
+                        Šta je sve  <a href="http://www.istinomer.rs/akter/15/Aleksandar-Vucic" target="_blank">Aleksandar Vučić</a> obećavao, a šta ispunio? Koliko je bio dosledan i uporan u ispunjavanju svojih obećanja? <a href="http://www.srbija.gov.rs/extfile/sr/208699/ekspoze_aleksandar_vucic_cyr270414.doc" target="_blank">Koliko stavki iz prošlog ekspozea je Vlada uspela da realizuje</a>, a koje su ostale samo “mrtvo slovo na papiru”?                        
                     </p>
+                    <p>Zato pokrećemo Vučićomer – sajt koji ocenjuje, prati i analizira obećanja koja je građanima Srbije dao predsednik Vlade Aleksandar Vučić.</p>
     		        <p>
-                    Izjave premijera razvrstane su u tri sekcije – politika, društvo i ekonomija. Svako obećanje dobija jedinstvenu ocenu uz određeno obrazloženje. Status obećanja možete pratiti u okviru statistike koja pokazuje procenat ispunjenih, neispunjenih, kao i obećanja čija je realizacija u toku. Rubrika Beležnica podseća na sve ono što je premijer Vučić  obećao, ali rok za njihovo ostvarenje još nije istekao.
+                   Izjave premijera razvrstane su u tri sekcije – politika, društvo i ekonomija. Svako obećanje dobija jedinstvenu ocenu uz jasnu analizu baziranu na javno dostupnim podacima i obrazloženje. Status obećanja možete pratiti i u okviru statistike koja pokazuje procenat ispunjenih, neispunjenih, kao i obećanja čija je realizacija u toku. Rubrika Beležnica podseća na sve ono što je premijer Vučić obećao, ali rok za njihovo ostvarenje još nije istekao.
                    </p> 
+                   
+                   <p>Nove epizode Vučićomera naši čitaoci mogu očekivati od trenutka kada Aleksandar Vučić bude predstavio svoj ekspoze u Skupštini Srbije.</p>
+
+                   <p>Nadamo se da će ovo izdanje Vučićomera doprineti boljem razumevanju jedne politike u javnosti, kvalitetu političkog diskursa i da će možda jednim malim delom uticati na to da se manje obećava, a više ispunjava u narednom mandatu. </p>
                    
                    <hr/>
                     
     		       <section >
-                        <div class="col-md-3 col-xs-6">
-                            <a href="http://www.gradjaninastrazi.rs/" target="_blank"><img class="img-responsive width-100 " src="images/gns-logo.svg" alt="Gradjani na strazi logo"></a>
+                        <div class="procenat-20 col-xs-5">
+                            <a href="http://www.istinomer.rs/pregled_ocena/tipovi,3,4,5/akter,45/pstr,10/strana,1/" target="_blank"><img class="img-responsive width-100 " src="images/cvetkovic.svg" alt="Gradjani na strazi logo"></a>
                         </div>
-                       <div class="col-md-3 col-xs-6">
-                            <a href="http://www.otvoreniparlament.rs/" target="_blank"><img class="img-responsive width-100" src="images/op-logo.svg" alt="Otvoreni parlament logo"></a>
+                       <div class="procenat-20 col-xs-5">
+                            <a href="http://www.istinomer.rs/pregled_ocena/tipovi,3,4,5/akter,162/pstr,10/strana,1/" target="_blank"><img class="img-responsive width-100" src="images/dacic.svg" alt="Otvoreni parlament logo"></a>
                        </div>
-                        <div class="col-md-3 col-xs-6">
-                            <a href="http://www.istinomer.rs/" target="_blank"><img class="img-responsive width-100" src="images/ist-logo.svg" alt="Istinomer logo"></a>
-                        </div>
-                        <div class="col-md-3 col-xs-6">
+
+                        <div class="procenat-20 col-xs-5">
+                            <a href="http://www.istinomer.rs/pregled_ocena/tipovi,3,4,5/akter,15/pstr,10/strana,1/" target="_blank"><img class="img-responsive width-100" src="images/vucic.svg" alt="Otvoreni parlament logo"></a>
+                       </div>
+
+                        <div class="procenat-20 col-xs-5">
                             <a href="http://www.birackiproglas.rs" target="_blank"><img class="img-responsive width-100" src="images/prog-logo.svg" alt="Biracki proglas logo"></a>
                         </div>
+                        <div class="procenat-20 col-xs-5">
+                            <a href="http://www.istinomer.rs/" target="_blank"><img class="img-responsive width-100" src="images/ist-logo.svg" alt="Istinomer logo"></a>
+                        </div>
+                       
                     </section>
 
                     <hr/>
@@ -256,18 +280,24 @@
 
   
        
-   
+       <script type="text/javascript">
+        
+        var windowObjectReference;
+        var strWindowFeatures = "menubar=no,location=yes,resizable=yes,scrollbars=yes,status=yes";
 
-        <!-- class="container obecanja" id="obecanja" -->
-        <section class="container ">
-            <div class="social-div">
-                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=www.vucicomer.rs"><img src="images/fb.svg"></a>
-                <a target="_blank" href="https://twitter.com/home?status=www.vucicomer.rs"> <img src="images/twitter.svg"></a>
-            </div>
+        function openRequestedPopup(el) {
+            
+          windowObjectReference = window.open(el.href, "Vucicomer podeli", strWindowFeatures);
+        }
 
-            
-            
-        </section>
+    </script>
+
+     <section class="container ">
+        
+        <div class="social-div">
+            <a target="_blank" onclick="false;openRequestedPopup(this)" href="https://www.facebook.com/sharer/sharer.php?u=www.vucicomer.rs"><img src="images/fb.svg"></a>
+            <a target="_blank" onclick="false;openRequestedPopup(this)" href="https://twitter.com/home?status=www.vucicomer.rs"> <img src="images/twitter.svg"></a>
+        </div>
 
 
         <section class="container " style="    padding-left: 0px;"> 

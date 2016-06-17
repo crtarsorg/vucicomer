@@ -37,9 +37,9 @@
 		);
 
 
-	$statusi_filter = array(18=>"Ispunjeno", 23 =>'U procesu', 22 =>'U procesu' , 19 =>'Beleznica', 20=>'Neispunjeno', 21=>'Neispunjeno',  0=>'Beleznica' ); //Beleznica U procesu ispunjeno neispunjeno ;
+	$statusi_filter = array(18=>"Ispunjeno", 23 =>'Ispunjeno', 22 =>'U procesu' , 19 =>'Neispunjeno', 20=>'Neispunjeno', 21=>'Neispunjeno',  0=>'Beleznica' ); //Beleznica U procesu ispunjeno neispunjeno ;
 
-	$statusi_trenutno =  array(18=>"ispunjeno", 23 =>'uprocesu', 22 =>'uprocesu' , 19 =>'beleznica', 20=>'neispunjeno', 21=>'neispunjeno', 0 =>'beleznica');
+	$statusi_trenutno =  array(18=>"ispunjeno", 23 =>'ispunjeno', 22 =>'uprocesu' , 19 =>'neispunjeno', 20=>'neispunjeno', 21=>'neispunjeno', 0 =>'beleznica');
 
 
 	$kategorije = array(24 =>'politika', 25 =>'ekonomija', 26 =>'kultura', 27 =>'zdravstvo', 28 =>'drustvo',  );
@@ -216,7 +216,7 @@ NULTI;
 
 		$text_upis = "";
 
-		$la = array(18=>"ispunjeno", 23 =>'uprocesu', 22 =>'uprocesu' , 19 =>'beleznica', 20=>'neispunjeno', 21=>'neispunjeno', 0 =>'beleznica');
+		$la = array(18=>"ispunjeno", 23 =>'ispunjeno', 22 =>'uprocesu' , 19 =>'neispunjeno', 20=>'neispunjeno', 21=>'neispunjeno', 0 =>'beleznica');
 
 		if($title_status == 0 || $title_status == 19)
 			$status_temp = "Neocenjeno obećanje";
