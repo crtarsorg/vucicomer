@@ -4,9 +4,13 @@
 		<meta charset="UTF-8">
 		<title>Vučićomer</title>
 
-		<meta name="description" content="">
-		<meta name="keywords" content="">
-		<meta name="author" content="">
+		 <meta property="og:title" content="Vučićomer" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://www.vucicomer.rs/" />
+        <meta property="og:image" content="http://www.vucicomer.rs/images/logo.jpg" />
+        <meta name="description" content="Vučićomer – sajt koji ocenjuje, prati i analizira obećanja koja je građanima Srbije dao predsednik Vlade Aleksandar Vučić.">
+        <meta name="keywords" content="predsednik Vlade,Aleksandar Vučić, Srbija, premijer, politika,obećanja, doslednost, dogovornost">
+        <meta name="author" content="istinomer.rs">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<meta name="mobile-web-app-capable" content="yes">
@@ -141,6 +145,8 @@
         .procenat-20 {
             width: 20%;
         }
+
+        .search-cont{padding-left: 0px;}
     }
         
     </style>
@@ -300,7 +306,7 @@
         </div>
 
 
-        <section class="container " style="    padding-left: 0px;"> 
+        <section class="container search-cont" style="    "> 
 
             <div class="search col-xs-12 col-md-4 klasa-levo " >
                

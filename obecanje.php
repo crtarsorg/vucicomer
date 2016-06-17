@@ -33,9 +33,14 @@ $temp_naslov = stripslashes( $jedna_vest->naslov );
 <head>
     <meta charset="UTF-8">
     <title>Vučićomer | <?php echo $temp_naslov; ?></title>
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="">
+
+    <meta property="og:title" content="Vučićomer | <?php echo $temp_naslov; ?>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<?php echo 'http://www.vucicomer.rs/obecanje.php?id='.$id_vesti; ?>" />
+    <meta property="og:image" content="http://www.vucicomer.rs/images/logo.jpg" />
+    <meta name="description" content="Vučićomer – sajt koji ocenjuje, prati i analizira obećanja koja je građanima Srbije dao predsednik Vlade Aleksandar Vučić.">
+    <meta name="keywords" content="predsednik Vlade,Aleksandar Vučić, Srbija, premijer, politika,obećanja, doslednost, dogovornost">
+    <meta name="author" content="istinomer.rs">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="mobile-web-app-capable" content="yes">
