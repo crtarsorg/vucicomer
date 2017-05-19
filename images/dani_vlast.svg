@@ -3,6 +3,11 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+
+  <style>
+    svg { cursor: pointer; } 
+  
+  </style>
 <g>
 	<path fill="#FFFFFF" stroke="#58595B" stroke-width="1.0365" stroke-miterlimit="10" d="M85.66,82.46l-0.238-8.638
 		c0,0-70.073,6.279-70.202,6.798c-0.128,0.518-1.332,2.336-1.332,2.336L85.66,82.46z"/>

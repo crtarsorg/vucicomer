@@ -91,6 +91,14 @@ $temp_naslov = stripslashes( $jedna_vest->naslov );
         -moz-box-shadow: inset 0 0 5px #000;
          -webkit-box-shadow: inset 0 0 5px #000; 
     }
+    .source{
+        text-align: center;
+    }
+    .embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } 
+    .embed-container iframe,
+    .embed-container object, 
+    .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
     </style>
 </head>
 
@@ -139,8 +147,8 @@ $temp_naslov = stripslashes( $jedna_vest->naslov );
                 );
 
 
-            $statusi_filter = array(18=>"Ispunjeno", 23 =>'U procesu', 22 =>'U procesu' , '19' =>'Beležnica', 20=>'Neispunjeno', 21=>'Neispunjeno',  0=>'Beležnica' );
-              $statusi_ikonice =  array(18=>"ispunjeno", 23 =>'uprocesu', 22 =>'uprocesu' , 19 =>'beleznica', 20=>'neispunjeno', 21=>'neispunjeno', 0 =>'beleznica');      
+            $statusi_filter = array(18=>"Ispunjeno", 23 =>'Ispunjeno', 22 =>'U procesu' , 19 =>'Neispunjeno', 20=>'Neispunjeno', 21=>'Neispunjeno',  0=>'Beležnica' );
+              $statusi_ikonice =  array(18=>"ispunjeno", 23 =>'ispunjeno', 22 =>'uprocesu' , 19 =>'neispunjeno', 20=>'neispunjeno', 21=>'neispunjeno', 0 =>'beleznica');  
             
             $temp_sta = $statusi_filter[ $jedna_vest->status ] ;
         ?>
@@ -194,10 +202,11 @@ $komentar_temp = str_replace('/izjava/','/ocena/',$komentar_temp);
 
 
 if (strpos($komentar_temp,'www.youtube.com/watch?v=') !== false) {
-    $komentar_temp = str_replace('http://www.youtube.com/watch?v=','<iframe width="500" height="281" src="https://www.youtube.com/embed/',$komentar_temp);
-    $komentar_temp = str_replace('https://www.youtube.com/watch?v=','<iframe width="500" height="281" src="https://www.youtube.com/embed/',$komentar_temp);
+     //src='http://www.youtube.com/embed/QILiHiTD3uc' frameborder='0' allowfullscreen></iframe></div>
+    $komentar_temp = str_replace('http://www.youtube.com/watch?v=','<div class="embed-container"><iframe src="https://www.youtube.com/embed/',$komentar_temp);
+    $komentar_temp = str_replace('https://www.youtube.com/watch?v=','<div class="embed-container"><iframe src="https://www.youtube.com/embed/',$komentar_temp);
     $watch_pos = strpos($komentar_temp,'embed/');
-    $komentar_temp = substr($komentar_temp, 0, $watch_pos+17).'?feature=oembed" frameborder="0" allowfullscreen=""></iframe>'.substr($komentar_temp, $watch_pos+17);;
+    $komentar_temp = substr($komentar_temp, 0, $watch_pos+17).'?feature=oembed" frameborder="0" allowfullscreen=""></iframe></div>'.substr($komentar_temp, $watch_pos+17);;
 }
 
 ?>
@@ -239,7 +248,7 @@ if (strpos($komentar_temp,'www.youtube.com/watch?v=') !== false) {
                 <i class="fa fa-arrow-left"></i> Share this obecanje!
             </div> -->
             <h1> 
-                <i class="fa fa-university"></i> <?php echo $temp_naslov;  ?>
+                <i class="fa fa-university"></i> <?php echo stripslashes($temp_naslov );  ?>
             </h1>
 
             <h2><?php 
@@ -247,7 +256,7 @@ if (strpos($komentar_temp,'www.youtube.com/watch?v=') !== false) {
             $iz_temp  = trim($iz_temp ) ;  
            /* $iz_temp  = trim($iz_temp,'"') ;  
             $iz_temp  = trim($iz_temp,'“') ;  */
-            echo ($iz_temp) ;
+            echo  stripslashes($iz_temp) ;
 
             ?></h2>
              <div class="status pull-left"> 
@@ -255,12 +264,12 @@ if (strpos($komentar_temp,'www.youtube.com/watch?v=') !== false) {
                     $ikon = $statusi_ikonice[$jedna_vest->status ];
                     echo '<img src="images/ikonica-'.$ikon.'.svg">'
                 ?>
-                  <span>       <i class="fa fa-cogs"></i><?php echo $temp_sta; ?></span>
+                  <span>       <i class="fa fa-cogs"></i><?php echo stripslashes( $temp_sta ); ?></span>
                   </span>
                 <p> 
 
                     
-                    <span> <?php echo $jedna_vest->izvor; ?> </a> </span>
+                    <span> <?php echo "<i>". stripslashes( $jedna_vest->izvor ) ."</i>"; ?> </a> </span>
 
                 </p>
 
@@ -298,12 +307,13 @@ if (strpos($komentar_temp,'www.youtube.com/watch?v=') !== false) {
             <br>
         </div>
 
-        <div class="container">
+        <div class="container" style="max-width: 620px;">
             
-            <?php  echo $komentar_temp; ?>
+            <?php  echo stripslashes( $komentar_temp ); ?>
 
             <br>
-            <div class="pull-left">Objavljeno na istinomeru: <?php echo date('d.m.Y',strtotime( $jedna_vest->datum_izjave ));; ?>
+            <div class="pull-left"><i> Objavljeno na Istinomeru: <?php echo date('d.m.Y.',strtotime( $jedna_vest->datum_izjave )); ?>
+            </i>
             </div>
         </div>
         

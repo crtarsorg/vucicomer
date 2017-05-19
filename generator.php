@@ -369,7 +369,7 @@ function napravi_json_fajl( $filename )
 	$podaci_json = file_get_contents($putanja); 
 	/*$rezultat_upisa = 
 		file_put_contents($filename, $podaci_json);*/
-				
+			
 		
 		$fp = fopen($filename, 'w');
 		fwrite($fp, $podaci_json );

@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>Vučićomer</title>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vučićomer</title>
 
-		 <meta property="og:title" content="Vučićomer" />
+         <meta property="og:title" content="Vučićomer" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="http://www.vucicomer.rs/" />
         <meta property="og:image" content="http://www.vucicomer.rs/images/logo.jpg" />
         <meta name="description" content="Vučićomer – sajt koji ocenjuje, prati i analizira obećanja koja je građanima Srbije dao predsednik Vlade Aleksandar Vučić.">
         <meta name="keywords" content="predsednik Vlade,Aleksandar Vučić, Srbija, premijer, politika,obećanja, doslednost, dogovornost">
         <meta name="author" content="istinomer.rs">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<meta name="mobile-web-app-capable" content="yes">
-    	<meta name="apple-mobile-web-app-capable" content="yes">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
 
-		
-		<!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"></link> -->
+        
+        <!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"></link> -->
 
-		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css?1">
-		<link rel="stylesheet" type="text/css" href="css/style.css?1">
-        <link rel="stylesheet" type="text/css" href="css/extern.css?1">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css?<?php echo rand(10000, 99999);?> ">
+        <link rel="stylesheet" type="text/css" href="css/extern.css?<?php echo rand(10000, 99999);?> ">
 
-		<script src="js/jquery-1.11.2.js"></script>
-		<script src="js/index.js?3"></script>
+        <script src="js/jquery-1.11.2.js"></script>
+
+        <script src="https://d3js.org/d3-selection.v1.min.js"></script>
+        <script src="js/index.js?<?php echo rand(10000, 99999);?> "></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/10.0.0/js/smooth-scroll.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
@@ -158,14 +160,14 @@
   
 
 
-	</head>
-	<body>
+    </head>
+    <body>
 
     <div class="dim-layer">
         <img class="loader-icon" src="images/spinner.svg">
     </div>
     
-		<header class="container-fluid">
+        <header class="container-fluid">
             <div class="container">
                 <h1>
                     <a href="index.html">
@@ -177,16 +179,16 @@
 
         
 
-		<section class="container">
+        <section class="container">
             <div class="row"   style="margin-top: 40px;margin-bottom: 40px">
-    		    <div class="summary col-xs-12 col-sm-4" id="stats">
-    		        <div class="daysinoffice ">
-    		            <div class="dani-vlasti reset-dugme">
-    		                <!-- <i class="fa fa-calendar"></i> -->
+                <div class="summary col-xs-12 col-sm-4" id="stats">
+                    <div class="daysinoffice ">
+                        <div class="dani-vlasti reset-dugme">
+                            <!-- <i class="fa fa-calendar"></i> -->
                           <span title="od 27. aprila 2014 godine">Ukupno na vlasti:</span> <object id="svg1" data="images/dani_vlast.svg" type="image/svg+xml"></object> <span>dana</span>
 
                          
-    		            </div>
+                        </div>
 
                         <div>
                             <div class="dodatno hidden "></div>
@@ -195,70 +197,57 @@
                             <div class="dugme period-X filter-ikonica period-X-filter">2016-</div>
                         </div>
                          
-    		        </div>
-    		        <a  data-scroll="" href="#obecanja">
-    		            <div class="beleznica" data-search="Beleznica" title="Neocenjeno obećanje">
-    		                <h2>
-    		                	
-    		                	<span>Beležnica: <b class="count"></b>/<b class="total"></b></span>
-    		                </h2>
-    		              
+                    </div>
+                    <a  data-scroll="" href="#obecanja">
+                        <div class="beleznica" data-search="Beleznica" title="Neocenjeno obećanje">
+                            <h2>
+                                
+                                <span>Beležnica: <b class="count"></b>/<b class="total"></b></span>
+                            </h2>
+                          
                            <img class="ikonice-glavno" src="images/ikonica-beleznica.svg"> 
                            <p class="progress"><span></span></p>
                           
-    		            </div>
-    		            <div class="uprocesu" data-search="U procesu">
-    		                <h2>
-    		                	<!-- <i class="fa fa-cogs"></i> -->
-    		                	<span>U procesu: <b class="count"></b>/<b class="total"></b></span>
-    		                </h2>
+                        </div>
+                        <div class="uprocesu" data-search="U procesu">
+                            <h2>
+                                <!-- <i class="fa fa-cogs"></i> -->
+                                <span>U procesu: <b class="count"></b>/<b class="total"></b></span>
+                            </h2>
                             <img class="ikonice-glavno" src="images/ikonica-uprocesu.svg"> 
-    		                <p class="progress"><span></span></p>
-    		            </div>
-    		            <div class="ispunjeno" data-search="Ispunjeno">
-    		                <h2>
-    		                	<!-- <i class="fa fa-check-circle-o"></i> -->
-    		                	<span>Ispunjeno: <b class="count"></b>/<b class="total"></b></span>
-    		                </h2>
+                            <p class="progress"><span></span></p>
+                        </div>
+                        <div class="ispunjeno" data-search="Ispunjeno">
+                            <h2>
+                                <!-- <i class="fa fa-check-circle-o"></i> -->
+                                <span>Ispunjeno: <b class="count"></b>/<b class="total"></b></span>
+                            </h2>
                              <img class="ikonice-glavno" src="images/ikonica-ispunjeno.svg"> 
-    		                <p class="progress"><span></span></p>
-    		            </div>
-    		            <div class="neispunjeno" data-search="Neispunjeno">
-    		                <h2>
+                            <p class="progress"><span></span></p>
+                        </div>
+                        <div class="neispunjeno" data-search="Neispunjeno">
+                            <h2>
                                 <!-- <i class="fa fa-ban"></i> -->
                                 <span>Neispunjeno: <b class="count"></b>/<b class="total"></b></span>
                             </h2>
                             <img class="ikonice-glavno" src="images/ikonica-neispunjeno.svg"> 
-    		                <p class="progress"><span></span></p>
-    		            </div>
-    		        </a>
+                            <p class="progress"><span></span></p>
+                        </div>
+                    </a>
 
-    		    </div>
+                </div>
 
 
-    		    <div class="intro col-xs-12 col-sm-8">
-    		        <p>
-    		           Srbija je 27. aprila 2014, nepune dve godine pošto je <a href="http://bit.ly/1oxfnAD" target="_blank">koalicija predvođena SNS-om preuzela vlast, posle vanrednih izbora</a> dobila jedanaestog po redu predsednika Vlade. Pred narodnim poslanicima Aleksandar Vučić je položio zakletvu i pročitao plan budućeg rada.                        
-    		        </p>
-                    <p>Samo dve godine kasnije, 24. aprila 2016. godine premijer je od građana tražio poverenje na još jednim vanrednim izborima i <a href="http://bit.ly/1tA6n0x">dobio novi mandat</a>.</p>
+                <div class="intro col-xs-12 col-sm-8">
 
-                    <p>Budući da nas uskoro čeka nov ekspoze novog starog predsednika Vlade, kao i da je u protekle četiri godine <a href="http://www.istinomer.rs/akter/15/Aleksandar-Vucic">Aleksandar Vučić</a>, kao prvi potpredsednik i predsednik Vlade, uspeo da se nametne kao apsolutno dominantna figura na našoj političkoj sceni, mi u Istinomeru, u skladu sa našom društvenom misijom, osećamo kao svoju obavezu da javnosti pružimo pun uvid u sve ono što smo zabeležili i ocenili u ovom periodu.</p>
+                    <div class="ytvideo">
+                        <iframe width="750" height="422" src="https://www.youtube.com/embed/5YN1liYcHyU" frameborder="0" allowfullscreen></iframe>
+                    </div>
 
-    		        <p>
-                        Šta je sve  <a href="http://www.istinomer.rs/akter/15/Aleksandar-Vucic" target="_blank">Aleksandar Vučić</a> obećavao, a šta ispunio? Koliko je bio dosledan i uporan u ispunjavanju svojih obećanja? <a href="http://www.srbija.gov.rs/extfile/sr/208699/ekspoze_aleksandar_vucic_cyr270414.doc" target="_blank">Koliko stavki iz prošlog ekspozea je Vlada uspela da realizuje</a>, a koje su ostale samo “mrtvo slovo na papiru”?                        
-                    </p>
-                    <p>Zato pokrećemo Vučićomer – sajt koji ocenjuje, prati i analizira obećanja koja je građanima Srbije dao predsednik Vlade Aleksandar Vučić.</p>
-    		        <p>
-                   Izjave premijera razvrstane su u tri sekcije – politika, društvo i ekonomija. Svako obećanje dobija jedinstvenu ocenu uz jasnu analizu baziranu na javno dostupnim podacima i obrazloženje. Status obećanja možete pratiti i u okviru statistike koja pokazuje procenat ispunjenih, neispunjenih, kao i obećanja čija je realizacija u toku. Rubrika Beležnica podseća na sve ono što je premijer Vučić obećao, ali rok za njihovo ostvarenje još nije istekao.
-                   </p> 
-                   
-                   <p>Nove epizode Vučićomera naši čitaoci mogu očekivati od trenutka kada Aleksandar Vučić bude predstavio svoj ekspoze u Skupštini Srbije.</p>
 
-                   <p>Nadamo se da će ovo izdanje Vučićomera doprineti boljem razumevanju jedne politike u javnosti, kvalitetu političkog diskursa i da će možda jednim malim delom uticati na to da se manje obećava, a više ispunjava u narednom mandatu. </p>
-                   
                    <hr/>
-                    
-    		       <section >
+
+                   <section >
                         <div class="procenat-20 col-xs-5">
                             <a href="http://www.istinomer.rs/pregled_ocena/tipovi,3,4,5/akter,45/pstr,10/strana,1/" target="_blank"><img class="img-responsive width-100 " src="images/cvetkovic.svg" alt="Gradjani na strazi logo"></a>
                         </div>
@@ -280,9 +269,9 @@
                     </section>
 
                     <hr/>
-    		    </div>
+                </div>
             </div>
-		</section>
+        </section>
 
   
        
@@ -369,6 +358,6 @@
             </a>
         </footer>
 
-		<script src="bootstrap/js/bootstrap.min.js"></script>
-	</body>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+    </body>
 </html>

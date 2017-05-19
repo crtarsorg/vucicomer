@@ -1,6 +1,9 @@
+var maincat = "all";
+var mainperiod = "all";
+var klasa_kategorije = "all";
+
+
 $(function() {
-
-
 
 /*$(".progress").parent().hover(function() {
   // Stuff to do when the mouse enters the element 
@@ -11,10 +14,12 @@ $(function() {
 });
 */
 
+  
 
     $(".reset-dugme").click(function(ev) {
 
-        resetovanje();
+        //resetovanje();
+        $(".reset-search").trigger( "click" );
     })
 
     $(".dugme").click(function(ev) {
@@ -34,17 +39,21 @@ $(function() {
 
         if (ime.indexOf('period-14') != -1) {
             d_klasa = "period-14";
-            tekst_temp = "Prvi potpredsednik Vlade republike Srbije";
+            tekst_temp = "Prvi potpredsednik Vlade Republike Srbije";
+            mainperiod = "period-14";
         } else if (ime.indexOf('period-16') != -1) {
             d_klasa = "period-16";
-            tekst_temp = 'Predsednik Vlade republike Srbije - prvi mandat';
+            tekst_temp = 'Predsednik Vlade Republike Srbije - prvi mandat';
+            mainperiod = "period-16";
         } else if (ime.indexOf('period-X') != -1) {
             d_klasa = "period-X";
-            tekst_temp = 'Predsednik Vlade republike Srbije - drugi mandat';
+            tekst_temp = 'Predsednik Vlade Republike Srbije - drugi mandat';
+            mainperiod = "period-X";
         }
+      
 
 
-        //Ukloni sve koji nisu u tom periodu  
+        //Ukloni sve koji nisu u tom periodu
 
 
         $(this).addClass('dugme-active')
@@ -73,10 +82,12 @@ $(function() {
     });
 })
 
-function init() {
+function init() {       $("tr:nth-child(2)").removeClass('hidden politika');
 
     $(".summary a div").on("click", function() {
-        $(".search input").val($(this).data("search")).change()
+        maincat = $(this)[0].className;
+        filtrirajSelektovane();
+        //$(".search input").val($(this).data("search")).change();
     });
 
 
@@ -84,47 +95,27 @@ function init() {
     $(".filter-ikonica-kategorija").click(function(ev) {
 
 
-        //klasa kategorije
-        var kl_sel = $("li.active .selected").attr("class");
-        if (kl_sel != undefined) {
-            kl_sel = kl_sel.replace('selected', '').trim();
-
-            if (kl_sel == "all")
-                kl_sel = "";
-            else
-                kl_sel = "." + kl_sel;
-        } else kl_sel = "";
-
-        if (kl_sel == "") {
-            $("tr.category").hide();
-
-        }
-
-        // kad je all - sakrij sve tr.category
-
-
         //filter po periodu
         if (this.className.indexOf('period-14-filter') != -1) {
-
-            $('tr' + kl_sel).show() // prikazi samo tu kategoriju
-            $('tr div:not(.period-14)').parents().filter('tr').hide()
+            //assinged through triggered click
+            //mainperiod = "period-14";
+            $(".dugme.period-14-filter").trigger( "click" );
         } else if (this.className.indexOf('period-16-filter') != -1) {
-            $('tr' + kl_sel).show()
-            $('tr  div:not(.period-16)').parents().filter('tr').hide()
+            //mainperiod = "period-16";
+            $(".dugme.period-16-filter").trigger( "click" );
         } else if (this.className.indexOf('period-X') != -1) {
-            $('tr' + kl_sel).show()
-            $('tr div:not(.period-X)').parents().filter('tr').hide()
+            //mainperiod = "period-X";
+            $(".dugme.period-X-filter").trigger( "click" );
         }
-
-        ofarbajNaizmenicne();
-        $(".a-1.category:visible").slice(1).hide();
+        filtrirajSelektovane();
+        //ofarbajNaizmenicne();
+        //$(".a-1.category:visible").slice(1).hide();
 
     })
 
     $("input[type=search]").on("keyup search input paste cut change", function() {
         var filter = $(this).val();
         count = 0;
-
 
         var period_temp = vratiPeriod();
         if (period_temp != "")
@@ -161,7 +152,7 @@ function init() {
 
     $(".reset-search").on("click", function() {
 
-        resetovanje()
+        resetovanje();
 
         $(".search input").val("").change()
         $("tr.a-1").hide();
@@ -181,78 +172,75 @@ function init() {
 
     $(".tabs a").on("click", filtrirajSelektovane);
 
+
+
+
 }
 
 
 function filtrirajSelektovane() {
-
-    var glavno = "";
-
-    if (this.nodeName == undefined) {
-        glavno = $(".all")[0];
-    } else if (this.nodeName == "A") { //tab
-        glavno = this;
-    }
+//console.log("filter");
 
 
-    var d_klasa = vratiPeriod();
-    var klasa = "";
-
-
-    if ($(glavno).parent().hasClass("inactive")) {
-        return;
-    }; // inactive
-
-    if ($(glavno).hasClass("selected")) {  return;
-     }
-
+if (this.nodeName == undefined) {
+        $(".tabs li.active a").addClass("selected");
+} else{
         $(".tabs a").removeClass("selected"); //iskljuci prethodno selektovane
-        $(glavno).addClass("selected"); // trenutnom tabu daj klasu selektovan
-
-        $("tr.a-1").removeClass('hidden') // tr sa barovima prikazi
-
-        if ("all" == klasa) {
-
-            $("tr:not(.a-1)").show();
-            $("tr.a-1").hide();
-
-            //return;
-        }
-
-
-        klasa =  $(glavno).attr('class');
-        if(klasa == "all selected")
-          klasa = "";
-        else 
-          klasa = "." + klasa;
+        $(this).addClass("selected"); // trenutnom tabu daj klasu selektovan
+}
 
         $("tr").each(function() {
             var temp_la = this;
-            //sta da se radi kad su selektovane sve vesti -> tab all
-            $("tr.a-1" + klasa).show();
-            //na prvom mestu mora biti
-           
             var uslov_temp = true;
 
+            // mainperiod  (all, period-X, period-16, period-14)
+            if(mainperiod == "all"){
+                    uslov_mainperiod = true;
+                }else {
+                    uslov_mainperiod = $(temp_la).hasClass(mainperiod);
+                }
+
+
+            // maincat class (beleznica, uprocesu, ispunjeno, neispunjeno)
+            if(maincat == "all"){
+                    uslov_maincat = true;
+                }else {
+                    uslov_maincat = $(temp_la).hasClass(maincat);
+                }
+
             //klasa kategorije -- ekonomija, politika, ...
-            var klasa_kategorije = $(".selected").attr("class").split(" ")[0];
-            if(klasa_kategorije == "all")
+            klasa_kategorije = $(".selected").attr("class").split(" ")[0];
+            //var klasa_kategorije = $(".selected").classList()[0];
+
+
+            if(klasa_kategorije == "all"){
               uslov_temp = true;
-            else 
-              uslov_temp = $(temp_la).hasClass(klasa_kategorije)
+              }
+            else {
+              uslov_temp = $(temp_la).hasClass(klasa_kategorije);
+            }
 
-            if ( uslov_temp ) {
-                var temp_uslov =
-                    (d_klasa != "") ?
-                    $(temp_la).hasClass(d_klasa) : true;
 
-                if (temp_uslov)
+            // do the show/hide
+            if ( uslov_temp && uslov_maincat && uslov_mainperiod   ) {
                     $(temp_la).show()
             } else {
                 $(temp_la).hide()
             }
+
+if(maincat=="all"){
+        $("tr:nth-child(2)").removeClass('hidden');
+}else{
+        $("tr:nth-child(2)").addClass('hidden');
+}
+
+
+//console.log("field:"+temp_la.className+"/ klasa kategorija:"+klasa_kategorije+"/ mainkat:"+maincat+"/ period:"+mainperiod)
+
+
+
         });
-   
+
 
 
 
@@ -304,7 +292,7 @@ function izracunaj() {
     $(".summary b.count").each(function() {
         var classOfSuperCategory = $(this).closest("div").attr("class");
         var numberInSuperCategory = $("tr." + classOfSuperCategory + period_temp).length;
-        $(this).html(numberInSuperCategory)
+        $(this).html(numberInSuperCategory);
     });
 
 
@@ -321,14 +309,15 @@ function izracunaj() {
         $(this).css("width", (br_uk.length * 100 / grandtotal) + "%")
     });
 
+
     $("tr.category b").each(function() {
-        var kategory_tot =
-            $("tr." + $(this).parent().attr("class").replace(" col-md-3 col-xs-6", '') + "." + $(this).attr("class") + period_temp).length;
-        $(this).html(kategory_tot)
+
+        //just show all results for maincat - dont show results for subcat -
+        $(this).html(   $(".summary ."+$(this).parent().attr("class").replace(" col-md-3 col-xs-6", '')+" b.count").html()     );
     });
 
 
-    //racunanje barova u tabovima 
+    //racunanje barova u tabovima
 
     $("tr.category p.progress span").each(function() {
 
@@ -350,7 +339,7 @@ function izracunaj() {
 
 
 
-
+//ovde bi verovatno trebao da bude php datum
 function datum() {
 
     var a = document.getElementById("svg1");
@@ -359,9 +348,6 @@ function datum() {
     //text.setAttribute("fill", "green");
     text.textContent = Math.ceil((new Date() - new Date(2014, 4, 27)) / (1000 * 60 * 60 * 24));
 
-    /*$('.summary > div > h2 > b').html(
-        
-        );*/
 }
 
 
@@ -402,6 +388,14 @@ function sakrij() {
 }
 
 function resetovanje() {
+    maincat = "all";
+    mainperiod = "all";
+    //maincatperiod = "all";
+    //manualy change tab
+    //$(".tabs li a").removeClass("selected");
+    $(".tabs li:first-child a").trigger("click");
+
+    $("tr:nth-child(2)").removeClass('hidden');
     //ukloni active klasu
     $('.dugme-active').removeClass('dugme-active');
     //sakrij deo sa tekstom
@@ -413,13 +407,18 @@ function resetovanje() {
 $(window).load(function() {
     datum();
     scrollInit()
-    $('table').load("lista.html", function(x) {
+    $('table').load("lista.html?"+Math.floor((Math.random() * 1000) + 1), function(x) {
         izracunaj();
         init();
         sakrij();
         $(".dim-layer").remove()
     });
 
+    var a = document.getElementById("svg1").contentDocument;
+
+    d3.select(a).on("click", function(event){
+        $(".reset-search").trigger( "click" );
+    });
 
     $(window).scroll(
         function() {
