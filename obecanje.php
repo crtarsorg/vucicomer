@@ -341,6 +341,7 @@ if (strpos($komentar_temp,'www.youtube.com/watch?v=') !== false) {
         </a>
     </footer>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <?php include_once 'ga.php'; ?>
 </body>
 
 </html>
