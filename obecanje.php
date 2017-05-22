@@ -214,7 +214,7 @@ if (strpos($komentar_temp,'www.youtube.com/watch?v=') !== false) {
 <script type="text/javascript">
     
     var windowObjectReference;
-    var strWindowFeatures = "menubar=no,location=yes,resizable=yes,scrollbars=yes,status=yes";
+    var strWindowFeatures = "menubar=no,location=yes,resizable=yes,scrollbars=yes,status=yes,width=400,height=300";
 
     function openRequestedPopup(el) {
         

@@ -74,7 +74,7 @@
       /*   -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
       -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75); */
         box-shadow: 5px 5px 5px 0px rgb(227, 225, 226);
-        
+
         border-radius: 10px 10px 10px 10px;
       /*   -moz-border-radius: 10px 10px 10px 10px;
       -webkit-border-radius: 10px 10px 10px 10px; */
@@ -150,14 +150,9 @@
 
         .search-cont{padding-left: 0px;}
     }
-        
-    </style>
-    
-    
-    
 
-  
-  
+    </style>
+
 
 
     </head>
@@ -187,7 +182,7 @@
                             <!-- <i class="fa fa-calendar"></i> -->
                           <span title="od 27. aprila 2014 godine">Ukupno na vlasti:</span> <object id="svg1" data="images/dani_vlast.svg" type="image/svg+xml"></object> <span>dana</span>
 
-                         
+
                         </div>
 
                         <div>
@@ -196,18 +191,18 @@
                             <div class="dugme period-16 period-16-filter filter-ikonica belo">2014-2016</div>
                             <div class="dugme period-X filter-ikonica period-X-filter">2016-</div>
                         </div>
-                         
+
                     </div>
                     <a  data-scroll="" href="#obecanja">
                         <div class="beleznica" data-search="Beleznica" title="Neocenjeno obećanje">
                             <h2>
-                                
+
                                 <span>Beležnica: <b class="count"></b>/<b class="total"></b></span>
                             </h2>
-                          
+
                            <img class="ikonice-glavno" src="images/ikonica-beleznica.svg"> 
                            <p class="progress"><span></span></p>
-                          
+
                         </div>
                         <div class="uprocesu" data-search="U procesu">
                             <h2>
@@ -241,7 +236,7 @@
                 <div class="intro col-xs-12 col-sm-8">
 
                     <div class="ytvideo">
-                        <iframe width="750" height="422" src="https://www.youtube.com/embed/5YN1liYcHyU" frameborder="0" allowfullscreen></iframe>
+                       <iframe width="560" height="315" src="https://www.youtube.com/embed/ai8384RhpOE?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
                     </div>
 
 
@@ -265,7 +260,7 @@
                         <div class="procenat-20 col-xs-5">
                             <a href="http://www.istinomer.rs/" target="_blank"><img class="img-responsive width-100" src="images/ist-logo.svg" alt="Istinomer logo"></a>
                         </div>
-                       
+
                     </section>
 
                     <hr/>
@@ -273,22 +268,23 @@
             </div>
         </section>
 
-  
-       
+
        <script type="text/javascript">
-        
+
         var windowObjectReference;
-        var strWindowFeatures = "menubar=no,location=yes,resizable=yes,scrollbars=yes,status=yes";
+        var strWindowFeatures = "menubar=no,location=yes,resizable=yes,scrollbars=yes,status=yes,width=400,height=300";
 
         function openRequestedPopup(el) {
-            
+
           windowObjectReference = window.open(el.href, "Vucicomer podeli", strWindowFeatures);
         }
 
     </script>
 
+
+
      <section class="container ">
-        
+
         <div class="social-div">
             <a target="_blank" onclick="false;openRequestedPopup(this)" href="https://www.facebook.com/sharer/sharer.php?u=www.vucicomer.rs"><img src="images/fb.svg"></a>
             <a target="_blank" onclick="false;openRequestedPopup(this)" href="https://twitter.com/home?status=www.vucicomer.rs"> <img src="images/twitter.svg"></a>
@@ -298,7 +294,6 @@
         <section class="container search-cont" style="    "> 
 
             <div class="search col-xs-12 col-md-4 klasa-levo " >
-               
                 <!-- <i class="fa fa-search"></i>  -->
                 <input class="col-xs-12 col-md-11" type="search" placeholder="Pretraga...">
                  <span id="count"></span>
@@ -307,19 +302,18 @@
             <div class="col-sm-2">
                 <button class="btn btn-primary reset-search">Resetuj </button>    
             </div>
-            
 
-            <div class="pull-right col-xs-12 col-sm-4 legenda" style="text-align: center; margin:10px;">                
+
+            <div class="pull-right col-xs-12 col-sm-4 legenda" style="text-align: center; margin:10px;">
                <div class="ikonica period-14-filter filter-ikonica-kategorija period-14"></div><span>2012 - 2014</span>
                <div class="ikonica period-16-filter filter-ikonica-kategorija period-16" ></div><span>2014 - 2016</span>
-               <div class="ikonica period-X-filter filter-ikonica-kategorija period-X"></div><span>2016 - </span> 
-             
+               <div class="ikonica period-X-filter filter-ikonica-kategorija period-X"></div><span>2016 - </span>
             </div>
         </section>
 
 
         <section class="container obecanja" id="obecanja">
-        
+
             <ul class="nav nav-tabs navigation tabs" data-tabs="tabs">
                 <li class="active"><a class="all" data-toggle="tab">Sva obećanja</a></li>
                 <li><a class="drustvo" data-toggle="tab">Društvo</a></li>
@@ -350,7 +344,6 @@
             <div class="fb-comments " data-href="http://www.vucicomer.rs" data-numposts="5" data-width="100%"></div>
         </section>
 
-        
 
         <footer>
             <a href="http://www.istinomer.rs">
