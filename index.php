@@ -286,8 +286,8 @@
      <section class="container ">
 
         <div class="social-div">
-            <a target="_blank" onclick="false;openRequestedPopup(this)" href="https://www.facebook.com/sharer/sharer.php?u=www.vucicomer.rs"><img src="images/fb.svg"></a>
-            <a target="_blank" onclick="false;openRequestedPopup(this)" href="https://twitter.com/home?status=www.vucicomer.rs"> <img src="images/twitter.svg"></a>
+            <a  onclick="false;openRequestedPopup(this)" href="https://www.facebook.com/sharer/sharer.php?u=www.vucicomer.rs"><img src="images/fb.svg"></a>
+            <a  onclick="false;openRequestedPopup(this)" href="https://twitter.com/home?status=www.vucicomer.rs"> <img src="images/twitter.svg"></a>
         </div>
 
 
