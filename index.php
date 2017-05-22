@@ -111,7 +111,7 @@
     .width-100{width: 100%;}
     .dim-layer{
         width: 100%;
-        height: 100%;
+        height: 400%;
         background-color: rgba(128, 128, 128, 0.65);
         position: absolute;
         z-index: 9999;
@@ -269,25 +269,15 @@
         </section>
 
 
-       <script type="text/javascript">
-
-        var windowObjectReference;
-        var strWindowFeatures = "menubar=no,location=yes,resizable=yes,scrollbars=yes,status=yes,width=400,height=300";
-
-        function openRequestedPopup(el) {
-
-          windowObjectReference = window.open(el.href, "Vucicomer podeli", strWindowFeatures);
-        }
-
-    </script>
+      
 
 
 
      <section class="container ">
 
         <div class="social-div">
-            <a  onclick="false;openRequestedPopup(this)" href="https://www.facebook.com/sharer/sharer.php?u=www.vucicomer.rs"><img src="images/fb.svg"></a>
-            <a  onclick="false;openRequestedPopup(this)" href="https://twitter.com/home?status=www.vucicomer.rs"> <img src="images/twitter.svg"></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=www.vucicomer.rs"><img src="images/fb.svg"></a>
+            <a href="https://twitter.com/intent/tweet?original_referer=www.vucicomer.rs&text=Pogledajte Vučićomer"> <img src="images/twitter.svg"></a>
         </div>
 
 
@@ -350,6 +340,24 @@
                 <p>Powered by Istinomer</p>
             </a>
         </footer>
+
+
+        <script type="text/javascript">
+
+        var windowObjectReference;
+        var strWindowFeatures = "menubar=no,location=yes,resizable=yes,scrollbars=yes,status=yes,width=400,height=300";
+
+
+        $(".social-div a").click(function (ev) {
+            ev.preventDefault();
+
+            var link = $(ev.target).parent().attr("href")
+            windowObjectReference = window.open( link, "Vucicomer podeli", strWindowFeatures);
+        })
+
+
+
+        </script>
 
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <?php include_once 'ga.php'; ?>

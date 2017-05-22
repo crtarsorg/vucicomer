@@ -149,7 +149,7 @@ $temp_naslov = stripslashes( $jedna_vest->naslov );
 
             $statusi_filter = array(18=>"Ispunjeno", 23 =>'Ispunjeno', 22 =>'U procesu' , 19 =>'Neispunjeno', 20=>'Neispunjeno', 21=>'Neispunjeno',  0=>'Beležnica' );
               $statusi_ikonice =  array(18=>"ispunjeno", 23 =>'ispunjeno', 22 =>'uprocesu' , 19 =>'neispunjeno', 20=>'neispunjeno', 21=>'neispunjeno', 0 =>'beleznica');  
-            
+
             $temp_sta = $statusi_filter[ $jedna_vest->status ] ;
         ?>
 
@@ -211,23 +211,12 @@ if (strpos($komentar_temp,'www.youtube.com/watch?v=') !== false) {
 
 ?>
 
-<script type="text/javascript">
-    
-    var windowObjectReference;
-    var strWindowFeatures = "menubar=no,location=yes,resizable=yes,scrollbars=yes,status=yes,width=400,height=300";
-
-    function openRequestedPopup(el) {
-        
-      windowObjectReference = window.open(el.href, "Vucicomer podeli", strWindowFeatures);
-    }
-
-</script>
 
  <section class="container ">
     
     <div class="social-div">
-        <a  onclick="false;openRequestedPopup(this)" href="https://www.facebook.com/sharer/sharer.php?u=www.vucicomer.rs"><img src="images/fb.svg"></a>
-        <a  onclick="false;openRequestedPopup(this)" href="https://twitter.com/home?status=www.vucicomer.rs"> <img src="images/twitter.svg"></a>
+        <a  href="https://www.facebook.com/sharer/sharer.php?u=www.vucicomer.rs"><img src="images/fb.svg"></a>
+        <a  href="https://twitter.com/intent/tweet?original_referer=www.vucicomer.rs&text=Pogledajte Vučićomer"> <img src="images/twitter.svg"></a>
     </div>
 
    
@@ -268,7 +257,7 @@ if (strpos($komentar_temp,'www.youtube.com/watch?v=') !== false) {
                   </span>
                 <p> 
 
-                    
+
                     <span> <?php echo "<i>". stripslashes( $jedna_vest->izvor ) ."</i>"; ?> </a> </span>
 
                 </p>

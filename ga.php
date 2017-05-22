@@ -8,3 +8,20 @@
   ga('send', 'pageview');
 
 </script>
+
+<script type="text/javascript">
+
+	var windowObjectReference;
+	var strWindowFeatures = "menubar=no,location=yes,resizable=yes,scrollbars=yes,status=yes,width=400,height=300";
+
+
+	$(".social-div a").click(function (ev) {
+	    ev.preventDefault();
+
+	    var link = $(ev.target).parent().attr("href")
+	    windowObjectReference = window.open( link, "Vucicomer podeli", strWindowFeatures);
+	})
+
+
+
+</script>

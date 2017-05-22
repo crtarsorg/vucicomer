@@ -91,9 +91,9 @@
 			<span class="kategorija drustvo">$drustvo</span>
 		</td>
 	</tr>
-	 
+
 BROJAC;
-	
+
 	echo $levo ;
 
 	//brojac * 2 , broji koliko ima ocena jednog tipa
@@ -104,11 +104,11 @@ BROJAC;
 	foreach ($podaci as  $jedan_unos) {
 
 			$status_text = "";
-	
+
 			if(!empty($jedan_unos->kategorija ))
 				$glavna_klasa =	$kategorije[ $jedan_unos->kategorija ] ;
 			else{
-				$jedan_unos->kategorija = "politika";				
+				$jedan_unos->kategorija = "politika";
 				$glavna_klasa = "politika";
 			}
 
@@ -134,8 +134,8 @@ BROJAC;
 			$naslov_vesti = stripcslashes($jedan_unos->naslov) ;
 			$title_status = $jedan_unos->status;
 			$temp_status = "";
-			
-					
+
+
 			$datum = strtotime(date_format( date_create_from_format('Y-m-d', $jedan_unos->datum_izjave )  , 'Y-m-d' ) );
 
 			$period = $jedan_unos->period;
@@ -143,35 +143,38 @@ BROJAC;
 			//var_dump( strtotime($jedan_unos->datum_izjave .' -4 months') );
 
 			$datum_temp = strtotime($jedan_unos->datum_izjave );
-				
+
+
 			switch ( $period ) {
 					case 'ppv':
-						$period = "ppv";			
+						$period = "ppv";
 						$status_text .= " ppv ";
 						$ikonica = "period-14";
 						break;
-					
+
+
 					case 'prvi_mandat':
-						$period = "prvi_mandat";			
+						$period = "prvi_mandat";
 						$status_text .= " prvi_mandat ";
 						$ikonica = "period-16";
 						break;
 
 					case 'drugi_mandat':
-						$period = "drugi_mandat";			
+						$period = "drugi_mandat";
 						$status_text .= " drugi_mandat ";
 						$ikonica = "period-X";
 						break;
 
 					default:
-						$period = "";			
+						$period = "";
 						$status_text .= "";
 						$ikonica = $period;
 						break;
-				}	
+				}
 
-		
-			//http://www.vucicomer.rs		
+
+
+			//http://www.vucicomer.rs
 			$link_vest = "./obecanje.php?id=". $jedan_unos->id;
 			//."/".seo_naziv($naslov_vesti)
 
@@ -211,8 +214,8 @@ BROJAC;
 
 NULTI;
 
-				
-	
+
+
 
 		$text_upis = "";
 
@@ -291,7 +294,7 @@ function stampanje_tr_a ($klasa_tr_a='', $status_txt = "",
 		$text_upis = '', $period = '', $status_poj = '', $ikonica = '' )
 	{
 		$title_slika = "";
-		
+
 
 		switch ( $status_poj ) {
 			case 'beleznica':
@@ -306,7 +309,7 @@ function stampanje_tr_a ($klasa_tr_a='', $status_txt = "",
 			case 'neispunjeno':
 				$title_slika = "images/ikonica-neispunjeno.svg";	
 				break;	
-			
+
 			default:
 				$title_slika = "";		
 				break;
@@ -318,7 +321,7 @@ function stampanje_tr_a ($klasa_tr_a='', $status_txt = "",
 				$status_poj = "beleznica";
 			}
 
-		
+
 		$count_kolona =
 		 '<td class="count">'.
 	        	'<div class="ikonica filter-ikonica pomeraj-ikonice '.$ikonica.' '.$period.'"></div>'.
