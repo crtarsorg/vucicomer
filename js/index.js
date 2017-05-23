@@ -82,7 +82,9 @@ $(function() {
     });
 })
 
-function init() {       $("tr:nth-child(2)").removeClass('hidden politika');
+function init() {
+
+    $("tr:nth-child(2)").removeClass('hidden politika');
 
     $(".summary a div").on("click", function() {
         maincat = $(this)[0].className;
@@ -403,6 +405,9 @@ function resetovanje() {
     izracunaj();
 }
 
+    function hideBanner( ) {
+        $("#banner").hide();
+    }
 
 $(window).load(function() {
     datum();
@@ -412,6 +417,10 @@ $(window).load(function() {
         init();
         sakrij();
         $(".dim-layer").remove()
+
+        window.setTimeout(hideBanner, 5*1000);
+
+
     });
 
     var a = document.getElementById("svg1").contentDocument;

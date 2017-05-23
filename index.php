@@ -151,6 +151,25 @@
         .search-cont{padding-left: 0px;}
     }
 
+    /* banner */
+
+    #banner{
+        width: 100%;
+        text-align: center;
+        background-color: #C4151C;
+        font-size: 20px;
+        /* height: 190px; */
+        padding: 20px;
+        margin:30px 0;
+    }
+    .side_text_counter {
+        font-family: "Dinpro";
+        font-weight: 500;
+        /* margin-top: 20px; */
+        font-size: 45px;
+        color: white;
+    }
+
     </style>
 
 
@@ -269,7 +288,26 @@
         </section>
 
 
-      
+    <section id="banner">
+
+            <div class="pull-left slider-container">
+                <a href="http://vesti.istinomer.rs/" target="_blank">
+                    <img src="http://istinomer.rs/static/images/vesti.svg">
+                </a>
+
+                <div class="unslider">
+                    <div class="slider unslider-vertical" style="position: relative; overflow: hidden; height: 0px;">
+
+                    </div>
+                </div><!-- //slider -->
+            </div> <!-- //left -->
+
+            <div class="side_text_counter side-right">
+                <a href="http://vesti.istinomer.rs/" target="_blank" style="color: white !important; letter-spacing: 3px;">KRATKE VESTI U UDARNIM DOZAMA</a>
+            </div> 
+
+
+        </section>  
 
 
 
@@ -355,8 +393,7 @@
             windowObjectReference = window.open( link, "Vucicomer podeli", strWindowFeatures);
         })
 
-
-
+        
         </script>
 
         <script src="bootstrap/js/bootstrap.min.js"></script>
