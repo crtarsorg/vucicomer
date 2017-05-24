@@ -217,7 +217,7 @@ if (strpos($komentar_temp,'www.youtube.com/watch?v=') !== false) {
  <section class="container ">
 
     <?php 
-    $naslov_la =  stripslashes($temp_naslov ) . " | " . $temp_sta ;
+    $naslov_la =  stripslashes($temp_naslov ) . " - " . $temp_sta ;
 
     ?>
     <div class="social-div">
