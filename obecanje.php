@@ -69,10 +69,10 @@ $temp_naslov = stripslashes( $jedna_vest->naslov );
         position: relative;
         font-size: 12.5px !important;
     }
-    .logo{    
+    /* .logo{    
         height: 150px;
         margin: auto;
-    }
+    } */
     .odvojeno{margin-top: 100px;}
     .margin-top-20{margin-top: 20px;}
 
@@ -215,10 +215,14 @@ if (strpos($komentar_temp,'www.youtube.com/watch?v=') !== false) {
 
 
  <section class="container ">
-    
+
+    <?php 
+    $naslov_la =  stripslashes($temp_naslov ) . " | " . $temp_sta ;
+
+    ?>
     <div class="social-div">
         <a  href="https://www.facebook.com/sharer/sharer.php?u=www.vucicomer.rs/obecanje.php?<?php echo $_SERVER['QUERY_STRING']; ?>"><img src="images/fb.svg"></a>
-        <a  href="https://twitter.com/intent/tweet?original_referer=www.vucicomer.rs/obecanje.php?<?php echo $_SERVER['QUERY_STRING']; ?>&text=Pogledajte Vučićomer"> <img src="images/twitter.svg"></a>
+        <a  href="https://twitter.com/intent/tweet?original_referer=www.vucicomer.rs/obecanje.php?<?php echo $_SERVER['QUERY_STRING'] . "&text=Vučićomer \n".$naslov_la; ?>"> <img src="images/twitter.svg"></a>
     </div>
 
    
