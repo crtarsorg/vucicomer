@@ -218,11 +218,11 @@ if (strpos($komentar_temp,'www.youtube.com/watch?v=') !== false) {
 
     <?php 
     $naslov_la =  stripslashes($temp_naslov ) . " - " . $temp_sta ;
-
+    $link_la = "www.vucicomer.rs/obecanje.php?$_SERVER['QUERY_STRING']";
     ?>
     <div class="social-div">
         <a  href="https://www.facebook.com/sharer/sharer.php?u=www.vucicomer.rs/obecanje.php?<?php echo $_SERVER['QUERY_STRING']; ?>"><img src="images/fb.svg"></a>
-        <a  href="https://twitter.com/intent/tweet?original_referer=www.vucicomer.rs/obecanje.php?<?php echo $_SERVER['QUERY_STRING'] . "&text=".$naslov_la; ?>"> <img src="images/twitter.svg"></a>
+        <a  href="https://twitter.com/intent/tweet?original_referer=?<?php echo $link_la  . "&text=".$naslov_la . " " . $link_la ; ?>"> <img src="images/twitter.svg"></a>
     </div>
 
    
