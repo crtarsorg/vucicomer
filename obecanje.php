@@ -222,7 +222,7 @@ if (strpos($komentar_temp,'www.youtube.com/watch?v=') !== false) {
     ?>
     <div class="social-div">
         <a  href="https://www.facebook.com/sharer/sharer.php?u=www.vucicomer.rs/obecanje.php?<?php echo $_SERVER['QUERY_STRING']; ?>"><img src="images/fb.svg"></a>
-        <a  href="https://twitter.com/intent/tweet?original_referer=www.vucicomer.rs/obecanje.php?<?php echo $_SERVER['QUERY_STRING'] . "&text=Vučićomer \n".$naslov_la; ?>"> <img src="images/twitter.svg"></a>
+        <a  href="https://twitter.com/intent/tweet?original_referer=www.vucicomer.rs/obecanje.php?<?php echo $_SERVER['QUERY_STRING'] . "&text=Vučićomer <br/>".$naslov_la; ?>"> <img src="images/twitter.svg"></a>
     </div>
 
    
