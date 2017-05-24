@@ -184,7 +184,7 @@
         <header class="container-fluid">
             <div class="container">
                 <h1>
-                    <a href="index.html">
+                    <a href="/">
                         <img class="img-responsive" src="images/logo.jpg" alt="vučićomer_logo">
                     </a>
                 </h1>
