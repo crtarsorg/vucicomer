@@ -182,7 +182,7 @@
     </div>
     
         <header class="container-fluid">
-            <div class="container">
+            <div class="">
                 <h1>
                     <a href="/">
                         <img class="img-responsive" src="images/logo.jpg" alt="vučićomer_logo">
