@@ -218,7 +218,7 @@ if (strpos($komentar_temp,'www.youtube.com/watch?v=') !== false) {
 
     <?php 
     $naslov_la =  stripslashes($temp_naslov ) . " - " . $temp_sta ;
-    $link_la = "www.vucicomer.rs/obecanje.php?$_SERVER['QUERY_STRING']";
+    $link_la = "www.vucicomer.rs/obecanje.php?".$_SERVER['QUERY_STRING'];
     ?>
     <div class="social-div">
         <a  href="https://www.facebook.com/sharer/sharer.php?u=www.vucicomer.rs/obecanje.php?<?php echo $_SERVER['QUERY_STRING']; ?>"><img src="images/fb.svg"></a>
