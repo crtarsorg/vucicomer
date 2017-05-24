@@ -273,9 +273,6 @@ if (strpos($komentar_temp,'www.youtube.com/watch?v=') !== false) {
         </div>
 
 
-      
-
-       
 
     </div>
    
@@ -297,23 +294,24 @@ if (strpos($komentar_temp,'www.youtube.com/watch?v=') !== false) {
 
 
     <div class="container-fluid">
-        
+
         <div>
             <br>
         </div>
 
         <div class="container" style="max-width: 620px;">
-            
+
             <?php  echo stripslashes( $komentar_temp ); ?>
 
             <br>
-            <div class="pull-left"><i> Objavljeno na Istinomeru: <?php echo date('d.m.Y.',strtotime( $jedna_vest->datum_izjave )); ?>
+
+
+            <div class="pull-left"><i> Objavljeno na Istinomeru: <?php echo date('d.m.Y.',strtotime( $jedna_vest->datum_istinomer )); ?>
             </i>
             </div>
         </div>
-        
 
-       
+
     </div>
 
     <section class="container container-fluid  container-border">
