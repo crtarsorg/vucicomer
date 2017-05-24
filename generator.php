@@ -18,7 +18,7 @@
 
 	function cmp($a, $b)
 		{
-		    $rdiff = $a->kategorija > $b->kategorija;
+		    $rdiff = $a->datum_izjave < $b->datum_izjave;
 		      /*if ($rdiff)*/ return $rdiff;
 		}
 
