@@ -87,7 +87,11 @@
         display: inline-block;
         text-align: center;
         cursor: pointer;
+        font-size: 13px;
      }   
+    .social-div img {
+        padding: 5px 0;
+    }
 
     .belo{color: white;}
     .period-14{ background-color: #58595b; }
@@ -188,7 +192,7 @@
             <div class="">
                 <h1>
                     <a href="/">
-                        <img class="img-responsive" src="images/logo.jpg" alt="vučićomer_logo">
+                        <img class="img-responsive" src="images/logo.png" alt="vučićomer_logo">
                     </a>
                 </h1>
             </div>
