@@ -110,7 +110,8 @@
         border-radius: 5px 5px 5px 5px;
         margin-bottom: 2px;
         text-align: center;
-        padding: 5px;
+        padding: 8px 5px 5px 5px;
+        font-size: 13px;
 
     }
     .filter-ikonica-kategorija{ cursor: pointer; }
