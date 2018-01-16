@@ -65,10 +65,12 @@
     .period-14-donji{border-radius: 5px 5px 5px 0px !important;}
     .period-16-donji{border-radius: 5px 5px 5px 5px !important;}
     .period-X-donji{border-radius: 5px 5px 0px 5px !important;}
+    .period-17-donji{border-radius: 5px 5px 0px 5px !important;}
 
     .period-14-gornji{border-radius: 0px 0px 10px 10px !important;}
     .period-16-gornji{border-radius: 0px 0px 10px 10px !important;}
     .period-X-gornji{border-radius: 0px 0px 10px 10px !important;}
+    .period-17-gornji{border-radius: 0px 0px 10px 10px !important;}
 
     .dugme {
       /*   -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
@@ -79,9 +81,9 @@
       /*   -moz-border-radius: 10px 10px 10px 10px;
       -webkit-border-radius: 10px 10px 10px 10px; */
         border: 0px solid #000000;
-        padding: 10px;
-        min-width: 100px;
-        width: 32.5%;
+        padding: 10px 0;
+        min-width: 50px;
+        width: 22%;
         display: inline-block;
         text-align: center;
         cursor: pointer;
@@ -91,6 +93,7 @@
     .period-14{ background-color: #58595b; }
     .period-16{ background-color: #72b1c8; } 
     .period-X{ background-color: #f1f2f2; } 
+    .period-17{ background-color: #B5D9E2; } 
     .ikonice-glavno{    
 
         position: absolute;
@@ -208,7 +211,8 @@
                             <div class="dodatno hidden "></div>
                             <div class="dugme period-14 period-14-filter filter-ikonica belo">2012-2014</div>
                             <div class="dugme period-16 period-16-filter filter-ikonica belo">2014-2016</div>
-                            <div class="dugme period-X filter-ikonica period-X-filter">2016-</div>
+                            <div class="dugme period-X filter-ikonica period-X-filter">2016-2017</div>
+                            <div class="dugme period-17 filter-ikonica period-17-filter">2017-</div>
                         </div>
 
                     </div>
@@ -332,10 +336,11 @@
             </div>
 
 
-            <div class="pull-right col-xs-12 col-sm-4 legenda" style="text-align: center; margin:10px;">
+            <div class="pull-right col-xs-12 col-sm-5 legenda" style="text-align: center; margin:10px;">
                <div class="ikonica period-14-filter filter-ikonica-kategorija period-14"></div><span>2012 - 2014</span>
                <div class="ikonica period-16-filter filter-ikonica-kategorija period-16" ></div><span>2014 - 2016</span>
-               <div class="ikonica period-X-filter filter-ikonica-kategorija period-X"></div><span>2016 - </span>
+               <div class="ikonica period-X-filter filter-ikonica-kategorija period-X"></div><span>2016 - 2017</span>
+               <div class="ikonica period-17-filter filter-ikonica-kategorija period-17"></div><span>2017 - </span>
             </div>
         </section>
 

@@ -164,6 +164,11 @@ BROJAC;
 						$status_text .= " drugi_mandat ";
 						$ikonica = "period-X";
 						break;
+					case 'treci_mandat':
+						$period = "treci_mandat";
+						$status_text .= " treci_mandat ";
+						$ikonica = "period-17";
+						break;	
 
 					default:
 						$period = "";

@@ -50,6 +50,11 @@ $(function() {
             tekst_temp = 'Predsednik Vlade Republike Srbije - drugi mandat';
             mainperiod = "period-X";
         }
+        else if (ime.indexOf('period-17') != -1) {
+            d_klasa = "period-17";
+            tekst_temp = 'Predsednik Republike Srbije';
+            mainperiod = "period-17";
+        }
       
 
 
@@ -108,6 +113,10 @@ function init() {
         } else if (this.className.indexOf('period-X') != -1) {
             //mainperiod = "period-X";
             $(".dugme.period-X-filter").trigger( "click" );
+        }
+        else if (this.className.indexOf('period-17') != -1) {
+            //mainperiod = "period-17";
+            $(".dugme.period-17-filter").trigger( "click" );
         }
         filtrirajSelektovane();
         //ofarbajNaizmenicne();
@@ -267,6 +276,8 @@ function vratiPeriod() {
         d_klasa = "period-16";
     } else if (dugme_active.indexOf('period-X') != -1) {
         d_klasa = "period-X";
+    }else if (dugme_active.indexOf('period-17') != -1) {
+        d_klasa = "period-17";
     }
 
     return d_klasa;
@@ -286,6 +297,8 @@ function izracunaj() {
         grandtotal = $("tr.obecanje.period-16").length;
     else if (period_temp == "period-X")
         grandtotal = $("tr.obecanje.period-X").length;
+    else if (period_temp == "period-17")
+        grandtotal = $("tr.obecanje.period-17").length;
 
     if (period_temp != "")
         period_temp = "." + period_temp + " ";
