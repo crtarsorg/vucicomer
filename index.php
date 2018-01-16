@@ -136,6 +136,14 @@
         width: 75px;
         z-index: 1;
     }
+    
+    .cont>div:nth-child(n+2):nth-child(-n+4) {
+        margin-right: 9px;
+    }
+    .cont>div:last-child {
+        margin-left: 4px;
+    }
+
     .legenda div{
         margin-left: 20px;        
     }
