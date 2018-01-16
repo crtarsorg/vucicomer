@@ -219,7 +219,7 @@
 
                         </div>
 
-                        <div>
+                        <div class="cont">
                             <div class="dodatno hidden "></div>
                             <div class="dugme period-14 period-14-filter filter-ikonica belo">2012-2014</div>
                             <div class="dugme period-16 period-16-filter filter-ikonica belo">2014-2016</div>
