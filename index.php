@@ -132,7 +132,7 @@
     .social-div {
         position: fixed;
         right: 10px;
-        top: 100px;
+        top: 50%;
         width: 75px;
         z-index: 1;
     }
